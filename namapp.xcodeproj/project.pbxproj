@@ -9,12 +9,20 @@
 /* Begin PBXBuildFile section */
 		CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */; };
 		CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4B19F662A900EFEB2C /* namapp.xcdatamodeld */; };
-		CB0A0D4F19F662A900EFEB2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4E19F662A900EFEB2C /* ViewController.swift */; };
 		CB0A0D5219F662A900EFEB2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5019F662A900EFEB2C /* Main.storyboard */; };
 		CB0A0D5419F662A900EFEB2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5319F662A900EFEB2C /* Images.xcassets */; };
 		CB0A0D5719F662A900EFEB2C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5519F662A900EFEB2C /* LaunchScreen.xib */; };
 		CB0A0D6319F662A900EFEB2C /* namappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D6219F662A900EFEB2C /* namappTests.swift */; };
-		CBF5766119FE319E00A533B7 /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5766019FE319E00A533B7 /* DocumentViewController.swift */; };
+		CB93309B1A0266AD0042E28C /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB93309A1A0266AD0042E28C /* DocumentViewController.swift */; };
+		CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA533F31A136B800022BA46 /* ArrayController.swift */; };
+		CBA6352919FF9FB300EA4F0E /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA6352819FF9FB300EA4F0E /* Document.swift */; };
+		CBA6352B19FFA99600EA4F0E /* ApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA6352A19FFA99600EA4F0E /* ApiController.swift */; };
+		CBA6352F1A00499100EA4F0E /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA6352E1A00499100EA4F0E /* DocumentCell.swift */; };
+		CBA635331A0049AE00EA4F0E /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA635321A0049AE00EA4F0E /* Subject.swift */; };
+		CBF10F831A1B560600D6C3B4 /* SubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF10F821A1B560600D6C3B4 /* SubjectCell.swift */; };
+		CBF5660D1A01030A003A18EB /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5660C1A01030A003A18EB /* Meeting.swift */; };
+		CBF5660F1A010586003A18EB /* SubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF5660E1A010586003A18EB /* SubjectsViewController.swift */; };
+		CBF566111A01060B003A18EB /* MeetingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF566101A01060B003A18EB /* MeetingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +53,22 @@
 		CB0A0D4819F662A900EFEB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB0A0D4C19F662A900EFEB2C /* namapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = namapp.xcdatamodel; sourceTree = "<group>"; };
-		CB0A0D4E19F662A900EFEB2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CB0A0D5119F662A900EFEB2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB0A0D5319F662A900EFEB2C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB0A0D5619F662A900EFEB2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CB0A0D5C19F662A900EFEB2C /* namappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = namappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0A0D6119F662A900EFEB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0A0D6219F662A900EFEB2C /* namappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = namappTests.swift; sourceTree = "<group>"; };
-		CBF5766019FE319E00A533B7 /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DocumentViewController.swift; path = ../DocumentViewController.swift; sourceTree = "<group>"; };
+		CB93309A1A0266AD0042E28C /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
+		CBA533F31A136B800022BA46 /* ArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayController.swift; sourceTree = "<group>"; };
+		CBA6352819FF9FB300EA4F0E /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		CBA6352A19FFA99600EA4F0E /* ApiController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiController.swift; sourceTree = "<group>"; };
+		CBA6352E1A00499100EA4F0E /* DocumentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
+		CBA635321A0049AE00EA4F0E /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		CBF10F821A1B560600D6C3B4 /* SubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubjectCell.swift; path = ../SubjectCell.swift; sourceTree = "<group>"; };
+		CBF5660C1A01030A003A18EB /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
+		CBF5660E1A010586003A18EB /* SubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubjectsViewController.swift; sourceTree = "<group>"; };
+		CBF566101A01060B003A18EB /* MeetingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +111,16 @@
 			isa = PBXGroup;
 			children = (
 				CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */,
-				CB0A0D4E19F662A900EFEB2C /* ViewController.swift */,
-				CBF5766019FE319E00A533B7 /* DocumentViewController.swift */,
+				CBA6352A19FFA99600EA4F0E /* ApiController.swift */,
+				CBA533F31A136B800022BA46 /* ArrayController.swift */,
+				CBF566101A01060B003A18EB /* MeetingsViewController.swift */,
+				CBF5660C1A01030A003A18EB /* Meeting.swift */,
+				CBF5660E1A010586003A18EB /* SubjectsViewController.swift */,
+				CBA635321A0049AE00EA4F0E /* Subject.swift */,
+				CBF10F821A1B560600D6C3B4 /* SubjectCell.swift */,
+				CB93309A1A0266AD0042E28C /* DocumentViewController.swift */,
+				CBA6352819FF9FB300EA4F0E /* Document.swift */,
+				CBA6352E1A00499100EA4F0E /* DocumentCell.swift */,
 				CB0A0D5019F662A900EFEB2C /* Main.storyboard */,
 				CB0A0D5319F662A900EFEB2C /* Images.xcassets */,
 				CB0A0D5519F662A900EFEB2C /* LaunchScreen.xib */,
@@ -233,10 +257,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB0A0D4F19F662A900EFEB2C /* ViewController.swift in Sources */,
-				CBF5766119FE319E00A533B7 /* DocumentViewController.swift in Sources */,
+				CBF10F831A1B560600D6C3B4 /* SubjectCell.swift in Sources */,
+				CBA6352919FF9FB300EA4F0E /* Document.swift in Sources */,
+				CBF5660F1A010586003A18EB /* SubjectsViewController.swift in Sources */,
+				CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */,
+				CBF5660D1A01030A003A18EB /* Meeting.swift in Sources */,
+				CB93309B1A0266AD0042E28C /* DocumentViewController.swift in Sources */,
+				CBF566111A01060B003A18EB /* MeetingsViewController.swift in Sources */,
+				CBA6352B19FFA99600EA4F0E /* ApiController.swift in Sources */,
 				CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */,
 				CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */,
+				CBA635331A0049AE00EA4F0E /* Subject.swift in Sources */,
+				CBA6352F1A00499100EA4F0E /* DocumentCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

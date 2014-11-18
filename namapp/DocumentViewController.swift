@@ -2,7 +2,7 @@
 //  DocumentViewController.swift
 //  namapp
 //
-//  Created by Jordi Wippert on 27-10-14.
+//  Created by Jordi Wippert on 30-10-14.
 //  Copyright (c) 2014 Jordi Wippert. All rights reserved.
 //
 
@@ -10,8 +10,6 @@ import UIKit
 
 class DocumentViewController: UIViewController {
 
-    @IBOutlet weak var titleTextfield: UITextField! = UITextField()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,16 +21,6 @@ class DocumentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    class Document: NSObject {
-        var title: String, userName: String, linkURL: String, imageURL: String
-        
-        init(title: String, userName: String, linkURL: String, imageURL: String) {
-            self.title = title
-            self.userName = userName
-            self.linkURL = linkURL
-            self.imageURL = imageURL
-        }
-    }
 
     /*
     // MARK: - Navigation
