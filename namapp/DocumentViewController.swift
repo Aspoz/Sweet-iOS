@@ -18,8 +18,8 @@ class DocumentViewController: UIViewController {
         if self.document != nil {
             var id = self.document!.id
             var title = self.document!.title
-            var url = self.document!.url
-            singleDocumentUrl(url)
+            var attachment_url = self.document!.attachment_url
+            singleDocumentUrl(attachment_url)
         }
     }
     
@@ -28,13 +28,13 @@ class DocumentViewController: UIViewController {
     }
     
     func get(path: String) {
-        let url : NSURL! = NSURL(string: path)
-        PdfView.loadRequest(NSURLRequest(URL: url))
-        println(url)
+        let attachment_url : NSURL! = NSURL(string: path)
+        PdfView.loadRequest(NSURLRequest(URL: attachment_url))
+        println(attachment_url)
     }
     
-    func singleDocumentUrl(url: String) {
-        get("\(url)")
+    func singleDocumentUrl(attachment_url: String) {
+        get("http://178.62.204.157\(attachment_url)")
     }
 }
 

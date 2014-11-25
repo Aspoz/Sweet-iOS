@@ -11,12 +11,12 @@ import Foundation
 class Document {
     var id: Int
     var title: String
-    var url: String
+    var attachment_url: String
     
-    init(id: Int, title: String, url: String) {
+    init(id: Int, title: String, attachment_url: String) {
         self.id = id
         self.title = title
-        self.url = url
+        self.attachment_url = attachment_url
     }
     
     class func documentsWithJSON(allResults: NSDictionary) -> [Document] {
@@ -27,8 +27,8 @@ class Document {
                     for document in allDocuments {
                         var id = document["id"] as Int
                         var title = document["title"] as? String
-                        var url = document["url"] as? String
-                        var document = Document(id: id, title: title!, url: url!)
+                        var attachment_url = document["attachment_url"] as? String
+                        var document = Document(id: id, title: title!, attachment_url: attachment_url!)
                         documents.append(document)
                     }
                 }
