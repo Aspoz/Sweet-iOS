@@ -1,20 +1,20 @@
 //
-//  DictController.swift
+//  ApiController.swift
 //  namapp
 //
-//  Created by Jordi Wippert on 24-11-14.
+//  Created by Jordi Wippert on 28-10-14.
 //  Copyright (c) 2014 Jordi Wippert. All rights reserved.
 //
 
 import Foundation
 
-protocol DictControllerProtocol {
+protocol APIControllerProtocol {
     func didReceiveAPIResults(results: NSDictionary)
 }
 
-class DictController {
-    var delegate: DictControllerProtocol
-    init(delegate: DictControllerProtocol) {
+class APIController {
+    var delegate: APIControllerProtocol
+    init(delegate: APIControllerProtocol) {
         self.delegate = delegate
     }
     
@@ -37,7 +37,12 @@ class DictController {
         task.resume()
     }
     
-    func documentsUrl(id: Int) {
-        get("http://178.62.204.157/cases/\(id)")
+    func subjectsUrl(id: Int) {
+        get("http://178.62.204.157/api/subjecttypes/\(id)")
     }
+    
+    func documentsUrl(subjectId: Int) {
+        get("http://10.0.0.86:3000/meetings/\(subjectId)")
+    }
+    
 }

@@ -7,20 +7,36 @@
 //
 
 import UIKit
-import Alamofire
 
 class DocumentViewController: UIViewController {
+    
     @IBOutlet weak var PdfView: UIWebView!
     var document: Document?
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let url : NSURL! = NSURL(string: "http://178.62.204.157/system/documents/attachments/000/000/033/original/PDF_File_small.pdf")
-        PdfView.loadRequest(NSURLRequest(URL: url))
+        if self.document != nil {
+            var id = self.document!.id
+            var title = self.document!.title
+            var url = self.document!.url
+            singleDocumentUrl(url)
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    func get(path: String) {
+        let url : NSURL! = NSURL(string: path)
+        PdfView.loadRequest(NSURLRequest(URL: url))
+        println(url)
+    }
+    
+    func singleDocumentUrl(url: String) {
+        get("\(url)")
+    }
 }
+
+
+

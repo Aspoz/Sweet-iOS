@@ -132,8 +132,8 @@
 		CB2A3CD01A247C5600D70809 /* api controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CBC697791A2361C4000B3CC6 /* DictController.swift */,
 				CBA533F31A136B800022BA46 /* ArrayController.swift */,
+				CBC697791A2361C4000B3CC6 /* DictController.swift */,
 			);
 			name = "api controllers";
 			sourceTree = "<group>";
