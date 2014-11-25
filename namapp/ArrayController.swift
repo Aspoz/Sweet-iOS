@@ -37,8 +37,8 @@ class ArrayController {
         task.resume()
     }
     
-    func meetingsUrl() {
-        let urlPath = "http://178.62.204.157/api/"
+    func casesUrl() {
+        let urlPath = "http://178.62.204.157/cases"
         get(urlPath)
     }
 }
