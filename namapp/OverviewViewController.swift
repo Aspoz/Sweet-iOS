@@ -10,6 +10,12 @@ import UIKit
 
 class OverviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArrayControllerProtocol {
     
+    @IBAction func logoutTapped(sender: UIBarButtonItem) {
+        let appDomain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        self.performSegueWithIdentifier("goto_login", sender: self)
+    }
+    
     @IBOutlet weak var overviewTableView: UITableView!
     var cases = [CaseItem]()
     var api : ArrayController?
@@ -18,6 +24,16 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         api = ArrayController(delegate: self)
         api!.casesUrl()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(true)
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
+        if (isLoggedIn != 1) {
+            self.performSegueWithIdentifier("goto_login", sender: self)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -36,10 +52,12 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var caseViewController: CaseViewController = segue.destinationViewController as CaseViewController
-        var caseIndex = overviewTableView!.indexPathForSelectedRow()!.row
-        var selectedCase = self.cases[caseIndex]
-        caseViewController.caseitem = selectedCase
+        if segue.identifier == "overviewSegue" {
+            var caseViewController: CaseViewController = segue.destinationViewController as CaseViewController
+            var caseIndex = overviewTableView!.indexPathForSelectedRow()!.row
+            var selectedCase = self.cases[caseIndex]
+            caseViewController.caseitem = selectedCase
+        }
     }
     
     func didReceiveAPIResults(results: NSArray) {
@@ -50,4 +68,6 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
+    
+    
 }

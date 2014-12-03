@@ -15,6 +15,7 @@
 		CB0A0D6319F662A900EFEB2C /* namappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D6219F662A900EFEB2C /* namappTests.swift */; };
 		CB2A3CCF1A247B4E00D70809 /* CaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */; };
 		CB2A3CD41A247D8D00D70809 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2A3CD31A247D8D00D70809 /* Document.swift */; };
+		CB6E3CE31A2F2CE000A67E74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6E3CE21A2F2CE000A67E74 /* LoginViewController.swift */; };
 		CB93309B1A0266AD0042E28C /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB93309A1A0266AD0042E28C /* DocumentViewController.swift */; };
 		CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA533F31A136B800022BA46 /* ArrayController.swift */; };
 		CBC6977A1A2361C4000B3CC6 /* DictController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC697791A2361C4000B3CC6 /* DictController.swift */; };
@@ -45,6 +46,7 @@
 		CB0A0D6219F662A900EFEB2C /* namappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = namappTests.swift; sourceTree = "<group>"; };
 		CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseViewController.swift; sourceTree = "<group>"; };
 		CB2A3CD31A247D8D00D70809 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		CB6E3CE21A2F2CE000A67E74 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CB93309A1A0266AD0042E28C /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		CBA533F31A136B800022BA46 /* ArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayController.swift; sourceTree = "<group>"; };
 		CBC697791A2361C4000B3CC6 /* DictController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictController.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 		CB2A3CD11A247C6E00D70809 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB6E3CE21A2F2CE000A67E74 /* LoginViewController.swift */,
 				CBC6977D1A236611000B3CC6 /* OverviewViewController.swift */,
 				CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */,
 				CB93309A1A0266AD0042E28C /* DocumentViewController.swift */,
@@ -266,6 +269,7 @@
 				CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */,
 				CBC6977E1A236611000B3CC6 /* OverviewViewController.swift in Sources */,
 				CBC697821A237098000B3CC6 /* CaseItem.swift in Sources */,
+				CB6E3CE31A2F2CE000A67E74 /* LoginViewController.swift in Sources */,
 				CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
