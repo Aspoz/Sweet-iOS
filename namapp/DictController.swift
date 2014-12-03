@@ -22,7 +22,6 @@ class DictController {
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
-            println("Task completed")
             if(error != nil) {
                 println(error.localizedDescription)
             }

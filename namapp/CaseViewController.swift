@@ -35,7 +35,7 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("DocumentCell") as UITableViewCell
         let document = documents[indexPath.row]
-        cell.textLabel.text = document.title
+        cell.textLabel?.text = document.title
         return cell
     }
         

@@ -34,7 +34,7 @@ class DocumentViewController: UIViewController {
     }
     
     func singleDocumentUrl(attachment_url: String) {
-        get("http://178.62.204.157\(attachment_url)")
+        get("http://\(attachment_url)")
     }
 }
 

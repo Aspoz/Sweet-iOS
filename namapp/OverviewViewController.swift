@@ -31,7 +31,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("OverviewCell") as UITableViewCell
         let caseitem = cases[indexPath.row]
-        cell.textLabel.text = caseitem.title
+        cell.textLabel?.text = caseitem.title
         return cell
     }
     
