@@ -36,7 +36,20 @@ class DocumentViewController: UIViewController {
     func singleDocumentUrl(attachment_url: String) {
         get("http://\(attachment_url)")
     }
+
+    @IBAction func showNotes(sender: UIButton) {
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        var id = self.document!.id
+        var title = self.document!.title
+        if (segue.identifier == "noteSegue") {
+            var svc = segue.destinationViewController as NoteViewController;
+            svc.ID = id
+            let x : Int = id
+            var myString = String(x)
+            svc.toPass = myString
+            svc.docTitle = title
+        }
+    }
 }
-
-
-

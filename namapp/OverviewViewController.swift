@@ -10,6 +10,8 @@ import UIKit
 
 class OverviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArrayControllerProtocol {
     
+    @IBOutlet weak var useridLabel: UILabel!
+    
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
@@ -33,6 +35,8 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (isLoggedIn != 1) {
             self.performSegueWithIdentifier("goto_login", sender: self)
+        } else {
+        self.useridLabel.text = prefs.valueForKey("USERNAME") as NSString
         }
     }
     
@@ -52,12 +56,18 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "overviewSegue" {
-            var caseViewController: CaseViewController = segue.destinationViewController as CaseViewController
+        if segue.identifier == "tabview" {
+            var tabBarC : UITabBarController = segue.destinationViewController as UITabBarController
+            var desView: CaseViewController = tabBarC.viewControllers?.first as CaseViewController
+            
             var caseIndex = overviewTableView!.indexPathForSelectedRow()!.row
             var selectedCase = self.cases[caseIndex]
-            caseViewController.caseitem = selectedCase
+
+            desView.caseitem = selectedCase
         }
+    }
+    
+    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
     }
     
     func didReceiveAPIResults(results: NSArray) {
@@ -68,6 +78,4 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
-    
-    
 }

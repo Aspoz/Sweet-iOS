@@ -12,15 +12,19 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
         
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var documentsTableView: UITableView!
-    var caseitem: CaseItem?
+    var caseitem : CaseItem?
+    
     var documents = [Document]()
     lazy var api : DictController = DictController(delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = self.caseitem?.title
-        if self.caseitem != nil {
-            api.documentsUrl(self.caseitem!.id)
+        println(caseitem)
+        titleLabel.text = caseitem?.title
+        if caseitem != nil {
+            println("hallo")
+            println(caseitem!.id)
+            api.documentsUrl(caseitem!.id)
         }
     }
         

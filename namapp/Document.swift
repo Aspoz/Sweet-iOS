@@ -11,7 +11,7 @@ import Foundation
 class Document {
     var id: Int
     var title: String
-    var attachment_url: String
+    var attachment_url: String    
     
     init(id: Int, title: String, attachment_url: String) {
         self.id = id

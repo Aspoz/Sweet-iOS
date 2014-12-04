@@ -39,4 +39,9 @@ class DictController {
     func documentsUrl(id: Int) {
         get("http://178.62.204.157/cases/\(id)")
     }
+    
+    func notesUrl(id: Int) {
+        get("http://178.62.204.157/documents/\(id)")
+    }
+    
 }

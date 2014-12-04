@@ -22,10 +22,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signinTapped(sender : UIButton) {
-        var username:NSString = txtUsername.text
+        var email:NSString = txtUsername.text
         var password:NSString = txtPassword.text
         
-        if ( username.isEqualToString("") || password.isEqualToString("") ) {
+        if ( email.isEqualToString("") || password.isEqualToString("") ) {
             
             var alertView:UIAlertView = UIAlertView()
             alertView.title = "Sign in Failed!"
@@ -35,11 +35,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             alertView.show()
         } else {
             
-            var post:NSString = "username=\(username)&password=\(password)"
+            var post:NSString = "email=\(email)&password=\(password)"
             
             NSLog("PostData: %@",post);
             
-            var url:NSURL = NSURL(string:"http://macbook-van-jw.local:8888/jsonlogin2.php")!
+            var url:NSURL = NSURL(string:"http://178.62.204.157/sessions")!
             
             var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
             
@@ -59,7 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             if ( urlData != nil ) {
                 let res = response as NSHTTPURLResponse!;
-                
+                println(res)
                 NSLog("Response code: %ld", res.statusCode);
                 
                 if (res.statusCode >= 200 && res.statusCode < 300)
@@ -72,19 +72,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as NSDictionary
                     
-                    
                     let success:NSInteger = jsonData.valueForKey("success") as NSInteger
-                    
-                    //[jsonData[@"success"] integerValue];
-                    
+//                    let id:NSInteger = jsonData.valueForKey("id") as NSInteger
+
                     NSLog("Success: %ld", success);
+//                    NSLog("id: %ld", id);
                     
                     if(success == 1)
                     {
                         NSLog("Login SUCCESS");
                         
                         var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                        prefs.setObject(username, forKey: "USERNAME")
+                        prefs.setObject(email, forKey: "USERNAME")
                         prefs.setInteger(1, forKey: "ISLOGGEDIN")
                         prefs.synchronize()
                         
