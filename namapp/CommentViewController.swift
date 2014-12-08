@@ -22,6 +22,9 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         api.documentsUrl(id)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.commentTableView.reloadData()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -59,10 +62,10 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         let user_idint:Int = prefs.integerForKey("USER_ID") as Int
         var user_id = String(user_idint)
         
-        var id:NSNumber = caseitem!.id
+        var caseid:NSNumber = caseitem!.id
         var commenttext:NSString = commentText.text
         var user:NSString = user_id
-        var post:NSString = "comment[body]=\(commenttext)&comment[subject_id]=\(id)&comment[user_id]=\(user)"
+        var post:NSString = "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(user)"
         NSLog("PostData: %@",post);
         var url:NSURL = NSURL(string:"http://178.62.204.157/comments")!
         
@@ -79,5 +82,8 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         var response: NSURLResponse?
         
         var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
+        
+        var id = caseitem!.id
+        api.documentsUrl(id)
     }
 }

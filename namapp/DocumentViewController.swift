@@ -45,9 +45,11 @@ class DocumentViewController: UIViewController {
         if (segue.identifier == "noteSegue") {
             var doc = segue.destinationViewController as NoteViewController;
             doc.ID = id
+
             let docInt : Int = id
             var docString = String(docInt)
             doc.docId = docString
+
             doc.docTitle = title
         }
     }

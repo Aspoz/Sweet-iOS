@@ -26,7 +26,6 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (isLoggedIn != 1) {
@@ -47,12 +46,13 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
             self.filteredCases = NSMutableArray()
             self.filteredCases.addObject(self.cases)
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+            self.searchJob("")
         })
-
     }
     
     @IBAction func filter(sender: UISegmentedControl) {
         if filterControl.selectedSegmentIndex == 0 {
+            searchJob("")
         } else if filterControl.selectedSegmentIndex == 1 {
             searchJob("RFC")
         } else if filterControl.selectedSegmentIndex == 2 {
@@ -66,30 +66,36 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func searchJob(type: String) {
-        self.filteredCases.removeAllObjects()
-        for filtercase in cases {
-            if filtercase.casetype == type {
+        if type != "" {
+            self.filteredCases.removeAllObjects()
+            for filtercase in cases {
+                if filtercase.casetype == type {
+                    filteredCases.addObject(filtercase)
+                }
+            }
+        } else {
+            if filteredCases != nil {
+                self.filteredCases.removeAllObjects()
+            }
+            for filtercase in cases {
                 filteredCases.addObject(filtercase)
             }
+            self.overviewTableView.reloadData()
         }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filteredCases == nil {
-            return cases.count
+            return self.cases.count
         } else {
-            return filteredCases.count
+            return self.filteredCases.count
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("OverviewCell") as UITableViewCell
-        if filteredCases == nil {
-            let caseitem = cases[indexPath.row] as CaseItem
-        } else {
         let caseitem = filteredCases[indexPath.row] as CaseItem
-            cell.textLabel?.text = caseitem.title
-        }
+        cell.textLabel?.text = caseitem.title
         return cell
     }
     
@@ -106,7 +112,6 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)

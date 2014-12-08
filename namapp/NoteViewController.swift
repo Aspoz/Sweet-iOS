@@ -25,7 +25,7 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
         super.viewDidLoad()
             documentId.text = docId
             documentTitle.text = docTitle
-        
+            println(docId)
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let user_idint:Int = prefs.integerForKey("USER_ID") as Int
             var user_id = String(user_idint)
@@ -74,10 +74,11 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
     }
     
     @IBAction func noteSend(sender: UIButton) {
-        var id:NSString = documentId.text!
+        
+        var docid:NSString = documentId.text!
         var notetext:NSString = noteText.text
         var user:NSString = userId.text!
-        var post:NSString = "note[body]=\(notetext)&note[document_id]=\(id)&note[user_id]=\(user)"
+        var post:NSString = "note[body]=\(notetext)&note[document_id]=\(docid)&note[user_id]=\(user)"
         NSLog("PostData: %@",post);
         var url:NSURL = NSURL(string:"http://178.62.204.157/notes")!
 
@@ -88,12 +89,14 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
         request.HTTPBody = postData
         request.setValue(postLength, forHTTPHeaderField: "Content-Length")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
+        request.setValue("application/json", forHTTPHeaderField: "Accept")    
         var reponseError: NSError?
         var response: NSURLResponse?
         
         var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
+
+        var id = docId.toInt()
+        api.notesUrl(id!)
     }
 }
 
