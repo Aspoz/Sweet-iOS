@@ -121,13 +121,53 @@
         <!--Item 2-->
         <scene sceneID="4WV-kP-5Ep">
             <objects>
-                <viewController id="8d9-zF-RdQ" sceneMemberID="viewController">
+                <viewController id="8d9-zF-RdQ" customClass="CommentViewController" customModule="namapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ned-PN-6BM">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="7HL-Ik-kae">
+                                <rect key="frame" x="16" y="235" width="736" height="449"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" id="CSY-mX-jbw">
+                                        <rect key="frame" x="0.0" y="0.0" width="736" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CSY-mX-jbw" id="s7f-O1-dKx">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="8d9-zF-RdQ" id="3rn-7h-yNp"/>
+                                    <outlet property="delegate" destination="8d9-zF-RdQ" id="RRY-wh-Qxo"/>
+                                </connections>
+                            </tableView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="mxm-qE-18A">
+                                <rect key="frame" x="49" y="105" width="244" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CvM-cC-nzS">
+                                <rect key="frame" x="367" y="105" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="commentSend:" destination="8d9-zF-RdQ" eventType="touchUpInside" id="Uye-xs-IzH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="66w-Uq-rR2"/>
+                    <connections>
+                        <outlet property="commentTableView" destination="7HL-Ik-kae" id="lZY-UW-742"/>
+                        <outlet property="commentText" destination="mxm-qE-18A" id="hXC-RA-zTd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHJ-cD-kw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,7 +193,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="ry9-wP-IL5" kind="push" id="f7k-Hw-Mvh"/>
+                                            <segue destination="ry9-wP-IL5" kind="push" identifier="docSegue" id="f7k-Hw-Mvh"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

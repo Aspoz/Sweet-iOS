@@ -20,7 +20,7 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.text = caseitem?.title
-
+        
         if caseitem != nil {
             api.documentsUrl(caseitem!.id)
         }
@@ -42,10 +42,10 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
     }
         
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var documentViewController: DocumentViewController = segue.destinationViewController as DocumentViewController
-        var documentIndex = documentsTableView!.indexPathForSelectedRow()!.row
-        var selectedDocument = self.documents[documentIndex]
-        documentViewController.document = selectedDocument
+            var documentViewController: DocumentViewController = segue.destinationViewController as DocumentViewController
+            var documentIndex = documentsTableView!.indexPathForSelectedRow()!.row
+            var selectedDocument = self.documents[documentIndex]
+            documentViewController.document = selectedDocument
     }
         
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

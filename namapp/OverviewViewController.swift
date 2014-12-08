@@ -100,6 +100,9 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
             var indexPath = self.overviewTableView!.indexPathForSelectedRow()!
             let selectedCase = filteredCases[indexPath.row] as CaseItem
             desView.caseitem = selectedCase
+            
+            var desview2: CommentViewController = tabBarC.viewControllers?.last as CommentViewController
+            desview2.caseitem = selectedCase
         }
     }
     

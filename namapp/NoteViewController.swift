@@ -11,7 +11,8 @@ import UIKit
 class NoteViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource{
     var document: Document?
     var notes = [Note]()
-    var toPass:String!
+    
+    var docId:String!
     var ID:Int!
     var docTitle:String!
     
@@ -22,7 +23,7 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            documentId.text = toPass
+            documentId.text = docId
             documentTitle.text = docTitle
         
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
