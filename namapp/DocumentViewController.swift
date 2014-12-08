@@ -30,7 +30,6 @@ class DocumentViewController: UIViewController {
     func get(path: String) {
         let attachment_url : NSURL! = NSURL(string: path)
         PdfView.loadRequest(NSURLRequest(URL: attachment_url))
-        println(attachment_url)
     }
     
     func singleDocumentUrl(attachment_url: String) {
@@ -48,6 +47,7 @@ class DocumentViewController: UIViewController {
             svc.ID = id
             let x : Int = id
             var myString = String(x)
+            
             svc.toPass = myString
             svc.docTitle = title
         }

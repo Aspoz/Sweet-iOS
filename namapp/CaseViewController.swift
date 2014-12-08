@@ -19,11 +19,9 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println(caseitem)
         titleLabel.text = caseitem?.title
+
         if caseitem != nil {
-            println("hallo")
-            println(caseitem!.id)
             api.documentsUrl(caseitem!.id)
         }
     }

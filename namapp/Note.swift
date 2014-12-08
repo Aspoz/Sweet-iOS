@@ -11,10 +11,12 @@ import Foundation
 class Note {
     var id: Int
     var body: String
+    var user_id: Int
     
-    init(id: Int, body: String) {
+    init(id: Int, body: String, user_id: Int) {
         self.id = id
         self.body = body
+        self.user_id = user_id
     }
     
     class func notesWithJSON(allResults: NSDictionary) -> [Note] {
@@ -25,8 +27,12 @@ class Note {
                     for note in allNotes {
                         var id = note["id"] as Int
                         var body = note["body"] as? String
-                        var note = Note(id: id, body: body!)
-                        notes.append(note)
+                        var user_id = note["user_id"] as Int
+                        var note = Note(id: id, body: body!, user_id: user_id)
+                        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+                        if note.user_id == prefs.integerForKey("USER_ID") as Int {
+                            notes.append(note)
+                        }
                     }
                 }
             }

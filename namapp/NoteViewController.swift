@@ -18,14 +18,18 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
     @IBOutlet weak var documentId: UILabel!
     @IBOutlet weak var noteText: UITextField!
     @IBOutlet weak var documentTitle: UILabel!
+    @IBOutlet weak var userId: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
             documentId.text = toPass
             documentTitle.text = docTitle
-
+        
+            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+            let user_idint:Int = prefs.integerForKey("USER_ID") as Int
+            var user_id = String(user_idint)
+            userId.text = user_id
             api.notesUrl(ID)
-            println("done")
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,16 +38,7 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-        if (isLoggedIn != 1) {
-            self.performSegueWithIdentifier("goto_login", sender: self)
-        } else {
-//            self.useridLabel.text = prefs.valueForKey("USERNAME") as NSString
-        }
     }
-    
     
     @IBOutlet weak var notesView: UITableView!
     
@@ -80,7 +75,8 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
     @IBAction func noteSend(sender: UIButton) {
         var id:NSString = documentId.text!
         var notetext:NSString = noteText.text
-        var post:NSString = "note[body]=\(notetext)&note[document_id]=\(id)"
+        var user:NSString = userId.text!
+        var post:NSString = "note[body]=\(notetext)&note[document_id]=\(id)&note[user_id]=\(user)"
         NSLog("PostData: %@",post);
         var url:NSURL = NSURL(string:"http://178.62.204.157/notes")!
 

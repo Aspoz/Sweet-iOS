@@ -59,7 +59,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             if ( urlData != nil ) {
                 let res = response as NSHTTPURLResponse!;
-                println(res)
                 NSLog("Response code: %ld", res.statusCode);
                 
                 if (res.statusCode >= 200 && res.statusCode < 300)
@@ -73,10 +72,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as NSDictionary
                     
                     let success:NSInteger = jsonData.valueForKey("success") as NSInteger
-//                    let id:NSInteger = jsonData.valueForKey("id") as NSInteger
+                    let user_id:NSInteger = jsonData.valueForKey("user_id") as NSInteger
 
                     NSLog("Success: %ld", success);
-//                    NSLog("id: %ld", id);
+                    NSLog("user_id: %ld", user_id);
                     
                     if(success == 1)
                     {
@@ -85,8 +84,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
                         prefs.setObject(email, forKey: "USERNAME")
                         prefs.setInteger(1, forKey: "ISLOGGEDIN")
+                        prefs.setObject(user_id, forKey: "USER_ID")
                         prefs.synchronize()
-                        
                         self.dismissViewControllerAnimated(true, completion: nil)
                     } else {
                         var error_msg:NSString

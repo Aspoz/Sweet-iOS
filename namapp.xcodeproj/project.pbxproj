@@ -13,6 +13,7 @@
 		CB0A0D5419F662A900EFEB2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5319F662A900EFEB2C /* Images.xcassets */; };
 		CB0A0D5719F662A900EFEB2C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5519F662A900EFEB2C /* LaunchScreen.xib */; };
 		CB0A0D6319F662A900EFEB2C /* namappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D6219F662A900EFEB2C /* namappTests.swift */; };
+		CB2491031A35BA3000635E42 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2491021A35BA3000635E42 /* CommentViewController.swift */; };
 		CB2A3CCF1A247B4E00D70809 /* CaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */; };
 		CB2A3CD41A247D8D00D70809 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2A3CD31A247D8D00D70809 /* Document.swift */; };
 		CB6E3CE31A2F2CE000A67E74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6E3CE21A2F2CE000A67E74 /* LoginViewController.swift */; };
@@ -46,6 +47,7 @@
 		CB0A0D5C19F662A900EFEB2C /* namappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = namappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0A0D6119F662A900EFEB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0A0D6219F662A900EFEB2C /* namappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = namappTests.swift; sourceTree = "<group>"; };
+		CB2491021A35BA3000635E42 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseViewController.swift; sourceTree = "<group>"; };
 		CB2A3CD31A247D8D00D70809 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		CB6E3CE21A2F2CE000A67E74 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				CB6E3CE21A2F2CE000A67E74 /* LoginViewController.swift */,
 				CBC6977D1A236611000B3CC6 /* OverviewViewController.swift */,
 				CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */,
+				CB2491021A35BA3000635E42 /* CommentViewController.swift */,
 				CB93309A1A0266AD0042E28C /* DocumentViewController.swift */,
 				CB6E3CE61A2F6AD100A67E74 /* NoteViewController.swift */,
 			);
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB2491031A35BA3000635E42 /* CommentViewController.swift in Sources */,
 				CBC6977A1A2361C4000B3CC6 /* DictController.swift in Sources */,
 				CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */,
 				CB93309B1A0266AD0042E28C /* DocumentViewController.swift in Sources */,
