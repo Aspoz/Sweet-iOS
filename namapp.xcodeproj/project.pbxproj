@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20C868F61A35E65000FAC10C /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C868F51A35E65000FAC10C /* ColorExtension.swift */; };
 		CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */; };
 		CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4B19F662A900EFEB2C /* namapp.xcdatamodeld */; };
 		CB0A0D5219F662A900EFEB2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5019F662A900EFEB2C /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20C868F51A35E65000FAC10C /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		CB0A0D4419F662A900EFEB2C /* namapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = namapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0A0D4819F662A900EFEB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20C868F41A35E47700FAC10C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				20C868F51A35E65000FAC10C /* ColorExtension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		CB0A0D3B19F662A900EFEB2C = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		CB0A0D4619F662A900EFEB2C /* namapp */ = {
 			isa = PBXGroup;
 			children = (
+				20C868F41A35E47700FAC10C /* Extensions */,
 				CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */,
 				CB2A3CD01A247C5600D70809 /* api controllers */,
 				CB2A3CD11A247C6E00D70809 /* view controllers */,
@@ -275,6 +286,7 @@
 				CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */,
 				CB93309B1A0266AD0042E28C /* DocumentViewController.swift in Sources */,
 				CB6E3CE71A2F6AD100A67E74 /* NoteViewController.swift in Sources */,
+				20C868F61A35E65000FAC10C /* ColorExtension.swift in Sources */,
 				CB2A3CCF1A247B4E00D70809 /* CaseViewController.swift in Sources */,
 				CB2A3CD41A247D8D00D70809 /* Document.swift in Sources */,
 				CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */,
