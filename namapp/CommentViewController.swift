@@ -8,11 +8,11 @@
 
 import UIKit
 
-class CommentViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class CommentViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var id:Int!
 
-    @IBOutlet weak var commentText: UITextField!
-
+    @IBOutlet weak var commentText: UITextView!
+    
     var caseitem: CaseItem?
     var comments = [Comment]()
     
@@ -20,7 +20,17 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         super.viewDidLoad()
         var id = caseitem!.id
         commentText.delegate = self
-
+       
+        if (commentText.text == "") {
+            textViewDidEndEditing(commentText)
+        }
+        
+        commentText!.layer.borderWidth = 1
+        commentText!.layer.borderColor = UIColor.colorWithRGBHex(0x4A90E2).CGColor
+        
+        var tapDismiss = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tapDismiss)
+        
         api.documentsUrl(id)
     }
     
@@ -30,9 +40,6 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-
-
     
     lazy var api : DictController = DictController(delegate: self)
     
@@ -111,4 +118,25 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         
         commentText.text = nil
     }
+    
+    func dismissKeyboard(){
+        commentText.resignFirstResponder()
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if (commentText.text == "") {
+            commentText.text = "Placeholder"
+            commentText.textColor = UIColor.lightGrayColor()
+        }
+        commentText.resignFirstResponder()
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView){
+        if (commentText.text == "Placeholder"){
+            commentText.text = ""
+            commentText.textColor = UIColor.blackColor()
+        }
+        commentText.becomeFirstResponder()
+    }
+
 }
