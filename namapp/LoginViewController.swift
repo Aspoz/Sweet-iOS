@@ -15,6 +15,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,9 +102,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         alertView.delegate = self
                         alertView.addButtonWithTitle("OK")
                         alertView.show()
-                        
                     }
-                    
                 } else {
                     var alertView:UIAlertView = UIAlertView()
                     alertView.title = "Sign in Failed!"
@@ -123,8 +122,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 alertView.addButtonWithTitle("OK")
                 alertView.show()
             }
-        }
-        
+        }  
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
