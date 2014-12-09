@@ -8,17 +8,19 @@
 
 import UIKit
 
-class CommentViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource {
+class CommentViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     var id:Int!
 
     @IBOutlet weak var commentText: UITextField!
-    
+
     var caseitem: CaseItem?
     var comments = [Comment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         var id = caseitem!.id
+        commentText.delegate = self
+
         api.documentsUrl(id)
     }
     
@@ -28,6 +30,9 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+
+
     
     lazy var api : DictController = DictController(delegate: self)
     
@@ -59,17 +64,19 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
 
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            var comment = comments.removeAtIndex(indexPath.row)
-            var commentid:NSNumber = comment.id
-            var url:NSURL = NSURL(string:"http://178.62.204.157/comments/\(commentid)")!
-            var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-            request.HTTPMethod = "DELETE"
-            var reponseError: NSError?
-            var response: NSURLResponse?
-            
-            var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
-            
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            if comments.count != 0 {
+                var comment = comments.removeAtIndex(indexPath.row)
+                var commentid:NSNumber = comment.id
+                var url:NSURL = NSURL(string:"http://178.62.204.157/comments/\(commentid)")!
+                var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+                request.HTTPMethod = "DELETE"
+                var reponseError: NSError?
+                var response: NSURLResponse?
+                
+                var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
+                
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            }
         }
     }
     
@@ -101,5 +108,7 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         
         var id = caseitem!.id
         api.documentsUrl(id)
+        
+        commentText.text = nil
     }
 }

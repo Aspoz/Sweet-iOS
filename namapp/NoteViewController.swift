@@ -112,9 +112,9 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
 
         var id = docId.toInt()
         api.notesUrl(id!)
+        
+        noteText.text = nil
     }
-    
-    
 }
 
 
