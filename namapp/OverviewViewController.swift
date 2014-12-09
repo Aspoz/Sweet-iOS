@@ -96,7 +96,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("OverviewCell") as OverviewCell
         let caseitem = filteredCases[indexPath.row] as CaseItem
         
-        cell.configureForCase(caseitem)
+        cell.addDataInCellsForCase(caseitem)
 //        cell.textLabel?.text = caseitem.title
         return cell
     }
@@ -130,7 +130,8 @@ class OverviewCell: UITableViewCell {
     @IBOutlet weak var CaseType: UILabel!
     @IBOutlet weak var CaseStatusColor: UIView!
     
-    func configureForCase(caseitem: CaseItem) {
+    // Fill in Prototype cells for Case Overview with data
+    func addDataInCellsForCase(caseitem: CaseItem) {
         CaseTitle.text = caseitem.title
         CaseType.text = caseitem.casetype
         
