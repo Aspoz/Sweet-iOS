@@ -97,7 +97,6 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         let caseitem = filteredCases[indexPath.row] as CaseItem
         
         cell.addDataInCellsForCase(caseitem)
-//        cell.textLabel?.text = caseitem.title
         return cell
     }
     
