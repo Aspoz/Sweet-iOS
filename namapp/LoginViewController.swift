@@ -101,9 +101,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         alertView.delegate = self
                         alertView.addButtonWithTitle("OK")
                         alertView.show()
-                        
                     }
-                    
                 } else {
                     var alertView:UIAlertView = UIAlertView()
                     alertView.title = "Sign in Failed!"
@@ -123,8 +121,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 alertView.addButtonWithTitle("OK")
                 alertView.show()
             }
-        }
-        
+        }  
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method

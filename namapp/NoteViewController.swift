@@ -25,7 +25,6 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
         super.viewDidLoad()
             documentId.text = docId
             documentTitle.text = docTitle
-            println(docId)
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let user_idint:Int = prefs.integerForKey("USER_ID") as Int
             var user_id = String(user_idint)
@@ -64,6 +63,22 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
         var note = notes[indexPath.row]
     }
     
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            var note = notes.removeAtIndex(indexPath.row)
+            var noteid:NSNumber = note.id
+            var url:NSURL = NSURL(string:"http://178.62.204.157/notes/\(noteid)")!
+            var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+            request.HTTPMethod = "DELETE"
+            var reponseError: NSError?
+            var response: NSURLResponse?
+            var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+
+    
     func didReceiveAPIResults(results: NSDictionary) {
         var resultsArr: NSDictionary = results as NSDictionary
         dispatch_async(dispatch_get_main_queue(), {
@@ -98,6 +113,8 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
         var id = docId.toInt()
         api.notesUrl(id!)
     }
+    
+    
 }
 
 

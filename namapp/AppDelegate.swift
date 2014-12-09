@@ -19,12 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Navigationbar styling for whole app
-        var navigationBarAppearace = UINavigationBar.appearance()
-        navigationBarAppearace.tintColor = UIColor.whiteColor()
-        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        navigationBarAppearace.barStyle = UIBarStyle.Black
-        navigationBarAppearace.barTintColor = UIColor.colorWithRGBHex(0x6ABF28)
-        navigationBarAppearace.translucent = false
+//        var navigationBarAppearace = UINavigationBar.appearance()
+//        navigationBarAppearace.tintColor = UIColor.whiteColor()
+//        navigationBarAppearace.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+//        navigationBarAppearace.barStyle = UIBarStyle.Black
+//        navigationBarAppearace.barTintColor = UIColor.colorWithRGBHex(0x6ABF28)
+//        navigationBarAppearace.translucent = false
         return true
     }
 

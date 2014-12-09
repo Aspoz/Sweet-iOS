@@ -56,6 +56,22 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
+
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            var comment = comments.removeAtIndex(indexPath.row)
+            var commentid:NSNumber = comment.id
+            var url:NSURL = NSURL(string:"http://178.62.204.157/comments/\(commentid)")!
+            var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+            request.HTTPMethod = "DELETE"
+            var reponseError: NSError?
+            var response: NSURLResponse?
+            
+            var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
+            
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
     
     @IBAction func commentSend(sender: UIButton) {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
