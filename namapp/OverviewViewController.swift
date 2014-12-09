@@ -10,7 +10,6 @@ import UIKit
 
 class OverviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArrayControllerProtocol {
 
-    @IBOutlet weak var useridLabel: UILabel!
     @IBOutlet weak var filterControl: UISegmentedControl!
     @IBOutlet weak var overviewTableView: UITableView!
     
@@ -30,8 +29,6 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
         if (isLoggedIn != 1) {
             self.performSegueWithIdentifier("goto_login", sender: self)
-        } else {
-        self.useridLabel.text = prefs.valueForKey("USERNAME") as NSString
         }
     }
     

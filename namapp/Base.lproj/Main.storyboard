@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="60" width="768" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" id="fpT-ME-76S">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" momentary="YES" id="fpT-ME-76S">
                                         <rect key="frame" x="265" y="14" width="495" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <segments>
@@ -42,13 +42,6 @@
                                             <action selector="filter:" destination="Wv8-bF-79y" eventType="valueChanged" id="ylV-p8-7Yr"/>
                                         </connections>
                                     </segmentedControl>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ibu-0A-LRT">
-                                        <rect key="frame" x="23" y="21" width="209" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -127,7 +120,6 @@
                     <connections>
                         <outlet property="filterControl" destination="fpT-ME-76S" id="MsO-C5-HRd"/>
                         <outlet property="overviewTableView" destination="iXt-Er-r1S" id="9bN-b3-VX0"/>
-                        <outlet property="useridLabel" destination="ibu-0A-LRT" id="Jao-zO-Qcs"/>
                         <segue destination="g1O-k9-Knc" kind="modal" identifier="goto_login" id="WJi-ya-Zbw"/>
                     </connections>
                 </viewController>
@@ -213,7 +205,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="CvM-cC-nzS">
-                                <rect key="frame" x="367" y="105" width="46" height="30"/>
+                                <rect key="frame" x="686" y="98" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -222,8 +214,8 @@
                                     <action selector="commentSend:" destination="8d9-zF-RdQ" eventType="touchUpInside" id="Uye-xs-IzH"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" id="mxm-qE-18A">
-                                <rect key="frame" x="49" y="105" width="244" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" id="mxm-qE-18A">
+                                <rect key="frame" x="16" y="98" width="630" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
