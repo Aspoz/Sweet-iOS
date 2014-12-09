@@ -93,11 +93,13 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("OverviewCell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("OverviewCell") as OverviewCell
         let caseitem = filteredCases[indexPath.row] as CaseItem
-        cell.textLabel?.text = caseitem.title
+        
+        cell.addDataInCellsForCase(caseitem)
         return cell
     }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "tabview" {
@@ -116,5 +118,35 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
         self.performSegueWithIdentifier("goto_login", sender: self)
+    }
+}
+
+// Declare OverviewCell: UITableViewCell
+class OverviewCell: UITableViewCell {
+    
+    // Set cell variables
+    @IBOutlet weak var CaseTitle: UILabel!
+    @IBOutlet weak var CaseType: UILabel!
+    @IBOutlet weak var CaseStatusColor: UIView!
+    
+    // Fill in Prototype cells for Case Overview with data
+    func addDataInCellsForCase(caseitem: CaseItem) {
+        CaseTitle.text = caseitem.title
+        CaseType.text = caseitem.casetype
+        
+        // Check what status it is
+        switch caseitem.status {
+        case "In progress":
+            // If 'In progress' set CaseStatusColor to green
+            CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x6ABF28)
+            
+        case "Open":
+            // If 'Open' set CaseStatusColor to blue
+            CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x4A90E2)
+            
+        default:
+            // If its anything else (closed) set CaseStatusColor to grey
+            CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0xCCCCCC)
+        }
     }
 }
