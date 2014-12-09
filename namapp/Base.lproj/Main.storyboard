@@ -16,10 +16,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Overview View Controller-->
+        <!--Cases Overview-->
         <scene sceneID="YAo-Jo-qPE">
             <objects>
-                <viewController id="Wv8-bF-79y" customClass="OverviewViewController" customModule="namapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Cases Overview" id="Wv8-bF-79y" customClass="OverviewViewController" customModule="namapp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UdK-jD-8fl">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,12 +72,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" id="4Ve-Lw-KLN" userLabel="CaseStatusColor">
-                                                    <rect key="frame" x="0.0" y="0.0" width="5" height="59"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="10" height="59"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CaseTitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="reY-Nz-nd7">
-                                                    <rect key="frame" x="20" y="0.0" width="604" height="60"/>
+                                                    <rect key="frame" x="25" y="0.0" width="604" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                     <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,7 +110,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.94117647058823528" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ZAD-lR-8Cb">
+                    <navigationItem key="navigationItem" title="Cases Overview" id="ZAD-lR-8Cb">
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="peS-Qr-gpb">
                             <connections>
                                 <action selector="logoutTapped:" destination="Wv8-bF-79y" id="Sk9-pK-drX"/>
