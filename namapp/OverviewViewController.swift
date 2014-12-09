@@ -95,9 +95,12 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         
         cell.addDataInCellsForCase(caseitem)
         
-        // if it's the last cell, add shadow
         if(indexPath.row == (filteredCases.count-1)) {
+        // if it's the last cell, add shadow
             applyPlainShadow(cell)
+        } else {
+        // if it's NOT the last cell, remove shadow
+            cell.layer.shadowOpacity = 0.0
         }
         return cell
     }
