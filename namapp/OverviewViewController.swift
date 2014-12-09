@@ -97,6 +97,11 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         let caseitem = filteredCases[indexPath.row] as CaseItem
         
         cell.addDataInCellsForCase(caseitem)
+        
+        // if it's the last cell, add shadow
+        if(indexPath.row == (filteredCases.count-1)) {
+            applyPlainShadow(cell)
+        }
         return cell
     }
     
@@ -114,6 +119,16 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // Function to apply shadow on an UIView
+    func applyPlainShadow(view: UIView) {
+        var layer = view.layer
+        
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 4
+    }
+    
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
@@ -125,6 +140,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
 class OverviewCell: UITableViewCell {
     
     // Set cell variables
+    @IBOutlet weak var CaseBG: UIView!
     @IBOutlet weak var CaseTitle: UILabel!
     @IBOutlet weak var CaseType: UILabel!
     @IBOutlet weak var CaseStatusColor: UIView!
