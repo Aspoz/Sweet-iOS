@@ -93,11 +93,14 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("OverviewCell") as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("OverviewCell") as OverviewCell
         let caseitem = filteredCases[indexPath.row] as CaseItem
-        cell.textLabel?.text = caseitem.title
+        
+        cell.configureForCase(caseitem)
+//        cell.textLabel?.text = caseitem.title
         return cell
     }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "tabview" {
@@ -116,5 +119,19 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
         self.performSegueWithIdentifier("goto_login", sender: self)
+    }
+}
+
+// Declare OverviewCell: UITableViewCell
+class OverviewCell: UITableViewCell {
+    
+    // Set cell variables
+    @IBOutlet weak var CaseTitle: UILabel!
+    @IBOutlet weak var CaseType: UILabel!
+    @IBOutlet weak var CaseStatusColor: UIView!
+    
+    func configureForCase(caseitem: CaseItem) {
+        CaseTitle.text = caseitem.title
+        CaseType.text = caseitem.casetype
     }
 }
