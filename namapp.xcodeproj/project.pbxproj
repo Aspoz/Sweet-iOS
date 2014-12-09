@@ -29,7 +29,6 @@
 		CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */; };
 		CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4B19F662A900EFEB2C /* namapp.xcdatamodeld */; };
 		CB0A0D5219F662A900EFEB2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5019F662A900EFEB2C /* Main.storyboard */; };
-		CB0A0D5419F662A900EFEB2C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5319F662A900EFEB2C /* Images.xcassets */; };
 		CB0A0D5719F662A900EFEB2C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5519F662A900EFEB2C /* LaunchScreen.xib */; };
 		CB0A0D6319F662A900EFEB2C /* namappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D6219F662A900EFEB2C /* namappTests.swift */; };
 		CB2491031A35BA3000635E42 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2491021A35BA3000635E42 /* CommentViewController.swift */; };
@@ -41,6 +40,7 @@
 		CB6E3CE91A2FBC0400A67E74 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6E3CE81A2FBC0400A67E74 /* Note.swift */; };
 		CB93309B1A0266AD0042E28C /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB93309A1A0266AD0042E28C /* DocumentViewController.swift */; };
 		CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA533F31A136B800022BA46 /* ArrayController.swift */; };
+		CBBB4AAD1A3737CA008AD023 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBBB4AAC1A3737CA008AD023 /* Images.xcassets */; };
 		CBC6977A1A2361C4000B3CC6 /* DictController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC697791A2361C4000B3CC6 /* DictController.swift */; };
 		CBC6977E1A236611000B3CC6 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC6977D1A236611000B3CC6 /* OverviewViewController.swift */; };
 		CBC697821A237098000B3CC6 /* CaseItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC697811A237098000B3CC6 /* CaseItem.swift */; };
@@ -81,7 +81,6 @@
 		CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB0A0D4C19F662A900EFEB2C /* namapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = namapp.xcdatamodel; sourceTree = "<group>"; };
 		CB0A0D5119F662A900EFEB2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CB0A0D5319F662A900EFEB2C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CB0A0D5619F662A900EFEB2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CB0A0D5C19F662A900EFEB2C /* namappTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = namappTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0A0D6119F662A900EFEB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -95,6 +94,7 @@
 		CB6E3CE81A2FBC0400A67E74 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		CB93309A1A0266AD0042E28C /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		CBA533F31A136B800022BA46 /* ArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayController.swift; sourceTree = "<group>"; };
+		CBBB4AAC1A3737CA008AD023 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CBC697791A2361C4000B3CC6 /* DictController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictController.swift; sourceTree = "<group>"; };
 		CBC6977D1A236611000B3CC6 /* OverviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		CBC697811A237098000B3CC6 /* CaseItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseItem.swift; sourceTree = "<group>"; };
@@ -179,8 +179,8 @@
 				CB2A3CD21A247C7E00D70809 /* models */,
 				CB0A0D5019F662A900EFEB2C /* Main.storyboard */,
 				CB0A0D5519F662A900EFEB2C /* LaunchScreen.xib */,
-				CB0A0D5319F662A900EFEB2C /* Images.xcassets */,
 				CB0A0D4B19F662A900EFEB2C /* namapp.xcdatamodeld */,
+				CBBB4AAC1A3737CA008AD023 /* Images.xcassets */,
 				CB0A0D4719F662A900EFEB2C /* Supporting Files */,
 			);
 			path = namapp;
@@ -335,6 +335,7 @@
 				20C869151A36006400FAC10C /* Lato-MediumItalic.ttf in Resources */,
 				20C869181A36006400FAC10C /* Lato-SemiboldItalic.ttf in Resources */,
 				20C8690A1A36006400FAC10C /* Lato-BlackItalic.ttf in Resources */,
+				CBBB4AAD1A3737CA008AD023 /* Images.xcassets in Resources */,
 				20C869101A36006400FAC10C /* Lato-HeavyItalic.ttf in Resources */,
 				CB0A0D5719F662A900EFEB2C /* LaunchScreen.xib in Resources */,
 				20C8690E1A36006400FAC10C /* Lato-HairlineItalic.ttf in Resources */,
@@ -343,7 +344,6 @@
 				20C869141A36006400FAC10C /* Lato-Medium.ttf in Resources */,
 				20C8690D1A36006400FAC10C /* Lato-Hairline.ttf in Resources */,
 				20C869111A36006400FAC10C /* Lato-Italic.ttf in Resources */,
-				CB0A0D5419F662A900EFEB2C /* Images.xcassets in Resources */,
 				20C869191A36006400FAC10C /* Lato-Thin.ttf in Resources */,
 				20C869131A36006400FAC10C /* Lato-LightItalic.ttf in Resources */,
 				20C869161A36006400FAC10C /* Lato-Regular.ttf in Resources */,
