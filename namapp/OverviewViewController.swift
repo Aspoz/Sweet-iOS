@@ -51,19 +51,24 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func filter(sender: UISegmentedControl) {
-        if filterControl.selectedSegmentIndex == 0 {
+        
+        switch filterControl.selectedSegmentIndex {
+        case 0:
             searchJob("")
-        } else if filterControl.selectedSegmentIndex == 1 {
+        case 1:
             searchJob("RFC")
-        } else if filterControl.selectedSegmentIndex == 2 {
+        case 2:
             searchJob("NFI")
-        } else if filterControl.selectedSegmentIndex == 3 {
+        case 3:
             searchJob("RFA")
-        } else if filterControl.selectedSegmentIndex == 4 {
+        case 4:
             searchJob("Info")
+        default:
+            searchJob("")
         }
+        
         self.overviewTableView.reloadData()
-    }
+    } // filter segemented control
     
     func searchJob(type: String) {
         if type != "" {
