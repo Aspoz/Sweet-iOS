@@ -12,6 +12,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var filterControl: UISegmentedControl!
     @IBOutlet weak var overviewTableView: UITableView!
+    @IBOutlet weak var filterBG: UIView!
     
     var cases = [CaseItem]()
     var api : ArrayController?
@@ -21,6 +22,12 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         api = ArrayController(delegate: self)
         api!.casesUrl()
+        
+        applyCustomShadow(filterBG, shadowWidth: 0, shadowHeight: -2, radius: 4)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.overviewTableView.reloadData()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -48,19 +55,24 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func filter(sender: UISegmentedControl) {
-        if filterControl.selectedSegmentIndex == 0 {
+        
+        switch filterControl.selectedSegmentIndex {
+        case 0:
             searchJob("")
-        } else if filterControl.selectedSegmentIndex == 1 {
+        case 1:
             searchJob("RFC")
-        } else if filterControl.selectedSegmentIndex == 2 {
+        case 2:
             searchJob("NFI")
-        } else if filterControl.selectedSegmentIndex == 3 {
+        case 3:
             searchJob("RFA")
-        } else if filterControl.selectedSegmentIndex == 4 {
+        case 4:
             searchJob("Info")
+        default:
+            searchJob("")
         }
+        
         self.overviewTableView.reloadData()
-    }
+    } // filter segemented control
     
     func searchJob(type: String) {
         if type != "" {
@@ -93,18 +105,27 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("OverviewCell") as OverviewCell
         let caseitem = filteredCases[indexPath.row] as CaseItem
         
+        cell.removeCaseSelectedStyling()
         cell.addDataInCellsForCase(caseitem)
         
-        if(indexPath.row == (filteredCases.count-1)) {
-        // if it's the last cell, add shadow
-            applyPlainShadow(cell)
-        } else {
-        // if it's NOT the last cell, remove shadow
-            cell.layer.shadowOpacity = 0.0
+        if(filteredCases.count > 0) {
+            if(indexPath.row == (filteredCases.count-1)) {
+                // if it's the last cell, add shadow
+                applyPlainShadow(cell)
+            } else {
+                removeShadow(cell)
+            }
         }
+        
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow()
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as OverviewCell
+        
+        currentCell.addCaseSelectedStyling()
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "tabview" {
@@ -119,7 +140,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    // Function to apply shadow on an UIView
+    // Function to apply pre-built shadow for cells on an UIView
     func applyPlainShadow(view: UIView) {
         var layer = view.layer
         
@@ -127,6 +148,20 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowOpacity = 0.2
         layer.shadowRadius = 4
+    }
+
+    // Function to apply custom shadow on an UIView
+    func applyCustomShadow(view: UIView, shadowWidth: Int, shadowHeight: Int, radius: CGFloat) {
+        var layer = view.layer
+        
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSize(width: shadowWidth, height: shadowHeight)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = radius
+    }
+    
+    func removeShadow(view: UIView) {
+        view.layer.shadowOpacity = 0.0
     }
     
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
@@ -165,4 +200,15 @@ class OverviewCell: UITableViewCell {
             CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0xCCCCCC)
         }
     }
+    
+    func addCaseSelectedStyling() {
+        self.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
+        self.CaseBG.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
+    }
+    
+    func removeCaseSelectedStyling() {
+        self.backgroundColor = UIColor.whiteColor()
+        self.CaseBG.backgroundColor = UIColor.whiteColor()
+    }
+
 }
