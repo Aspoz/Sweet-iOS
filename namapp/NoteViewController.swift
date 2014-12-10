@@ -15,21 +15,17 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
     var docId:String!
     var ID:Int!
     var docTitle:String!
+    var userId:String!
     
-    @IBOutlet weak var documentId: UILabel!
     @IBOutlet weak var noteText: UITextField!
-    @IBOutlet weak var documentTitle: UILabel!
-    @IBOutlet weak var userId: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            documentId.text = docId
-            documentTitle.text = docTitle
             let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
             let user_idint:Int = prefs.integerForKey("USER_ID") as Int
-            var user_id = String(user_idint)
-            userId.text = user_id
+            userId = String(user_idint)
             api.notesUrl(ID)
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,9 +86,9 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
     
     @IBAction func noteSend(sender: UIButton) {
         
-        var docid:NSString = documentId.text!
+        var docid:NSString = docId
         var notetext:NSString = noteText.text
-        var user:NSString = userId.text!
+        var user:NSString = userId
         var post:NSString = "note[body]=\(notetext)&note[document_id]=\(docid)&note[user_id]=\(user)"
         NSLog("PostData: %@",post);
         var url:NSURL = NSURL(string:"http://178.62.204.157/notes")!
@@ -115,6 +111,28 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
         
         noteText.text = nil
     }
+    
+    
+    func dismissKeyboard(){
+        noteText.resignFirstResponder()
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if (noteText.text == "") {
+            noteText.text = "Start typing your note here."
+            noteText.textColor = UIColor.lightGrayColor()
+        }
+        noteText.resignFirstResponder()
+    }
+    
+    func textViewDidBeginEditing(textView: UITextView){
+        if (noteText.text == "Start typing your note here."){
+            noteText.text = ""
+            noteText.textColor = UIColor.blackColor()
+        }
+        noteText.becomeFirstResponder()
+    }
+
 }
 
 

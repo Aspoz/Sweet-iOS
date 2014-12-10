@@ -134,14 +134,14 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
     
     func textViewDidEndEditing(textView: UITextView) {
         if (commentText.text == "") {
-            commentText.text = "Placeholder"
+            commentText.text = "Start typing your comment here."
             commentText.textColor = UIColor.lightGrayColor()
         }
         commentText.resignFirstResponder()
     }
     
     func textViewDidBeginEditing(textView: UITextView){
-        if (commentText.text == "Placeholder"){
+        if (commentText.text == "Start typing your comment here."){
             commentText.text = ""
             commentText.textColor = UIColor.blackColor()
         }
