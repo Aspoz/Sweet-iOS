@@ -11,12 +11,12 @@ import Foundation
 class Comment {
     var id: Int
     var body: String
-    var user_id: Int
+    var user_name: String
     
-    init(id: Int, body: String, user_id: Int) {
+    init(id: Int, body: String, user_name: String) {
         self.id = id
         self.body = body
-        self.user_id = user_id
+        self.user_name = user_name
     }
     
     class func commentsWithJSON(allResults: NSDictionary) -> [Comment] {
@@ -27,8 +27,8 @@ class Comment {
                     for comment in allComments {
                         var id = comment["id"] as Int
                         var body = comment["body"] as? String
-                        var user_id = comment["user_id"] as Int
-                        var comment = Comment(id: id, body: body!, user_id: user_id)
+                        var user_name = comment["user_name"] as String
+                        var comment = Comment(id: id, body: body!, user_name: user_name)
                         comments.append(comment)
                     }
                 }
