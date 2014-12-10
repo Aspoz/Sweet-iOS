@@ -26,6 +26,10 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         applyCustomShadow(filterBG, shadowWidth: 0, shadowHeight: -2, radius: 4)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.overviewTableView.reloadData()
+    }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -101,6 +105,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("OverviewCell") as OverviewCell
         let caseitem = filteredCases[indexPath.row] as CaseItem
         
+        cell.removeCaseSelectedStyling()
         cell.addDataInCellsForCase(caseitem)
         
         if(indexPath.row == (filteredCases.count-1)) {
@@ -109,9 +114,16 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         } else {
             removeShadow(cell)
         }
+        
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let indexPath = tableView.indexPathForSelectedRow()
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as OverviewCell
+        
+        currentCell.addCaseSelectedStyling()
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "tabview" {
@@ -186,4 +198,16 @@ class OverviewCell: UITableViewCell {
             CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0xCCCCCC)
         }
     }
+    
+    func addCaseSelectedStyling() {
+        self.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
+        self.CaseBG.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
+        self.CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x60AF23)
+    }
+    
+    func removeCaseSelectedStyling() {
+        self.backgroundColor = UIColor.whiteColor()
+        self.CaseBG.backgroundColor = UIColor.whiteColor()
+    }
+
 }
