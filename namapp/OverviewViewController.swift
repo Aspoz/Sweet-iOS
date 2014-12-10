@@ -108,11 +108,13 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.removeCaseSelectedStyling()
         cell.addDataInCellsForCase(caseitem)
         
-        if(indexPath.row == (filteredCases.count-1)) {
-            // if it's the last cell, add shadow
-            applyPlainShadow(cell)
-        } else {
-            removeShadow(cell)
+        if(filteredCases.count > 0) {
+            if(indexPath.row == (filteredCases.count-1)) {
+                // if it's the last cell, add shadow
+                applyPlainShadow(cell)
+            } else {
+                removeShadow(cell)
+            }
         }
         
         return cell
