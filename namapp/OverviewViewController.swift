@@ -140,6 +140,9 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // REMOVE LATER! MAKE THIS GLOBAL FUNCTION!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // Function to apply pre-built shadow for cells on an UIView
     func applyPlainShadow(view: UIView) {
         var layer = view.layer
@@ -163,6 +166,10 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     func removeShadow(view: UIView) {
         view.layer.shadowOpacity = 0.0
     }
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // END GLOBAL FUNCTION!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
     
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
         let appDomain = NSBundle.mainBundle().bundleIdentifier
@@ -183,7 +190,7 @@ class OverviewCell: UITableViewCell {
     // Fill in Prototype cells for Case Overview with data
     func addDataInCellsForCase(caseitem: CaseItem) {
         CaseTitle.text = caseitem.title
-        CaseType.text = caseitem.casetype
+        CaseType.text = caseitem.casetype.uppercaseString
         
         // Check what status it is
         switch caseitem.status {

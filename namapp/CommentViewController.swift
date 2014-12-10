@@ -10,9 +10,8 @@ import UIKit
 
 class CommentViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var id:Int!
-    
+
     @IBOutlet weak var commentText: UITextView!
-    @IBOutlet weak var commentTableView: UITableView!
     
     var caseitem: CaseItem?
     var comments = [Comment]()
@@ -21,7 +20,7 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         super.viewDidLoad()
         var id = caseitem!.id
         commentText.delegate = self
-        
+       
         if (commentText.text == "") {
             textViewDidEndEditing(commentText)
         }
@@ -44,30 +43,22 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
     
     lazy var api : DictController = DictController(delegate: self)
     
+    @IBOutlet weak var commentTableView: UITableView!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("commentCell") as CommentCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("commentCell") as UITableViewCell
         let comment = comments[indexPath.row]
-        cell.addDataInCellsForComment(comment)
+        cell.textLabel?.text = comment.body
         return cell
-    }
-    
-    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-        var comment = comments[indexPath.row]
-        let cell = tableView.dequeueReusableCellWithIdentifier("commentCell") as CommentCell
-        cell.addDataInCellsForComment(comment)
-        println(cell.height())
-        return cell.height()
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var comment = comments[indexPath.row]
     }
-    
     
     func didReceiveAPIResults(results: NSDictionary) {
         var resultsArr: NSDictionary = results as NSDictionary
@@ -77,7 +68,7 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
         })
     }
-    
+
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             if comments.count != 0 {
@@ -147,28 +138,5 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         }
         commentText.becomeFirstResponder()
     }
-}
 
-// Declare OverviewCell: UITableViewCell
-class CommentCell: UITableViewCell {
-
-    // Set cell variables
-    @IBOutlet weak var CommentBody: UILabel!
-    @IBOutlet weak var CommentAuthor: UILabel!
-    
-    func height() -> CGFloat {
-        CommentBody.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
-        CommentBody.sizeToFit()
-        if CommentBody.frame.height < 50 {
-            return 50
-        } else {
-            return CommentBody.frame.height * 1.7
-        }
-    }
-    
-    // Fill in Prototype cells for Case Overview with data
-    func addDataInCellsForComment(comment: Comment) {
-        CommentBody.text = comment.body
-        CommentAuthor.text = comment.user_name
-    }
 }
