@@ -129,6 +129,10 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         layer.shadowRadius = radius
     }
     
+    func removeShadow(view: UIView) {
+        view.layer.shadowOpacity = 0.0
+    }
+    
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
