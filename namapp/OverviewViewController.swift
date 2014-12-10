@@ -12,6 +12,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
 
     @IBOutlet weak var filterControl: UISegmentedControl!
     @IBOutlet weak var overviewTableView: UITableView!
+    @IBOutlet weak var filterBG: UIView!
     
     var cases = [CaseItem]()
     var api : ArrayController?
@@ -21,6 +22,8 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         api = ArrayController(delegate: self)
         api!.casesUrl()
+        
+        applyCustomShadow(filterBG, shadowWidth: 0, shadowHeight: -2, radius: 4)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -96,11 +99,10 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.addDataInCellsForCase(caseitem)
         
         if(indexPath.row == (filteredCases.count-1)) {
-        // if it's the last cell, add shadow
+            // if it's the last cell, add shadow
             applyPlainShadow(cell)
         } else {
-        // if it's NOT the last cell, remove shadow
-            cell.layer.shadowOpacity = 0.0
+            removeShadow(cell)
         }
         return cell
     }
@@ -119,8 +121,18 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    // Function to apply shadow on an UIView
-    func applyPlainShadow(view: UIView, shadowWidth: Int, shadowHeight: Int, radius: CGFloat) {
+    // Function to apply pre-built shadow for cells on an UIView
+    func applyPlainShadow(view: UIView) {
+        var layer = view.layer
+        
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 4
+    }
+
+    // Function to apply custom shadow on an UIView
+    func applyCustomShadow(view: UIView, shadowWidth: Int, shadowHeight: Int, radius: CGFloat) {
         var layer = view.layer
         
         layer.shadowColor = UIColor.blackColor().CGColor
