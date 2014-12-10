@@ -9,7 +9,7 @@
 import UIKit
 
 class OverviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArrayControllerProtocol {
-
+    
     @IBOutlet weak var filterControl: UISegmentedControl!
     @IBOutlet weak var overviewTableView: UITableView!
     @IBOutlet weak var filterBG: UIView!
@@ -140,6 +140,9 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // REMOVE LATER! MAKE THIS GLOBAL FUNCTION!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // Function to apply pre-built shadow for cells on an UIView
     func applyPlainShadow(view: UIView) {
         var layer = view.layer
@@ -149,7 +152,7 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         layer.shadowOpacity = 0.2
         layer.shadowRadius = 4
     }
-
+    
     // Function to apply custom shadow on an UIView
     func applyCustomShadow(view: UIView, shadowWidth: Int, shadowHeight: Int, radius: CGFloat) {
         var layer = view.layer
@@ -163,6 +166,10 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     func removeShadow(view: UIView) {
         view.layer.shadowOpacity = 0.0
     }
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // END GLOBAL FUNCTION!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
     
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
         let appDomain = NSBundle.mainBundle().bundleIdentifier
@@ -183,7 +190,7 @@ class OverviewCell: UITableViewCell {
     // Fill in Prototype cells for Case Overview with data
     func addDataInCellsForCase(caseitem: CaseItem) {
         CaseTitle.text = caseitem.title
-        CaseType.text = caseitem.casetype
+        CaseType.text = caseitem.casetype.uppercaseString
         
         // Check what status it is
         switch caseitem.status {
@@ -210,5 +217,5 @@ class OverviewCell: UITableViewCell {
         self.backgroundColor = UIColor.whiteColor()
         self.CaseBG.backgroundColor = UIColor.whiteColor()
     }
-
+    
 }
