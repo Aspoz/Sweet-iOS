@@ -18,8 +18,8 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
     lazy var api : DictController = DictController(delegate: self)
     
     override func viewDidLoad() {
+        self.tabBarController?.title = "Case: \(caseitem!.title)"
         super.viewDidLoad()
-        titleLabel.text = caseitem?.title
         
         if caseitem != nil {
             api.documentsUrl(caseitem!.id)
