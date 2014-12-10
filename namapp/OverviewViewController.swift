@@ -204,7 +204,6 @@ class OverviewCell: UITableViewCell {
     func addCaseSelectedStyling() {
         self.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
         self.CaseBG.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
-        self.CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x60AF23)
     }
     
     func removeCaseSelectedStyling() {
