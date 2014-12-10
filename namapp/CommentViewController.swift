@@ -60,7 +60,7 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         var comment = comments[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell") as CommentCell
         cell.addDataInCellsForComment(comment)
-        return cell.height()
+        return cell.height() + 20
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -150,19 +150,20 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
 
 // Declare OverviewCell: UITableViewCell
 class CommentCell: UITableViewCell {
-    
+
     // Set cell variables
     @IBOutlet weak var CommentBody: UILabel!
+    @IBOutlet weak var CommentAuthor: UILabel!
     
     func height() -> CGFloat {
         CommentBody.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         CommentBody.sizeToFit()
-        println(CommentBody.frame.height * 1.7)
         return CommentBody.frame.height * 1.7
     }
     
     // Fill in Prototype cells for Case Overview with data
     func addDataInCellsForComment(comment: Comment) {
         CommentBody.text = comment.body
+        CommentAuthor.text = comment.user_name
     }
 }
