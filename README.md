@@ -1,4 +1,0 @@
-Sweet-iOS
-=========
-
-iOS app
