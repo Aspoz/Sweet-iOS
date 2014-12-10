@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="Lato-Bold.ttf">
@@ -11,6 +12,7 @@
             <string>Lato-Bold</string>
         </mutableArray>
         <mutableArray key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
@@ -227,13 +229,22 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="300" translatesAutoresizingMaskIntoConstraints="NO" id="ndB-3W-74g">
-                                                    <rect key="frame" x="227" y="17" width="300" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="492" translatesAutoresizingMaskIntoConstraints="NO" id="ndB-3W-74g">
+                                                    <rect key="frame" x="222" y="15" width="493" height="51"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="Gtx-Qo-4uw"/>
+                                                        <constraint firstAttribute="width" constant="492" id="nGz-aA-npW"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ndB-3W-74g" firstAttribute="top" secondItem="s7f-O1-dKx" secondAttribute="topMargin" constant="5" id="1C3-LM-uBm"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ndB-3W-74g" secondAttribute="trailing" constant="15" id="SKO-7k-uAV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ndB-3W-74g" secondAttribute="bottom" constant="15" id="l5F-fb-W2l"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="CommentAuthor" destination="IkL-yq-CiF" id="9b0-ES-hcU"/>
@@ -257,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHJ-cD-kw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10186" y="1000"/>
+            <point key="canvasLocation" x="10186" y="984"/>
         </scene>
         <!--Case View Controller-->
         <scene sceneID="lng-Zk-Vsm">
