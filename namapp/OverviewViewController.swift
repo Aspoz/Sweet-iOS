@@ -120,13 +120,13 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     // Function to apply shadow on an UIView
-    func applyPlainShadow(view: UIView) {
+    func applyPlainShadow(view: UIView, shadowWidth: Int, shadowHeight: Int, radius: CGFloat) {
         var layer = view.layer
         
         layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowOffset = CGSize(width: shadowWidth, height: shadowHeight)
         layer.shadowOpacity = 0.2
-        layer.shadowRadius = 4
+        layer.shadowRadius = radius
     }
     
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
