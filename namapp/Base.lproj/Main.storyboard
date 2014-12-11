@@ -12,6 +12,7 @@
             <string>Lato-Bold</string>
             <string>Lato-Bold</string>
             <string>Lato-Bold</string>
+            <string>Lato-Bold</string>
         </mutableArray>
         <mutableArray key="Lato-LightItalic.ttf">
             <string>Lato-LightItalic</string>
@@ -282,7 +283,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C40-fo-gVi" userLabel="TitleView">
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Clear View Logo" translatesAutoresizingMaskIntoConstraints="NO" id="iNf-uw-dzx">
+                                <rect key="frame" x="315" y="440" width="146" height="144"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C40-fo-gVi" userLabel="TitleView">
                                 <rect key="frame" x="0.0" y="60" width="768" height="60"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gd7-TE-kZu">
@@ -305,7 +309,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="f1C-gV-1ce">
-                                <rect key="frame" x="0.0" y="120" width="768" height="1024"/>
+                                <rect key="frame" x="0.0" y="100" width="768" height="1024"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -357,10 +361,26 @@
                                     <outlet property="delegate" destination="WhX-4I-QrV" id="RHx-Mz-5lp"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This folder is empty..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqO-d8-SRG">
+                                <rect key="frame" x="0.0" y="160" width="768" height="44"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
+                                <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92549019610000005" green="0.94117647059999998" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="f1C-gV-1ce" firstAttribute="top" secondItem="83B-WS-v4i" secondAttribute="bottom" constant="60" id="4Wk-A7-udp"/>
+                            <constraint firstItem="fqO-d8-SRG" firstAttribute="top" secondItem="C40-fo-gVi" secondAttribute="bottom" constant="40" id="1rc-sM-NqH"/>
+                            <constraint firstItem="f1C-gV-1ce" firstAttribute="top" secondItem="83B-WS-v4i" secondAttribute="bottom" constant="110" id="4Wk-A7-udp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fqO-d8-SRG" secondAttribute="trailing" constant="-16" id="Ixg-tr-27o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C40-fo-gVi" secondAttribute="trailing" constant="-16" id="K9P-Kp-R7f"/>
+                            <constraint firstItem="C40-fo-gVi" firstAttribute="leading" secondItem="f92-gz-HIP" secondAttribute="leadingMargin" constant="-16" id="PoR-aY-plX"/>
+                            <constraint firstItem="iNf-uw-dzx" firstAttribute="leading" secondItem="f92-gz-HIP" secondAttribute="leadingMargin" constant="295" id="W3n-qx-eSJ"/>
+                            <constraint firstItem="fqO-d8-SRG" firstAttribute="leading" secondItem="f92-gz-HIP" secondAttribute="leadingMargin" constant="-16" id="fWt-ji-6V3"/>
+                            <constraint firstItem="C40-fo-gVi" firstAttribute="top" secondItem="f92-gz-HIP" secondAttribute="topMargin" constant="60" id="nxE-oC-0vd"/>
+                            <constraint firstItem="wuP-R3-26J" firstAttribute="top" secondItem="iNf-uw-dzx" secondAttribute="bottom" constant="391" id="tdV-Ai-3ax"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iNf-uw-dzx" secondAttribute="trailing" constant="295" id="vLB-Q6-YyH"/>
+                            <constraint firstItem="iNf-uw-dzx" firstAttribute="top" secondItem="fqO-d8-SRG" secondAttribute="bottom" constant="236" id="wwy-ne-Oe0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Files" image="doc icon 8" id="lh6-zD-E3H"/>
@@ -368,6 +388,8 @@
                         <outlet property="caseStatus" destination="7lt-7H-Jyg" id="s19-Cw-bIW"/>
                         <outlet property="caseType" destination="Cgb-ua-fNw" id="jbI-Mk-71K"/>
                         <outlet property="documentsTableView" destination="f1C-gV-1ce" id="TB8-6h-bSW"/>
+                        <outlet property="emptyCaseViewBG" destination="iNf-uw-dzx" id="7O5-iu-zo3"/>
+                        <outlet property="emptyCaseViewText" destination="fqO-d8-SRG" id="JNW-K3-QN0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l11-rv-JjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -517,6 +539,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clear View Logo" width="146" height="144"/>
         <image name="PDF Icon" width="15" height="19"/>
         <image name="doc icon 8" width="15" height="19"/>
         <image name="doc icon 9" width="18" height="14"/>

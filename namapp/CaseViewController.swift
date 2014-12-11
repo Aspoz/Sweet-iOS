@@ -10,8 +10,8 @@ import UIKit
 
 class CaseViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource{
     
-//    @IBOutlet weak var emptyCaseViewBG: UIImageView!
-//    @IBOutlet weak var emptyCaseViewText: UILabel!
+    @IBOutlet weak var emptyCaseViewBG: UIImageView!
+    @IBOutlet weak var emptyCaseViewText: UILabel!
     @IBOutlet weak var caseType: UILabel!
     @IBOutlet weak var caseStatus: UILabel!
     @IBOutlet weak var documentsTableView: UITableView!
@@ -37,12 +37,12 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-//        if(documents.count > 0) {
-//            hideTextAndImageForEmptyCase()
-//        } else {
-//            showTextAndImageForEmptyCase()
-//        }
-//        
+        if(documents.count > 0) {
+            hideTextAndImageForEmptyCase()
+        } else {
+            showTextAndImageForEmptyCase()
+        }
+        
         return documents.count
     }
     
@@ -84,16 +84,16 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
         caseStatus.text = status.uppercaseString
         caseType.text = type.uppercaseString
     }
-//
-//    func showTextAndImageForEmptyCase() {
-//        emptyCaseViewBG.alpha = 1
-//        emptyCaseViewText.alpha = 1
-//    }
-//    
-//    func hideTextAndImageForEmptyCase() {
-//        emptyCaseViewBG.alpha = 0
-//        emptyCaseViewText.alpha = 0
-//    }
+
+    func showTextAndImageForEmptyCase() {
+        emptyCaseViewBG.alpha = 1
+        emptyCaseViewText.alpha = 1
+    }
+    
+    func hideTextAndImageForEmptyCase() {
+        emptyCaseViewBG.alpha = 0
+        emptyCaseViewText.alpha = 0
+    }
     
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // REMOVE LATER! MAKE THIS GLOBAL FUNCTION!!!!
