@@ -23,6 +23,8 @@ class OverviewViewController: UIViewController, UITableViewDataSource, UITableVi
         api = ArrayController(delegate: self)
         api!.casesUrl()
         
+//        navigationController!.navigationBar.translucent = false
+        
         applyCustomShadow(filterBG, shadowWidth: 0, shadowHeight: -2, radius: 4)
     }
     
