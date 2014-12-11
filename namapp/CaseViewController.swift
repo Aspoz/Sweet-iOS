@@ -14,6 +14,7 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
     @IBOutlet weak var emptyCaseViewText: UILabel!
     @IBOutlet weak var caseType: UILabel!
     @IBOutlet weak var caseStatus: UILabel!
+    @IBOutlet weak var caseStatusColor: UIView!
     @IBOutlet weak var documentsTableView: UITableView!
     var caseitem : CaseItem?
     
@@ -83,6 +84,20 @@ class CaseViewController: UIViewController, DictControllerProtocol, UITableViewD
     func setStatusAndTypeForCase(status: String, type: String) {
         caseStatus.text = status.uppercaseString
         caseType.text = type.uppercaseString
+        
+        switch status {
+        case "In progress":
+            // If 'In progress' set CaseStatusColor to green
+            caseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x6ABF28)
+            
+        case "Open":
+            // If 'Open' set CaseStatusColor to blue
+            caseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x4A90E2)
+            
+        default:
+            // If its anything else (closed) set CaseStatusColor to grey
+            caseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0xCCCCCC)
+        }
     }
 
     func showTextAndImageForEmptyCase() {
