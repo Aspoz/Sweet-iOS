@@ -87,16 +87,13 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         
         switch status {
         case "In progress":
-            // If 'In progress' set CaseStatusColor to green
-            caseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x6ABF28)
+            caseStatusColor.backgroundColor = UIColor.inProgressCaseColor()
             
         case "Open":
-            // If 'Open' set CaseStatusColor to blue
-            caseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x4A90E2)
+            caseStatusColor.backgroundColor = UIColor.openCaseColor()
             
         default:
-            // If its anything else (closed) set CaseStatusColor to grey
-            caseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0xCCCCCC)
+            caseStatusColor.backgroundColor = UIColor.closedCaseColor()
         }
     }
 
@@ -136,29 +133,9 @@ class DocumentCell: UITableViewCell {
         fileUpdatedDate.text = document.updated_at
     }
     
-    //        fileUpdatedDate = document.updated_at
-    //        CaseTitle.text = caseitem.title
-    //        CaseType.text = caseitem.casetype
-    //
-    //        // Check what status it is
-    //        switch caseitem.status {
-    //        case "In progress":
-    //            // If 'In progress' set CaseStatusColor to green
-    //            CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x6ABF28)
-    //
-    //        case "Open":
-    //            // If 'Open' set CaseStatusColor to blue
-    //            CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x4A90E2)
-    //
-    //        default:
-    //            // If its anything else (closed) set CaseStatusColor to grey
-    //            CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0xCCCCCC)
-    //        }
-    //    }
-    //
     func addCaseSelectedStyling() {
-        self.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
-        self.fileBG.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
+        self.backgroundColor = UIColor.caseSelectedColor()
+        self.fileBG.backgroundColor = UIColor.caseSelectedColor()
     }
     
     func removeCaseSelectedStyling() {

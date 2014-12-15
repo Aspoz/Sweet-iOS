@@ -23,4 +23,21 @@ extension UIColor {
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
     }
+    
+    class func inProgressCaseColor() -> UIColor {
+        return UIColor.colorWithRGBHex(0x6ABF28)
+    }
+    
+    class func openCaseColor() -> UIColor {
+        return UIColor.colorWithRGBHex(0x4A90E2)
+    }
+    
+    class func closedCaseColor() -> UIColor {
+        return UIColor.colorWithRGBHex(0xCCCCCC)
+    }
+    
+    class func caseSelectedColor() -> UIColor {
+        return UIColor.colorWithRGBHex(0xF6F6F6)
+    }
+
 }

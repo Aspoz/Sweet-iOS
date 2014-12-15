@@ -166,22 +166,19 @@ class OverviewCell: UITableViewCell {
         // Check what status it is
         switch caseitem.status {
         case "In progress":
-            // If 'In progress' set CaseStatusColor to green
-            CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x6ABF28)
+            CaseStatusColor.backgroundColor = UIColor.inProgressCaseColor()
             
         case "Open":
-            // If 'Open' set CaseStatusColor to blue
-            CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0x4A90E2)
+            CaseStatusColor.backgroundColor = UIColor.openCaseColor()
             
         default:
-            // If its anything else (closed) set CaseStatusColor to grey
-            CaseStatusColor.backgroundColor = UIColor.colorWithRGBHex(0xCCCCCC)
+            CaseStatusColor.backgroundColor = UIColor.closedCaseColor()
         }
     }
     
     func addCaseSelectedStyling() {
-        self.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
-        self.CaseBG.backgroundColor = UIColor.colorWithRGBHex(0xF6F6F6)
+        self.backgroundColor = UIColor.caseSelectedColor()
+        self.CaseBG.backgroundColor = UIColor.caseSelectedColor()
     }
     
     func removeCaseSelectedStyling() {
