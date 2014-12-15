@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Jordi Wippert. All rights reserved.
 //
 
-import UIColor
+import UIKit
 
 extension UIColor {
     class func inProgressCaseColor() -> UIColor {
