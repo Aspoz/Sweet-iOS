@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearance.tintColor = UIColor.whiteColor()
         navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         navigationBarAppearance.barStyle = UIBarStyle.Black
-        navigationBarAppearance.barTintColor = UIColor.colorWithRGBHex(0x6ABF28)
+        navigationBarAppearance.barTintColor = UIColor.namGreenColor()
         return true
     }
 
