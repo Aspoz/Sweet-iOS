@@ -117,30 +117,3 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         })
     }
 }
-
-class DocumentCell: UITableViewCell {
-    
-    // Set cell variables
-    @IBOutlet weak var fileBG: UIView!
-    @IBOutlet weak var fileIcon: UIImageView!
-    @IBOutlet weak var fileName: UILabel!
-    @IBOutlet weak var fileUpdatedDate: UILabel!
-    
-    
-    // Fill in Prototype cells for Case Overview with data
-    func addDataInCellsForDocuments(document: Document) {
-        fileName.text = document.title
-        fileUpdatedDate.text = document.updated_at
-    }
-    
-    func addCaseSelectedStyling() {
-        self.backgroundColor = UIColor.caseSelectedColor()
-        self.fileBG.backgroundColor = UIColor.caseSelectedColor()
-    }
-    
-    func removeCaseSelectedStyling() {
-        self.backgroundColor = UIColor.whiteColor()
-        self.fileBG.backgroundColor = UIColor.whiteColor()
-    }
-    
-}

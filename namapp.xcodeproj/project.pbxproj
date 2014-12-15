@@ -26,6 +26,9 @@
 		20C869181A36006400FAC10C /* Lato-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C869061A36006400FAC10C /* Lato-SemiboldItalic.ttf */; };
 		20C869191A36006400FAC10C /* Lato-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C869071A36006400FAC10C /* Lato-Thin.ttf */; };
 		20C8691A1A36006400FAC10C /* Lato-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C869081A36006400FAC10C /* Lato-ThinItalic.ttf */; };
+		20DC18541A3F2E7A000855DC /* CaseOverviewCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DC18531A3F2E7A000855DC /* CaseOverviewCellView.swift */; };
+		20DC18561A3F344E000855DC /* DocumentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DC18551A3F344E000855DC /* DocumentCellView.swift */; };
+		20DC18581A3F349D000855DC /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DC18571A3F349D000855DC /* CommentCellView.swift */; };
 		CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */; };
 		CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4B19F662A900EFEB2C /* namapp.xcdatamodeld */; };
 		CB0A0D5219F662A900EFEB2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5019F662A900EFEB2C /* Main.storyboard */; };
@@ -78,6 +81,9 @@
 		20C869061A36006400FAC10C /* Lato-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-SemiboldItalic.ttf"; path = "Fonts/Lato-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		20C869071A36006400FAC10C /* Lato-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Thin.ttf"; path = "Fonts/Lato-Thin.ttf"; sourceTree = "<group>"; };
 		20C869081A36006400FAC10C /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-ThinItalic.ttf"; path = "Fonts/Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
+		20DC18531A3F2E7A000855DC /* CaseOverviewCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseOverviewCellView.swift; sourceTree = "<group>"; };
+		20DC18551A3F344E000855DC /* DocumentCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentCellView.swift; sourceTree = "<group>"; };
+		20DC18571A3F349D000855DC /* CommentCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
 		CB0A0D4419F662A900EFEB2C /* namapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = namapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0A0D4819F662A900EFEB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -155,6 +161,16 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		20DC18591A3F3601000855DC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				20DC18531A3F2E7A000855DC /* CaseOverviewCellView.swift */,
+				20DC18551A3F344E000855DC /* DocumentCellView.swift */,
+				20DC18571A3F349D000855DC /* CommentCellView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		CB0A0D3B19F662A900EFEB2C = {
 			isa = PBXGroup;
 			children = (
@@ -180,7 +196,8 @@
 				CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */,
 				CB292CC61A3F1418007FEB84 /* Backend */,
 				CB2A3CD01A247C5600D70809 /* API Controllers */,
-				CB2A3CD11A247C6E00D70809 /* View Controllers */,
+				CB2A3CD11A247C6E00D70809 /* Controllers */,
+				20DC18591A3F3601000855DC /* Views */,
 				CB2A3CD21A247C7E00D70809 /* Models */,
 				CB0A0D5019F662A900EFEB2C /* Main.storyboard */,
 				CB0A0D5519F662A900EFEB2C /* LaunchScreen.xib */,
@@ -234,7 +251,7 @@
 			name = "API Controllers";
 			sourceTree = "<group>";
 		};
-		CB2A3CD11A247C6E00D70809 /* View Controllers */ = {
+		CB2A3CD11A247C6E00D70809 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				CB292CC21A3EEF68007FEB84 /* ApplicationViewController.swift */,
@@ -245,7 +262,7 @@
 				CB93309A1A0266AD0042E28C /* DocumentViewController.swift */,
 				CB6E3CE61A2F6AD100A67E74 /* NoteViewController.swift */,
 			);
-			name = "View Controllers";
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		CB2A3CD21A247C7E00D70809 /* Models */ = {
@@ -382,9 +399,12 @@
 				CBC6977A1A2361C4000B3CC6 /* DictController.swift in Sources */,
 				CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */,
 				CB6A5AAA1A35E1C30047F2E9 /* Comment.swift in Sources */,
+				20DC18561A3F344E000855DC /* DocumentCellView.swift in Sources */,
 				CB292CC51A3F1405007FEB84 /* Backend.swift in Sources */,
+				20DC18581A3F349D000855DC /* CommentCellView.swift in Sources */,
 				CB93309B1A0266AD0042E28C /* DocumentViewController.swift in Sources */,
 				CB6E3CE71A2F6AD100A67E74 /* NoteViewController.swift in Sources */,
+				20DC18541A3F2E7A000855DC /* CaseOverviewCellView.swift in Sources */,
 				20C868F61A35E65000FAC10C /* ColorExtension.swift in Sources */,
 				CB2A3CCF1A247B4E00D70809 /* CaseViewController.swift in Sources */,
 				CB2A3CD41A247D8D00D70809 /* Document.swift in Sources */,
