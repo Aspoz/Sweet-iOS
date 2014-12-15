@@ -18,25 +18,27 @@ class ArrayController {
         self.delegate = delegate
     }
     
+    func completion(data: NSData!, response: NSURLResponse!, error: NSError!) -> Void {
+        if(error != nil) {
+            println(error.localizedDescription)
+        }
+        var err: NSError?
+        var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSArray
+        if(err != nil) {
+            println("JSON Error \(err!.localizedDescription)")
+        }
+        let results: NSArray = jsonResult as NSArray
+        self.delegate.didReceiveAPIResults(jsonResult)
+    }
+
     func get(path: String) {
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
-            if(error != nil) {
-                println(error.localizedDescription)
-            }
-            var err: NSError?
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSArray
-            if(err != nil) {
-                println("JSON Error \(err!.localizedDescription)")
-            }
-            let results: NSArray = jsonResult as NSArray
-            self.delegate.didReceiveAPIResults(jsonResult)
-        })
+        let task = session.dataTaskWithURL(url!, completionHandler: completion)
         task.resume()
     }
     
-    func casesUrl() {
+       func casesUrl() {
         let urlPath = "http://178.62.204.157/cases"
         get(urlPath)
     }
