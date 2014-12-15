@@ -165,36 +165,6 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         commentText.becomeFirstResponder()
     }
     
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // REMOVE LATER! MAKE THIS GLOBAL FUNCTION!!!!
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // Function to apply pre-built shadow for cells on an UIView
-    func applyPlainShadow(view: UIView) {
-        var layer = view.layer
-        
-        layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOffset = CGSize(width: 0, height: 2)
-        layer.shadowOpacity = 0.2
-        layer.shadowRadius = 4
-    }
-    
-    // Function to apply custom shadow on an UIView
-    func applyCustomShadow(view: UIView, shadowWidth: Int, shadowHeight: Int, radius: CGFloat) {
-        var layer = view.layer
-        
-        layer.shadowColor = UIColor.blackColor().CGColor
-        layer.shadowOffset = CGSize(width: shadowWidth, height: shadowHeight)
-        layer.shadowOpacity = 0.2
-        layer.shadowRadius = radius
-    }
-    
-    func removeShadow(view: UIView) {
-        view.layer.shadowOpacity = 0.0
-    }
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    // END GLOBAL FUNCTION!!!!!!!!!!!!!!!!!!!!!!!!
-    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    
 }
 
 // Declare OverviewCell: UITableViewCell
