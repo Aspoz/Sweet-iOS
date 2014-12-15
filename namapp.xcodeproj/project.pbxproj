@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20C868F61A35E65000FAC10C /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C868F51A35E65000FAC10C /* ColorExtension.swift */; };
+		20C868F61A35E65000FAC10C /* ColorWithRGBHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */; };
 		20C869091A36006400FAC10C /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C868F71A36006400FAC10C /* Lato-Black.ttf */; };
 		20C8690A1A36006400FAC10C /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C868F81A36006400FAC10C /* Lato-BlackItalic.ttf */; };
 		20C8690B1A36006400FAC10C /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C868F91A36006400FAC10C /* Lato-Bold.ttf */; };
@@ -63,7 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		20C868F51A35E65000FAC10C /* ColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWithRGBHex.swift; sourceTree = "<group>"; };
 		20C868F71A36006400FAC10C /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "Fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		20C868F81A36006400FAC10C /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "Fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
 		20C868F91A36006400FAC10C /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Bold.ttf"; path = "Fonts/Lato-Bold.ttf"; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		20C868F41A35E47700FAC10C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				20C868F51A35E65000FAC10C /* ColorExtension.swift */,
+				20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */,
 				20DC185A1A3F3D33000855DC /* Colors.swift */,
 			);
 			name = Extensions;
@@ -409,7 +409,7 @@
 				CB6E3CE71A2F6AD100A67E74 /* NoteViewController.swift in Sources */,
 				20DC18541A3F2E7A000855DC /* CaseOverviewCellView.swift in Sources */,
 				20DC185B1A3F3D33000855DC /* Colors.swift in Sources */,
-				20C868F61A35E65000FAC10C /* ColorExtension.swift in Sources */,
+				20C868F61A35E65000FAC10C /* ColorWithRGBHex.swift in Sources */,
 				CB2A3CCF1A247B4E00D70809 /* CaseViewController.swift in Sources */,
 				CB2A3CD41A247D8D00D70809 /* Document.swift in Sources */,
 				CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */,
