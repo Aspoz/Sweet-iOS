@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoteViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
+class NoteViewController: ApplicationViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
     var document: Document?
     var notes = [Note]()
     

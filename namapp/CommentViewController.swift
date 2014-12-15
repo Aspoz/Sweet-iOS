@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+class CommentViewController: ApplicationViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var id:Int!
     var user_id:String!
     

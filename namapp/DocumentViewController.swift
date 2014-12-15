@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DocumentViewController: UIViewController {
+class DocumentViewController: ApplicationViewController {
     
     @IBOutlet weak var PdfView: UIWebView!
     var document: Document?

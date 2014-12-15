@@ -32,6 +32,7 @@
 		CB0A0D5719F662A900EFEB2C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5519F662A900EFEB2C /* LaunchScreen.xib */; };
 		CB0A0D6319F662A900EFEB2C /* namappTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D6219F662A900EFEB2C /* namappTests.swift */; };
 		CB2491031A35BA3000635E42 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2491021A35BA3000635E42 /* CommentViewController.swift */; };
+		CB292CC31A3EEF68007FEB84 /* ApplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB292CC21A3EEF68007FEB84 /* ApplicationViewController.swift */; };
 		CB2A3CCF1A247B4E00D70809 /* CaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */; };
 		CB2A3CD41A247D8D00D70809 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2A3CD31A247D8D00D70809 /* Document.swift */; };
 		CB6A5AAA1A35E1C30047F2E9 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6A5AA91A35E1C30047F2E9 /* Comment.swift */; };
@@ -86,6 +87,7 @@
 		CB0A0D6119F662A900EFEB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0A0D6219F662A900EFEB2C /* namappTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = namappTests.swift; sourceTree = "<group>"; };
 		CB2491021A35BA3000635E42 /* CommentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		CB292CC21A3EEF68007FEB84 /* ApplicationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationViewController.swift; sourceTree = "<group>"; };
 		CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaseViewController.swift; sourceTree = "<group>"; };
 		CB2A3CD31A247D8D00D70809 /* Document.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		CB6A5AA91A35E1C30047F2E9 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 		CB2A3CD11A247C6E00D70809 /* view controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB292CC21A3EEF68007FEB84 /* ApplicationViewController.swift */,
 				CB6E3CE21A2F2CE000A67E74 /* LoginViewController.swift */,
 				CBC6977D1A236611000B3CC6 /* OverviewViewController.swift */,
 				CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */,
@@ -377,6 +380,7 @@
 				CBC6977E1A236611000B3CC6 /* OverviewViewController.swift in Sources */,
 				CBC697821A237098000B3CC6 /* CaseItem.swift in Sources */,
 				CB6E3CE31A2F2CE000A67E74 /* LoginViewController.swift in Sources */,
+				CB292CC31A3EEF68007FEB84 /* ApplicationViewController.swift in Sources */,
 				CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */,
 				CB6E3CE91A2FBC0400A67E74 /* Note.swift in Sources */,
 			);

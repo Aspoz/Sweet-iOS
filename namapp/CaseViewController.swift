@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CaseViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource{
+class CaseViewController: ApplicationViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var emptyCaseViewBG: UIImageView!
     @IBOutlet weak var emptyCaseViewText: UILabel!

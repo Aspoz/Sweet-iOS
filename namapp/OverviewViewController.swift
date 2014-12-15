@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OverviewViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ArrayControllerProtocol {
+class OverviewViewController: ApplicationViewController, UITableViewDataSource, UITableViewDelegate, ArrayControllerProtocol {
     
     @IBOutlet weak var filterControl: UISegmentedControl!
     @IBOutlet weak var overviewTableView: UITableView!
