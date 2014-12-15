@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NoteViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource{
+class NoteViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
     var document: Document?
     var notes = [Note]()
     
@@ -17,7 +17,7 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
     var docTitle:String!
     var userId:String!
     
-    @IBOutlet weak var noteText: UITextField!
+    @IBOutlet weak var noteText: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,14 @@ class NoteViewController: UIViewController, DictControllerProtocol, UITableViewD
             let user_idint:Int = prefs.integerForKey("USER_ID") as Int
             userId = String(user_idint)
             api.notesUrl(ID)
+        
+        noteText.delegate = self
 
+        if (noteText.text == "") {
+            textViewDidEndEditing(noteText)
+        }
+        var tapDismiss = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        self.view.addGestureRecognizer(tapDismiss)
     }
 
     override func didReceiveMemoryWarning() {

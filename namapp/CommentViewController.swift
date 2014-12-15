@@ -10,6 +10,7 @@ import UIKit
 
 class CommentViewController: UIViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var id:Int!
+    var user_id:String!
     
     @IBOutlet weak var commentText: UITextView!
     @IBOutlet weak var commentTableView: UITableView!
@@ -20,6 +21,11 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         var id = caseitem!.id
+        
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        let user_idint:Int = prefs.integerForKey("USER_ID") as Int
+        user_id = String(user_idint)
+        
         commentText.delegate = self
         
         if (commentText.text == "") {
@@ -28,6 +34,7 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         
         commentText!.layer.borderWidth = 1
         commentText!.layer.borderColor = UIColor.colorWithRGBHex(0x4A90E2).CGColor
+        applyPlainShadow(commentText)
         
         var tapDismiss = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapDismiss)
@@ -53,6 +60,16 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell") as CommentCell
         let comment = comments[indexPath.row]
         cell.addDataInCellsForComment(comment)
+        
+        if(comments.count > 0) {
+            if(indexPath.row == (comments.count-1)) {
+                // if it's the last cell, add shadow
+                applyPlainShadow(cell)
+            } else {
+                removeShadow(cell)
+            }
+        }
+
         return cell
     }
     
@@ -147,6 +164,37 @@ class CommentViewController: UIViewController, DictControllerProtocol, UITableVi
         }
         commentText.becomeFirstResponder()
     }
+    
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // REMOVE LATER! MAKE THIS GLOBAL FUNCTION!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // Function to apply pre-built shadow for cells on an UIView
+    func applyPlainShadow(view: UIView) {
+        var layer = view.layer
+        
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 4
+    }
+    
+    // Function to apply custom shadow on an UIView
+    func applyCustomShadow(view: UIView, shadowWidth: Int, shadowHeight: Int, radius: CGFloat) {
+        var layer = view.layer
+        
+        layer.shadowColor = UIColor.blackColor().CGColor
+        layer.shadowOffset = CGSize(width: shadowWidth, height: shadowHeight)
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = radius
+    }
+    
+    func removeShadow(view: UIView) {
+        view.layer.shadowOpacity = 0.0
+    }
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    // END GLOBAL FUNCTION!!!!!!!!!!!!!!!!!!!!!!!!
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    
 }
 
 // Declare OverviewCell: UITableViewCell
@@ -155,12 +203,13 @@ class CommentCell: UITableViewCell {
     // Set cell variables
     @IBOutlet weak var CommentBody: UILabel!
     @IBOutlet weak var CommentAuthor: UILabel!
+    @IBOutlet weak var CommentDate: UILabel!
     
     func height() -> CGFloat {
         CommentBody.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         CommentBody.sizeToFit()
         if CommentBody.frame.height < 50 {
-            return 50
+            return 70
         } else {
             return CommentBody.frame.height * 1.7
         }
@@ -170,5 +219,6 @@ class CommentCell: UITableViewCell {
     func addDataInCellsForComment(comment: Comment) {
         CommentBody.text = comment.body
         CommentAuthor.text = comment.user_name
+        CommentDate.text = comment.created_at
     }
 }

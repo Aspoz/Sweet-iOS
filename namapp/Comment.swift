@@ -12,11 +12,13 @@ class Comment {
     var id: Int
     var body: String
     var user_name: String
+    var created_at: String
     
-    init(id: Int, body: String, user_name: String) {
+    init(id: Int, body: String, user_name: String, created_at: String) {
         self.id = id
         self.body = body
         self.user_name = user_name
+        self.created_at = created_at
     }
     
     class func commentsWithJSON(allResults: NSDictionary) -> [Comment] {
@@ -28,7 +30,8 @@ class Comment {
                         var id = comment["id"] as Int
                         var body = comment["body"] as? String
                         var user_name = comment["user_name"] as String
-                        var comment = Comment(id: id, body: body!, user_name: user_name)
+                        var created_at = comment["created_at"] as String
+                        var comment = Comment(id: id, body: body!, user_name: user_name, created_at: created_at)
                         comments.append(comment)
                     }
                 }
