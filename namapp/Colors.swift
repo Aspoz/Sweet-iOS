@@ -9,6 +9,18 @@
 import UIKit
 
 extension UIColor {
+    class func namGreenColor() -> UIColor {
+        return UIColor.colorWithRGBHex(0x6ABF28)
+    }
+    
+    class func namBlueColor() -> UIColor {
+        return UIColor.colorWithRGBHex(0x005193)
+    }
+    
+    class func contentColor() -> UIColor {
+        return UIColor.colorWithRGBHex(0x555555)
+    }
+    
     class func inProgressCaseColor() -> UIColor {
         return UIColor.colorWithRGBHex(0x6ABF28)
     }
