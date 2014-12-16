@@ -105,7 +105,6 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
                 request.HTTPMethod = "DELETE"
                 var reponseError: NSError?
                 var response: NSURLResponse?
-                
                 var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
                 
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)

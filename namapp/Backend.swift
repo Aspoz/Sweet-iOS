@@ -20,11 +20,11 @@ class Backend : UIViewController {
         return url
     }
     
-    func post(endpoint: String, params: String) -> NSDictionary {
+    func request(endpoint: String, params: String, method: String) -> NSDictionary {
         var postData:NSData = params.dataUsingEncoding(NSUTF8StringEncoding)!
         var url:NSURL = endpoint_url(endpoint)
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
+        request.HTTPMethod = method
         request.HTTPBody = postData
         var reponseError: NSError?
         var response: NSURLResponse?
@@ -36,7 +36,7 @@ class Backend : UIViewController {
     
     func login(email: String, password: String) -> NSDictionary {
         var params = "email=\(email)&password=\(password)"
-        var user = Backend().post("/sessions", params: params)
+        var user = Backend().request("/sessions", params: params, method: "POST")
         var success:Bool = user.valueForKey("success") as Bool
         if success {
             createUserDefaults(email, password: password, user: user)
@@ -56,11 +56,25 @@ class Backend : UIViewController {
         prefs.synchronize()
         return true
     }
-    
+
     func isLoggedIn() -> Bool {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         var isLoggedIn:Bool = prefs.boolForKey("isloggedin") as Bool
         return isLoggedIn
+    }
+    
+    func currentUser() -> NSInteger {
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        var userid:NSInteger = prefs.integerForKey("userid") as NSInteger
+        return userid
+    }
+    
+    func logout() -> Bool {
+        var id = currentUser()
+        request("/sessions/delete", params: "user_id=\(id)", method: "DELETE")
+        let appDomain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        return true
     }
     
     func alert(title: String, message: String, button: String = "OK") -> UIAlertView {

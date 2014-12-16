@@ -14,6 +14,8 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     @IBOutlet weak var overviewTableView: UITableView!
     @IBOutlet weak var filterBG: UIView!
     
+    let backend = Backend()
+
     var cases = [CaseItem]()
     var api : ArrayController?
     var filteredCases: NSMutableArray!
@@ -138,8 +140,7 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     }
     
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
-        let appDomain = NSBundle.mainBundle().bundleIdentifier
-        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
+        backend.logout()
         self.performSegueWithIdentifier("goto_login", sender: self)
     }
 }
