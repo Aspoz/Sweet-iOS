@@ -61,9 +61,9 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         if(documents.count > 0) {
             if(indexPath.row == (documents.count-1)) {
                 // if it's the last cell, add shadow
-                applyPlainShadow(cell)
+                cell.applyPlainShadow()
             } else {
-                removeShadow(cell)
+                cell.removeShadow()
             }
         }
         

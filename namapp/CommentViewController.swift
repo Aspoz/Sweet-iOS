@@ -34,7 +34,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         
         commentText!.layer.borderWidth = 1
         commentText!.layer.borderColor = UIColor.colorWithRGBHex(0x4A90E2).CGColor
-        applyPlainShadow(commentText)
+        commentText.applyPlainShadow()
         
         var tapDismiss = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapDismiss)
@@ -64,9 +64,9 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         if(comments.count > 0) {
             if(indexPath.row == (comments.count-1)) {
                 // if it's the last cell, add shadow
-                applyPlainShadow(cell)
+                cell.applyPlainShadow()
             } else {
-                removeShadow(cell)
+                cell.removeShadow()
             }
         }
 
