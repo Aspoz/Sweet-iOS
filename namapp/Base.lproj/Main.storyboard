@@ -279,8 +279,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CSY-mX-jbw" id="s7f-O1-dKx">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkL-yq-CiF">
-                                                    <rect key="frame" x="15" y="15" width="136" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkL-yq-CiF">
+                                                    <rect key="frame" x="15" y="15" width="197" height="21"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -289,13 +289,12 @@
                                                     <rect key="frame" x="220" y="13" width="493" height="28"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="493" id="kO1-4J-an0"/>
-                                                        <constraint firstAttribute="height" constant="28" id="x9W-35-afe"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dP-yp-hPV">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0dP-yp-hPV">
                                                     <rect key="frame" x="15" y="35" width="136" height="21"/>
                                                     <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -305,9 +304,14 @@
                                             <constraints>
                                                 <constraint firstItem="IkL-yq-CiF" firstAttribute="leading" secondItem="s7f-O1-dKx" secondAttribute="leadingMargin" constant="7" id="Fe3-fu-Gbc"/>
                                                 <constraint firstItem="ndB-3W-74g" firstAttribute="leading" secondItem="IkL-yq-CiF" secondAttribute="trailing" constant="8" symbolic="YES" id="GNT-8s-PlF"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0dP-yp-hPV" secondAttribute="bottom" constant="1" id="Nbv-i2-153"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ndB-3W-74g" secondAttribute="trailing" constant="15" id="OLj-rd-0ll"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="ndB-3W-74g" secondAttribute="bottom" constant="15" id="XEv-xl-Dee"/>
-                                                <constraint firstItem="ndB-3W-74g" firstAttribute="top" secondItem="s7f-O1-dKx" secondAttribute="topMargin" constant="5" id="djf-1M-16M"/>
+                                                <constraint firstItem="ndB-3W-74g" firstAttribute="top" secondItem="s7f-O1-dKx" secondAttribute="topMargin" constant="5" id="Umm-Th-KYV"/>
+                                                <constraint firstItem="0dP-yp-hPV" firstAttribute="top" secondItem="s7f-O1-dKx" secondAttribute="topMargin" constant="27" id="YBg-Z4-Kbl"/>
+                                                <constraint firstItem="ndB-3W-74g" firstAttribute="leading" secondItem="0dP-yp-hPV" secondAttribute="trailing" constant="69" id="cAt-Rr-lrh"/>
+                                                <constraint firstItem="IkL-yq-CiF" firstAttribute="top" secondItem="s7f-O1-dKx" secondAttribute="topMargin" constant="7" id="op4-7M-63Z"/>
+                                                <constraint firstItem="0dP-yp-hPV" firstAttribute="leading" secondItem="IkL-yq-CiF" secondAttribute="leading" id="wY9-CZ-ge4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="ndB-3W-74g" secondAttribute="bottom" constant="16" id="wb5-fP-1DW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

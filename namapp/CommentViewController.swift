@@ -10,21 +10,21 @@ import UIKit
 
 class CommentViewController: ApplicationViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var id:Int!
-    var user_id:String!
     
     @IBOutlet weak var commentText: UITextView!
     @IBOutlet weak var commentTableView: UITableView!
     
+    let backend = Backend()
+
     var caseitem: CaseItem?
     var comments = [Comment]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         var id = caseitem!.id
-        
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let user_idint:Int = prefs.integerForKey("USER_ID") as Int
-        user_id = String(user_idint)
+//        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+//        let user_idint:Int = prefs.integerForKey("USER_ID") as Int
+//        user_id = String(user_idint)
         
         commentText.delegate = self
         
@@ -113,34 +113,11 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
     }
     
     @IBAction func commentSend(sender: UIButton) {
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let user_idint:Int = prefs.integerForKey("USER_ID") as Int
-        var user_id = String(user_idint)
-        
-        var caseid:NSNumber = caseitem!.id
+        var caseid:Int = caseitem!.id
         var commenttext:NSString = commentText.text
-        var user:NSString = user_id
-        var post:NSString = "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(user)"
-        NSLog("PostData: %@",post);
-        var url:NSURL = NSURL(string:"http://178.62.204.157/comments")!
-        
-        var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
-        var postLength:NSString = String( postData.length )
-        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.HTTPBody = postData
-        request.setValue(postLength, forHTTPHeaderField: "Content-Length")
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        
-        var reponseError: NSError?
-        var response: NSURLResponse?
-        
-        var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
-        
-        var id = caseitem!.id
-        api.documentsUrl(id)
-        
+        var userid = backend.currentUser()
+        backend.request("/comments", params: "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(userid)", method: "POST")
+        api.documentsUrl(caseid)
         commentText.text = nil
     }
     
@@ -163,5 +140,4 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         }
         commentText.becomeFirstResponder()
     }
-    
 }

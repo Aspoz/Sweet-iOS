@@ -26,11 +26,14 @@ class Backend : UIViewController {
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
         request.HTTPMethod = method
         request.HTTPBody = postData
+        println(request)
         var reponseError: NSError?
         var response: NSURLResponse?
         var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
+        println(urlData)
         var error: NSError?
         let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as NSDictionary
+        println(jsonData)
         return jsonData
     }
     
