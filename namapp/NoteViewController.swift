@@ -125,18 +125,12 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        if (noteText.text == "") {
-            noteText.text = "Start typing your note here."
-            noteText.textColor = UIColor.lightGrayColor()
-        }
+        textView.addPlaceholderIfEmpty("Enter your note here...")
         noteText.resignFirstResponder()
     }
     
     func textViewDidBeginEditing(textView: UITextView){
-        if (noteText.text == "Start typing your note here."){
-            noteText.text = ""
-            noteText.textColor = UIColor.blackColor()
-        }
+        textView.addPlaceholderIfEmpty("Enter your note here...")
         noteText.becomeFirstResponder()
     }
 

@@ -116,18 +116,12 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        if (commentText.text == "") {
-            commentText.text = "Start typing your comment here."
-            commentText.textColor = UIColor.lightGrayColor()
-        }
+        textView.addPlaceholderIfEmpty("Enter your comment here...")
         commentText.resignFirstResponder()
     }
     
     func textViewDidBeginEditing(textView: UITextView){
-        if (commentText.text == "Start typing your comment here."){
-            commentText.text = ""
-            commentText.textColor = UIColor.blackColor()
-        }
+        textView.addPlaceholderIfEmpty("Enter your comment here...")
         commentText.becomeFirstResponder()
     }
 }
