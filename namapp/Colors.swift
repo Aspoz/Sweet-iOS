@@ -22,7 +22,7 @@ extension UIColor {
     }
     
     class func inProgressCaseColor() -> UIColor {
-        return UIColor.colorWithRGBHex(0x6ABF28)
+        return UIColor.namGreenColor()
     }
 
     class func openCaseColor() -> UIColor {
