@@ -33,11 +33,10 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     }
     
     override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        let isLoggedIn:Int = prefs.integerForKey("ISLOGGEDIN") as Int
-        if (isLoggedIn != 1) {
-            self.performSegueWithIdentifier("goto_login", sender: self)
+        if (Backend().isLoggedIn() == false) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewcontroller = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
+            presentViewController(viewcontroller, animated: true, completion: nil)
         }
     }
     
@@ -118,14 +117,12 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
                 removeShadow(cell)
             }
         }
-        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let indexPath = tableView.indexPathForSelectedRow()
         let currentCell = tableView.cellForRowAtIndexPath(indexPath!) as OverviewCell
-        
         currentCell.addCaseSelectedStyling()
     }
     
