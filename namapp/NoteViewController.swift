@@ -107,7 +107,8 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
         request.HTTPBody = postData
         request.setValue(postLength, forHTTPHeaderField: "Content-Length")
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")    
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("Token token=9bfe788a53e51575ef246bc641c3cc6e", forHTTPHeaderField: "Authorization")
         var reponseError: NSError?
         var response: NSURLResponse?
         
