@@ -39,11 +39,11 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if(documents.count > 0) {
-            emptyCaseViewBG.hide()
-            emptyCaseViewText.hide()
+            emptyCaseViewBG.hideElement()
+            emptyCaseViewText.hideElement()
         } else {
-            emptyCaseViewBG.show()
-            emptyCaseViewText.show()
+            emptyCaseViewBG.showElement()
+            emptyCaseViewText.showElement()
         }
         
         return documents.count
