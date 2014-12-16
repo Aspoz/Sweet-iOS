@@ -172,8 +172,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="closedStatusColor" destination="Wnz-TB-2Zu" id="pw3-1r-XWa"/>
                         <outlet property="filterBG" destination="W6I-TQ-abh" id="bGo-Hl-e3m"/>
                         <outlet property="filterControl" destination="fpT-ME-76S" id="MsO-C5-HRd"/>
+                        <outlet property="inProgressStatusColor" destination="TFO-aL-jGQ" id="yZC-d2-ugS"/>
+                        <outlet property="openStatusColor" destination="5WM-Yq-5JZ" id="Rhy-b7-RSc"/>
                         <outlet property="overviewTableView" destination="iXt-Er-r1S" id="9bN-b3-VX0"/>
                         <segue destination="g1O-k9-Knc" kind="modal" identifier="goto_login" id="Lcv-wG-I0Y"/>
                     </connections>
@@ -279,7 +282,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CSY-mX-jbw" id="s7f-O1-dKx">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkL-yq-CiF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkL-yq-CiF">
                                                     <rect key="frame" x="15" y="15" width="197" height="21"/>
                                                     <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>

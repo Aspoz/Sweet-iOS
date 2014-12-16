@@ -35,6 +35,7 @@
 		20DC18581A3F349D000855DC /* CommentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DC18571A3F349D000855DC /* CommentCellView.swift */; };
 		20DC185B1A3F3D33000855DC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DC185A1A3F3D33000855DC /* Colors.swift */; };
 		20EBAEE31A40994300F17FB9 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EBAEE21A40994300F17FB9 /* RoundedCorners.swift */; };
+		20EBAEE51A409CA000F17FB9 /* StatusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EBAEE41A409CA000F17FB9 /* StatusColor.swift */; };
 		CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */; };
 		CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4B19F662A900EFEB2C /* namapp.xcdatamodeld */; };
 		CB0A0D5219F662A900EFEB2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5019F662A900EFEB2C /* Main.storyboard */; };
@@ -96,6 +97,7 @@
 		20DC18571A3F349D000855DC /* CommentCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCellView.swift; sourceTree = "<group>"; };
 		20DC185A1A3F3D33000855DC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		20EBAEE21A40994300F17FB9 /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
+		20EBAEE41A409CA000F17FB9 /* StatusColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusColor.swift; sourceTree = "<group>"; };
 		CB0A0D4419F662A900EFEB2C /* namapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = namapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0A0D4819F662A900EFEB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				20DC18531A3F2E7A000855DC /* CaseOverviewCellView.swift */,
 				20DC18551A3F344E000855DC /* DocumentCellView.swift */,
 				20DC18571A3F349D000855DC /* CommentCellView.swift */,
+				20EBAEE41A409CA000F17FB9 /* StatusColor.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */,
 				CBC6977E1A236611000B3CC6 /* OverviewViewController.swift in Sources */,
 				CBC697821A237098000B3CC6 /* CaseItem.swift in Sources */,
+				20EBAEE51A409CA000F17FB9 /* StatusColor.swift in Sources */,
 				CB6E3CE31A2F2CE000A67E74 /* LoginViewController.swift in Sources */,
 				CB292CC31A3EEF68007FEB84 /* ApplicationViewController.swift in Sources */,
 				20EBAEE31A40994300F17FB9 /* RoundedCorners.swift in Sources */,

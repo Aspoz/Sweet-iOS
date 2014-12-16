@@ -13,6 +13,9 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     @IBOutlet weak var filterControl: UISegmentedControl!
     @IBOutlet weak var overviewTableView: UITableView!
     @IBOutlet weak var filterBG: UIView!
+    @IBOutlet weak var inProgressStatusColor: UIView!
+    @IBOutlet weak var openStatusColor: UIView!
+    @IBOutlet weak var closedStatusColor: UIView!
     
     let backend = Backend()
 
@@ -24,6 +27,14 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
         super.viewDidLoad()
         api = ArrayController(delegate: self)
         api!.casesUrl()
+        
+        inProgressStatusColor.backgroundColor       = UIColor.inProgressCaseColor()
+        openStatusColor.backgroundColor             = UIColor.openCaseColor()
+        closedStatusColor.backgroundColor           = UIColor.closedCaseColor()
+        
+        inProgressStatusColor.roundedCorners(5.0)
+        openStatusColor.roundedCorners(5.0)
+        closedStatusColor.roundedCorners(5.0)
         
         filterBG.applyCustomShadow(0, shadowHeight: -2, radius: 4)
     }
