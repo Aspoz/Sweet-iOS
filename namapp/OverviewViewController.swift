@@ -27,7 +27,7 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
         
 //        navigationController!.navigationBar.translucent = false
         
-        applyCustomShadow(filterBG, shadowWidth: 0, shadowHeight: -2, radius: 4)
+        filterBG.applyCustomShadow(0, shadowHeight: -2, radius: 4)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -112,9 +112,9 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
         if(filteredCases.count > 0) {
             if(indexPath.row == (filteredCases.count-1)) {
                 // if it's the last cell, add shadow
-                applyPlainShadow(cell)
+                cell.applyPlainShadow()
             } else {
-                removeShadow(cell)
+                cell.removeShadow()
             }
         }
         return cell

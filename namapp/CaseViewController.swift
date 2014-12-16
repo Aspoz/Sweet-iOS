@@ -25,7 +25,9 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         self.tabBarController?.title = "Case: \(caseitem!.title)"
         super.viewDidLoad()
         
-        setStatusAndTypeForCase(caseitem!.status, type: caseitem!.casetype)
+        caseType.text = caseitem!.casetype.uppercaseString
+        caseStatus.text = caseitem!.status.uppercaseString
+        caseStatusColor.addStatusColor(caseitem!)
         
         if caseitem != nil {
             api.documentsUrl(caseitem!.id)
@@ -39,9 +41,11 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if(documents.count > 0) {
-            hideTextAndImageForEmptyCase()
+            emptyCaseViewBG.hideElement()
+            emptyCaseViewText.hideElement()
         } else {
-            showTextAndImageForEmptyCase()
+            emptyCaseViewBG.showElement()
+            emptyCaseViewText.showElement()
         }
         
         return documents.count
@@ -57,9 +61,9 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         if(documents.count > 0) {
             if(indexPath.row == (documents.count-1)) {
                 // if it's the last cell, add shadow
-                applyPlainShadow(cell)
+                cell.applyPlainShadow()
             } else {
-                removeShadow(cell)
+                cell.removeShadow()
             }
         }
         
@@ -79,32 +83,6 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         var documentIndex = documentsTableView!.indexPathForSelectedRow()!.row
         var selectedDocument = self.documents[documentIndex]
         documentViewController.document = selectedDocument
-    }
-    
-    func setStatusAndTypeForCase(status: String, type: String) {
-        caseStatus.text = status.uppercaseString
-        caseType.text = type.uppercaseString
-        
-        switch status {
-        case "In progress":
-            caseStatusColor.backgroundColor = UIColor.inProgressCaseColor()
-            
-        case "Open":
-            caseStatusColor.backgroundColor = UIColor.openCaseColor()
-            
-        default:
-            caseStatusColor.backgroundColor = UIColor.closedCaseColor()
-        }
-    }
-
-    func showTextAndImageForEmptyCase() {
-        emptyCaseViewBG.alpha = 1
-        emptyCaseViewText.alpha = 1
-    }
-    
-    func hideTextAndImageForEmptyCase() {
-        emptyCaseViewBG.alpha = 0
-        emptyCaseViewText.alpha = 0
     }
     
     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		203F052C1A40605D00968B6D /* HideAndShowUIElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F052B1A40605D00968B6D /* HideAndShowUIElement.swift */; };
+		203F05301A406EC300968B6D /* addStatusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F052F1A406EC300968B6D /* addStatusColor.swift */; };
+		203F05321A40723B00968B6D /* ApplyShadowToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */; };
 		20C868F61A35E65000FAC10C /* ColorWithRGBHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */; };
 		20C869091A36006400FAC10C /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C868F71A36006400FAC10C /* Lato-Black.ttf */; };
 		20C8690A1A36006400FAC10C /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C868F81A36006400FAC10C /* Lato-BlackItalic.ttf */; };
@@ -63,6 +66,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		203F052B1A40605D00968B6D /* HideAndShowUIElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideAndShowUIElement.swift; sourceTree = "<group>"; };
+		203F052F1A406EC300968B6D /* addStatusColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addStatusColor.swift; sourceTree = "<group>"; };
+		203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyShadowToUIView.swift; sourceTree = "<group>"; };
 		20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWithRGBHex.swift; sourceTree = "<group>"; };
 		20C868F71A36006400FAC10C /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "Fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		20C868F81A36006400FAC10C /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "Fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 			children = (
 				20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */,
 				20DC185A1A3F3D33000855DC /* Colors.swift */,
+				203F052B1A40605D00968B6D /* HideAndShowUIElement.swift */,
+				203F052F1A406EC300968B6D /* addStatusColor.swift */,
+				203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -398,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				203F05301A406EC300968B6D /* addStatusColor.swift in Sources */,
 				CB2491031A35BA3000635E42 /* CommentViewController.swift in Sources */,
 				CBC6977A1A2361C4000B3CC6 /* DictController.swift in Sources */,
 				CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */,
@@ -409,6 +419,7 @@
 				CB6E3CE71A2F6AD100A67E74 /* NoteViewController.swift in Sources */,
 				20DC18541A3F2E7A000855DC /* CaseOverviewCellView.swift in Sources */,
 				20DC185B1A3F3D33000855DC /* Colors.swift in Sources */,
+				203F05321A40723B00968B6D /* ApplyShadowToUIView.swift in Sources */,
 				20C868F61A35E65000FAC10C /* ColorWithRGBHex.swift in Sources */,
 				CB2A3CCF1A247B4E00D70809 /* CaseViewController.swift in Sources */,
 				CB2A3CD41A247D8D00D70809 /* Document.swift in Sources */,
@@ -419,6 +430,7 @@
 				CB292CC31A3EEF68007FEB84 /* ApplicationViewController.swift in Sources */,
 				CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */,
 				CB6E3CE91A2FBC0400A67E74 /* Note.swift in Sources */,
+				203F052C1A40605D00968B6D /* HideAndShowUIElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
