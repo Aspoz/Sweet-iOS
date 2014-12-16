@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         navigationBarAppearance.barStyle = UIBarStyle.Black
         navigationBarAppearance.barTintColor = UIColor.namGreenColor()
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = false        
         return true
     }
 

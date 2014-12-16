@@ -50,13 +50,11 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
             self.cases = CaseItem.casesWithJSON(resultsArr)
             self.filteredCases = NSMutableArray()
             self.filteredCases.addObject(self.cases)
-            UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             self.searchJob("")
         })
     }
     
     @IBAction func filter(sender: UISegmentedControl) {
-        
         switch filterControl.selectedSegmentIndex {
         case 0:
             searchJob("")
