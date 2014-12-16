@@ -20,26 +20,29 @@ class Backend : UIViewController {
         return url
     }
     
-    func request(endpoint: String, params: String, method: String) -> NSDictionary {
+    func post(endpoint: String, params: String) -> NSDictionary {
         var postData:NSData = params.dataUsingEncoding(NSUTF8StringEncoding)!
         var url:NSURL = endpoint_url(endpoint)
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = method
+        request.HTTPMethod = "POST"
         request.HTTPBody = postData
-        println(request)
         var reponseError: NSError?
         var response: NSURLResponse?
         var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
-        println(urlData)
         var error: NSError?
-        let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers , error: &error) as NSDictionary
-        println(jsonData)
+        let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
         return jsonData
     }
     
+    func delete(endpoint: String, params: String) {
+        var postData:NSData = params.dataUsingEncoding(NSUTF8StringEncoding)!
+        var url:NSURL = endpoint_url(endpoint)
+        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "DELETE"
+    }
+    
     func login(email: String, password: String) -> NSDictionary {
-        var params = "email=\(email)&password=\(password)"
-        var user = Backend().request("/sessions", params: params, method: "POST")
+        var user = Backend().post("/sessions", params: "email=\(email)&password=\(password)")
         var success:Bool = user.valueForKey("success") as Bool
         if success {
             createUserDefaults(email, password: password, user: user)
@@ -74,7 +77,7 @@ class Backend : UIViewController {
     
     func logout() -> Bool {
         var id = currentUser()
-        request("/sessions/delete", params: "user_id=\(id)", method: "DELETE")
+        delete("/sessions/delete", params: "user_id=\(id)")
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
         return true

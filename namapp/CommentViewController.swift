@@ -22,9 +22,6 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
     override func viewDidLoad() {
         super.viewDidLoad()
         var id = caseitem!.id
-//        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-//        let user_idint:Int = prefs.integerForKey("USER_ID") as Int
-//        user_id = String(user_idint)
         
         commentText.delegate = self
         
@@ -77,7 +74,6 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         var comment = comments[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("commentCell") as CommentCell
         cell.addDataInCellsForComment(comment)
-        println(cell.height())
         return cell.height()
     }
     
@@ -100,13 +96,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
             if comments.count != 0 {
                 var comment = comments.removeAtIndex(indexPath.row)
                 var commentid:NSNumber = comment.id
-                var url:NSURL = NSURL(string:"http://178.62.204.157/comments/\(commentid)")!
-                var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-                request.HTTPMethod = "DELETE"
-                var reponseError: NSError?
-                var response: NSURLResponse?
-                var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
-                
+                backend.delete("/comments/\(commentid)", params: "")
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }
         }
@@ -116,7 +106,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         var caseid:Int = caseitem!.id
         var commenttext:NSString = commentText.text
         var userid = backend.currentUser()
-        backend.request("/comments", params: "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(userid)", method: "POST")
+        backend.post("/comments", params: "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(userid)")
         api.documentsUrl(caseid)
         commentText.text = nil
     }
