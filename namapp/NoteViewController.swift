@@ -70,7 +70,7 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
         if editingStyle == UITableViewCellEditingStyle.Delete {
             var note = notes.removeAtIndex(indexPath.row)
             var noteid:NSNumber = note.id
-            var url:NSURL = NSURL(string:"http://178.62.204.157/notes/\(noteid)")!
+            var url:NSURL = NSURL(string:"http://0.0.0.0:3000/notes/\(noteid)")!
             var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
             request.HTTPMethod = "DELETE"
             var reponseError: NSError?
@@ -98,7 +98,7 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
         var user:NSString = userId
         var post:NSString = "note[body]=\(notetext)&note[document_id]=\(docid)&note[user_id]=\(user)"
         NSLog("PostData: %@",post);
-        var url:NSURL = NSURL(string:"http://178.62.204.157/notes")!
+        var url:NSURL = NSURL(string:"http://0.0.0.0:3000/notes")!
 
         var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
         var postLength:NSString = String( postData.length )

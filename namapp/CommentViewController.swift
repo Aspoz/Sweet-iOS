@@ -100,7 +100,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
             if comments.count != 0 {
                 var comment = comments.removeAtIndex(indexPath.row)
                 var commentid:NSNumber = comment.id
-                var url:NSURL = NSURL(string:"http://178.62.204.157/comments/\(commentid)")!
+                var url:NSURL = NSURL(string:"http://0.0.0.0:3000/comments/\(commentid)")!
                 var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
                 request.HTTPMethod = "DELETE"
                 var reponseError: NSError?
@@ -123,7 +123,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         var user:NSString = user_id
         var post:NSString = "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(user)"
         NSLog("PostData: %@",post);
-        var url:NSURL = NSURL(string:"http://178.62.204.157/comments")!
+        var url:NSURL = NSURL(string:"http://0.0.0.0:3000/comments")!
         
         var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
         var postLength:NSString = String( postData.length )

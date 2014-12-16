@@ -21,6 +21,9 @@ class DictController {
     func get(path: String) {
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
+        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        request.setValue("Token token=5a84c78af6b01d2a0445f51dffded103", forHTTPHeaderField: "Authorization")
+        
         let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
             if(error != nil) {
                 println(error.localizedDescription)
@@ -37,10 +40,10 @@ class DictController {
     }
     
     func documentsUrl(id: Int) {
-        get("http://178.62.204.157/cases/\(id)")
+        get("http://0.0.0.0:3000/\(id)")
     }
     
     func notesUrl(id: Int) {
-        get("http://178.62.204.157/documents/\(id)")
+        get("http://0.0.0.0:3000/documents/\(id)")
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 
 class Backend : UIViewController {
     
-    let BASE_URL = "http://178.62.204.157"
+    let BASE_URL = "http://0.0.0.0:3000"
     var jsonData: NSDictionary!
     
     func endpoint_url(param: String) -> NSURL{
