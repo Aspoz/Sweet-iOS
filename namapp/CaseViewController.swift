@@ -39,9 +39,11 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if(documents.count > 0) {
-            hideTextAndImageForEmptyCase()
+            emptyCaseViewBG.hide()
+            emptyCaseViewText.hide()
         } else {
-            showTextAndImageForEmptyCase()
+            emptyCaseViewBG.show()
+            emptyCaseViewText.show()
         }
         
         return documents.count
@@ -97,15 +99,7 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         }
     }
 
-    func showTextAndImageForEmptyCase() {
-        emptyCaseViewBG.alpha = 1
-        emptyCaseViewText.alpha = 1
-    }
-    
-    func hideTextAndImageForEmptyCase() {
-        emptyCaseViewBG.alpha = 0
-        emptyCaseViewText.alpha = 0
-    }
+
     
     
     func didReceiveAPIResults(results: NSDictionary) {
