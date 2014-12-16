@@ -9,11 +9,11 @@
 import UIKit
 
 extension UIView {
-    func show() {
+    func showElement() {
         self.alpha = 1
     }
     
-    func hide() {
+    func hideElement() {
         self.alpha = 0
     }
 }
