@@ -13,4 +13,9 @@ extension UIView {
         self.layer.cornerRadius = radius
         self.clipsToBounds = true
     }
+    
+    func makeCircle() {
+        var radius:CGFloat = self.frame.width/2.0
+        self.roundedCorners(radius)
+    }
 }
