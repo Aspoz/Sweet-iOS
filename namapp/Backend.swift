@@ -36,12 +36,15 @@ class Backend : UIViewController {
     }
     
     func destroy(endpoint: String) {
-        var token = userToken()
         var url:NSURL = endpoint_url(endpoint)
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        var token = userToken()
         request.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
-        request.HTTPMethod = "DELETE"
-        println(request)
+        var user_id = currentUser()
+        var params = "user_id=\(user_id)&_method=DELETE"
+        var postData:NSData = params.dataUsingEncoding(NSUTF8StringEncoding)!
+        request.HTTPBody = postData
+        request.HTTPMethod = "POST"
     }
     
     func login(email: String, password: String) -> NSDictionary {
@@ -81,7 +84,10 @@ class Backend : UIViewController {
 
     func userToken() -> String {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        var token:String = prefs.valueForKey("access_token") as String!
+        var token:String = ""
+        if prefs.boolForKey("access_token") {
+            token = prefs.valueForKey("access_token") as String!
+        }
         return token
     }
     
