@@ -9,5 +9,9 @@
 import UIKit
 
 class StatusColor: UIView {
-    
+  
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.makeCircle()
+    }
 }
