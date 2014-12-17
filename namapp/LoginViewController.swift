@@ -20,6 +20,13 @@ class LoginViewController: Backend, UITextFieldDelegate {
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        if backend.isLoggedIn() {
+            self.performSegueWithIdentifier("loginSuccess", sender: self)
+            println("this one")
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -29,7 +36,9 @@ class LoginViewController: Backend, UITextFieldDelegate {
         var password:NSString = txtPassword.text
         var user = backend.login(email, password: password)
         if backend.isLoggedIn() {
-            self.dismissViewControllerAnimated(true, completion: nil)
+            println("that one")
+            self.performSegueWithIdentifier("loginSuccess", sender: self)
+
         }
     }
     

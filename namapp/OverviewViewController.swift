@@ -21,31 +21,17 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     var filteredCases: NSMutableArray!
     
     override func viewDidLoad() {
+
         super.viewDidLoad()
-        if (Backend().isLoggedIn() == false) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewcontroller = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
-            presentViewController(viewcontroller, animated: true, completion: {
-                self.apicall()
-            })
-        } else {
-            apicall()
-        }
+        api = ArrayController(delegate: self)
+        api!.casesUrl()
 //        navigationController!.navigationBar.translucent = false
         
         filterBG.applyCustomShadow(0, shadowHeight: -2, radius: 4)
     }
-    
-    func apicall() {
-        api = ArrayController(delegate: self)
-        api!.casesUrl()
-    }
-    
+
     override func viewWillAppear(animated: Bool) {
         self.overviewTableView.reloadData()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
     }
     
     override func didReceiveMemoryWarning() {

@@ -45,9 +45,6 @@ class Backend : UIViewController {
         var postData:NSData = params.dataUsingEncoding(NSUTF8StringEncoding)!
         request.HTTPBody = postData
         request.HTTPMethod = "POST"
-        var reponseError: NSError?
-        var response: NSURLResponse?
-        var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
     }
     
     func login(email: String, password: String) -> NSDictionary {

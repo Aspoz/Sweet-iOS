@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="GNx-No-nBi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="g1O-k9-Knc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -32,10 +32,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Cases Overview-->
+        <!--OverviewViewController-->
         <scene sceneID="YAo-Jo-qPE">
             <objects>
-                <viewController storyboardIdentifier="OverviewViewController" title="Cases Overview" id="Wv8-bF-79y" customClass="OverviewViewController" customModule="namapp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OverviewViewController" title="OverviewViewController" id="Wv8-bF-79y" customClass="OverviewViewController" customModule="namapp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="S9y-eS-Aeq"/>
                         <viewControllerLayoutGuide type="bottom" id="pDN-wU-ikM"/>
@@ -227,6 +227,7 @@
                     <connections>
                         <outlet property="txtPassword" destination="yIZ-yX-syS" id="iXB-UW-LiJ"/>
                         <outlet property="txtUsername" destination="dFp-Wz-3va" id="xcK-2g-yzG"/>
+                        <segue destination="GNx-No-nBi" kind="modal" identifier="loginSuccess" id="iqF-xn-T0m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rff-mm-2BQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
