@@ -22,12 +22,23 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        api = ArrayController(delegate: self)
-        api!.casesUrl()
-        
+        if (Backend().isLoggedIn() == false) {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewcontroller = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
+            presentViewController(viewcontroller, animated: true, completion: {
+                self.apicall()
+            })
+        } else {
+            apicall()
+        }
 //        navigationController!.navigationBar.translucent = false
         
         filterBG.applyCustomShadow(0, shadowHeight: -2, radius: 4)
+    }
+    
+    func apicall() {
+        api = ArrayController(delegate: self)
+        api!.casesUrl()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -35,11 +46,6 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     }
     
     override func viewDidAppear(animated: Bool) {
-        if (Backend().isLoggedIn() == false) {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewcontroller = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
-            presentViewController(viewcontroller, animated: true, completion: nil)
-        }
     }
     
     override func didReceiveMemoryWarning() {
