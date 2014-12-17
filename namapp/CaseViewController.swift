@@ -28,6 +28,7 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         caseType.text = caseitem!.casetype.uppercaseString
         caseStatus.text = caseitem!.status.uppercaseString
         caseStatusColor.addStatusColor(caseitem!)
+        caseStatusColor.roundedCorners(5.0)
         
         if caseitem != nil {
             api.documentsUrl(caseitem!.id)
