@@ -38,7 +38,6 @@ class LoginViewController: Backend, UITextFieldDelegate {
         if backend.isLoggedIn() {
             println("that one")
             self.performSegueWithIdentifier("loginSuccess", sender: self)
-
         }
     }
     

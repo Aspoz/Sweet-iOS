@@ -48,6 +48,8 @@
 		CB6E3CE31A2F2CE000A67E74 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6E3CE21A2F2CE000A67E74 /* LoginViewController.swift */; };
 		CB6E3CE71A2F6AD100A67E74 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6E3CE61A2F6AD100A67E74 /* NoteViewController.swift */; };
 		CB6E3CE91A2FBC0400A67E74 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6E3CE81A2FBC0400A67E74 /* Note.swift */; };
+		CB7DD1D41A41C77700260E10 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DD1D31A41C77700260E10 /* ContainerViewController.swift */; };
+		CB7DD1D61A41C87F00260E10 /* SidePanelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7DD1D51A41C87F00260E10 /* SidePanelViewController.swift */; };
 		CB93309B1A0266AD0042E28C /* DocumentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB93309A1A0266AD0042E28C /* DocumentViewController.swift */; };
 		CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA533F31A136B800022BA46 /* ArrayController.swift */; };
 		CBBB4AAD1A3737CA008AD023 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBBB4AAC1A3737CA008AD023 /* Images.xcassets */; };
@@ -112,6 +114,8 @@
 		CB6E3CE21A2F2CE000A67E74 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		CB6E3CE61A2F6AD100A67E74 /* NoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
 		CB6E3CE81A2FBC0400A67E74 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		CB7DD1D31A41C77700260E10 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		CB7DD1D51A41C87F00260E10 /* SidePanelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SidePanelViewController.swift; sourceTree = "<group>"; };
 		CB93309A1A0266AD0042E28C /* DocumentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentViewController.swift; sourceTree = "<group>"; };
 		CBA533F31A136B800022BA46 /* ArrayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayController.swift; sourceTree = "<group>"; };
 		CBBB4AAC1A3737CA008AD023 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -274,8 +278,10 @@
 				CBC6977D1A236611000B3CC6 /* OverviewViewController.swift */,
 				CB2A3CCE1A247B4E00D70809 /* CaseViewController.swift */,
 				CB2491021A35BA3000635E42 /* CommentViewController.swift */,
+				CB7DD1D31A41C77700260E10 /* ContainerViewController.swift */,
 				CB93309A1A0266AD0042E28C /* DocumentViewController.swift */,
 				CB6E3CE61A2F6AD100A67E74 /* NoteViewController.swift */,
+				CB7DD1D51A41C87F00260E10 /* SidePanelViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -412,6 +418,8 @@
 			files = (
 				203F05301A406EC300968B6D /* addStatusColor.swift in Sources */,
 				CB2491031A35BA3000635E42 /* CommentViewController.swift in Sources */,
+				CB7DD1D41A41C77700260E10 /* ContainerViewController.swift in Sources */,
+				CB7DD1D61A41C87F00260E10 /* SidePanelViewController.swift in Sources */,
 				CBC6977A1A2361C4000B3CC6 /* DictController.swift in Sources */,
 				CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */,
 				CB6A5AAA1A35E1C30047F2E9 /* Comment.swift in Sources */,

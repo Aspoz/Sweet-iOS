@@ -9,6 +9,9 @@
 import UIKit
 
 class NoteViewController: ApplicationViewController, DictControllerProtocol, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate{
+    
+    var delegate: NoteViewControllerDelegate?
+
     var document: Document?
     var notes = [Note]()
     
@@ -22,7 +25,7 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        api.notesUrl(id)
+//        api.notesUrl(id)
         
         noteText.delegate = self
 

@@ -14,9 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+//        let documentViewController = DocumentViewController()
+        
+//        window!.rootViewController = containerViewController
+//        window!.makeKeyAndVisible()
         
         // Navigationbar styling for whole app
         var navigationBarAppearance = UINavigationBar.appearance()

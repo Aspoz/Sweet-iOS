@@ -8,8 +8,16 @@
 
 import UIKit
 
-class DocumentViewController: ApplicationViewController {
+@objc
+protocol DocumentViewControllerDelegate {
+    optional func toggleRightPanel()
+    optional func collapseSidePanels()
+}
+
+class DocumentViewController: ApplicationViewController, NoteViewControllerDelegate {
     
+    var delegate: DocumentViewControllerDelegate?
+
     @IBOutlet weak var PdfView: UIWebView!
     var document: Document?
 
@@ -37,15 +45,17 @@ class DocumentViewController: ApplicationViewController {
     }
 
     @IBAction func showNotes(sender: UIButton) {
+        delegate?.toggleRightPanel?()
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        var id = self.document!.id
-        var title = self.document!.title
-        if (segue.identifier == "noteSegue") {
-            var doc = segue.destinationViewController as NoteViewController;
-            doc.id = id
-            doc.docTitle = title
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+//        var id = self.document!.id
+//        var title = self.document!.title
+//        if (segue.identifier == "noteSegue") {
+//            var doc = segue.destinationViewController as NoteViewController;
+//            doc.id = id
+//            doc.docTitle = title
+//        }
+//    }
+    
 }
