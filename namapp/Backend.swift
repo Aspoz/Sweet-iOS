@@ -12,7 +12,6 @@ import UIKit
 class Backend : UIViewController {
     
     let BASE_URL = "http://178.62.204.157"
-    var jsonData: NSDictionary!
     
     func endpoint_url(param: String) -> NSURL{
         var string_url = BASE_URL + param
@@ -58,6 +57,7 @@ class Backend : UIViewController {
         var prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         prefs.setObject(email, forKey: "username")
         prefs.setObject(user.valueForKey("user_id"), forKey: "userid")
+        prefs.setObject(user.valueForKey("access_token"), forKey: "access_token")
         prefs.setBool(true, forKey: "isloggedin")
         prefs.synchronize()
         return true
@@ -76,8 +76,10 @@ class Backend : UIViewController {
     }
     
     func logout() -> Bool {
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        var token:String = prefs.valueForKey("access_token") as String!
         var id = currentUser()
-        delete("/sessions/delete", params: "user_id=\(id)")
+        delete("/sessions/\(token)", params: "")
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
         return true
