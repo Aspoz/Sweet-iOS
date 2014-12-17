@@ -12,8 +12,9 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
     var document: Document?
     var notes = [Note]()
     
-    var docId:String!
-    var ID:Int!
+    let backend = Backend()
+
+    var id:Int!
     var docTitle:String!
     var userId:String!
     
@@ -21,10 +22,7 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
 
     override func viewDidLoad() {
         super.viewDidLoad()
-            let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            let user_idint:Int = prefs.integerForKey("USER_ID") as Int
-            userId = String(user_idint)
-            api.notesUrl(ID)
+        api.notesUrl(id)
         
         noteText.delegate = self
 
@@ -70,17 +68,10 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
         if editingStyle == UITableViewCellEditingStyle.Delete {
             var note = notes.removeAtIndex(indexPath.row)
             var noteid:NSNumber = note.id
-            var url:NSURL = NSURL(string:"http://178.62.204.157/notes/\(noteid)")!
-            var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-            request.HTTPMethod = "DELETE"
-            var reponseError: NSError?
-            var response: NSURLResponse?
-            var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
-            
+            backend.delete("/notes/\(noteid)", params: "")
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
-
     
     func didReceiveAPIResults(results: NSDictionary) {
         var resultsArr: NSDictionary = results as NSDictionary
@@ -92,33 +83,13 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
     }
     
     @IBAction func noteSend(sender: UIButton) {
-        
-        var docid:NSString = docId
+        var docid:NSNumber = id
         var notetext:NSString = noteText.text
-        var user:NSString = userId
-        var post:NSString = "note[body]=\(notetext)&note[document_id]=\(docid)&note[user_id]=\(user)"
-        NSLog("PostData: %@",post);
-        var url:NSURL = NSURL(string:"http://178.62.204.157/notes")!
-
-        var postData:NSData = post.dataUsingEncoding(NSASCIIStringEncoding)!
-        var postLength:NSString = String( postData.length )
-        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.HTTPBody = postData
-        request.setValue(postLength, forHTTPHeaderField: "Content-Length")
-        request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")    
-        var reponseError: NSError?
-        var response: NSURLResponse?
-        
-        var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
-
-        var id = docId.toInt()
+        var userid = backend.currentUser()
+        backend.post("/notes", params: "note[body]=\(notetext)&note[document_id]=\(docid)&note[user_id]=\(userid)")
         api.notesUrl(id!)
-        
         noteText.text = nil
     }
-    
     
     func dismissKeyboard(){
         noteText.resignFirstResponder()
@@ -133,7 +104,6 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
         textView.addPlaceholderIfEmpty("Enter your note here...")
         noteText.becomeFirstResponder()
     }
-
 }
 
 

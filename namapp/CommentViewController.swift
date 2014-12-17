@@ -66,7 +66,6 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
                 cell.removeShadow()
             }
         }
-
         return cell
     }
     
@@ -80,7 +79,6 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var comment = comments[indexPath.row]
     }
-    
     
     func didReceiveAPIResults(results: NSDictionary) {
         var resultsArr: NSDictionary = results as NSDictionary
