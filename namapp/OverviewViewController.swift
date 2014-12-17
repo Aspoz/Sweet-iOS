@@ -33,10 +33,6 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
         openStatusColor.backgroundColor             = UIColor.openCaseColor()
         closedStatusColor.backgroundColor           = UIColor.closedCaseColor()
         
-        inProgressStatusColor.roundedCorners(5.0)
-        openStatusColor.roundedCorners(5.0)
-        closedStatusColor.roundedCorners(5.0)
-        
         filterBG.applyCustomShadow(0, shadowHeight: -2, radius: 4)
     }
 
