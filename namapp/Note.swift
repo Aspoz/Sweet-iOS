@@ -29,9 +29,8 @@ class Note {
                         var body = note["body"] as? String
                         var user_id = note["user_id"] as Int
                         var note = Note(id: id, body: body!, user_id: user_id)
-                        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
-                        if note.user_id == prefs.integerForKey("USER_ID") as Int {
-                            notes.append(note)
+                        if note.user_id == Backend().currentUser() {
+                        notes.append(note)
                         }
                     }
                 }
