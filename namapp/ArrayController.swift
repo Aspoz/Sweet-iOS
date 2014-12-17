@@ -14,6 +14,7 @@ protocol ArrayControllerProtocol {
 
 class ArrayController {
     var delegate: ArrayControllerProtocol
+    var backend = Backend()
     init(delegate: ArrayControllerProtocol) {
         self.delegate = delegate
     }
@@ -34,7 +35,10 @@ class ArrayController {
     func get(path: String) {
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url!, completionHandler: completion)
+        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        var token = backend.userToken()
+        request.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
+        let task = session.dataTaskWithRequest(request, completionHandler: completion)
         task.resume()
     }
     

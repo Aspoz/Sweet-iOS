@@ -14,14 +14,20 @@ protocol DictControllerProtocol {
 
 class DictController {
     var delegate: DictControllerProtocol
+    let backend = Backend()
+
     init(delegate: DictControllerProtocol) {
         self.delegate = delegate
     }
     
+
     func get(path: String) {
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        var token = backend.userToken()
+        request.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
+        let task = session.dataTaskWithRequest(request, completionHandler: {data, response, error -> Void in
             if(error != nil) {
                 println(error.localizedDescription)
             }

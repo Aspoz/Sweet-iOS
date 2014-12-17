@@ -23,6 +23,8 @@ class Backend : UIViewController {
         var postData:NSData = params.dataUsingEncoding(NSUTF8StringEncoding)!
         var url:NSURL = endpoint_url(endpoint)
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        var token = userToken()
+        request.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
         request.HTTPMethod = "POST"
         request.HTTPBody = postData
         var reponseError: NSError?
@@ -33,11 +35,13 @@ class Backend : UIViewController {
         return jsonData
     }
     
-    func delete(endpoint: String, params: String) {
-        var postData:NSData = params.dataUsingEncoding(NSUTF8StringEncoding)!
+    func destroy(endpoint: String) {
+        var token = userToken()
         var url:NSURL = endpoint_url(endpoint)
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
         request.HTTPMethod = "DELETE"
+        println(request)
     }
     
     func login(email: String, password: String) -> NSDictionary {
@@ -74,12 +78,18 @@ class Backend : UIViewController {
         var userid:NSInteger = prefs.integerForKey("userid") as NSInteger
         return userid
     }
+
+    func userToken() -> String {
+        let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        var token:String = prefs.valueForKey("access_token") as String!
+        return token
+    }
     
     func logout() -> Bool {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         var token:String = prefs.valueForKey("access_token") as String!
         var id = currentUser()
-        delete("/sessions/\(token)", params: "")
+        destroy("/sessions/\(token)")
         let appDomain = NSBundle.mainBundle().bundleIdentifier
         NSUserDefaults.standardUserDefaults().removePersistentDomainForName(appDomain!)
         return true

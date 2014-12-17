@@ -68,7 +68,7 @@ class NoteViewController: ApplicationViewController, DictControllerProtocol, UIT
         if editingStyle == UITableViewCellEditingStyle.Delete {
             var note = notes.removeAtIndex(indexPath.row)
             var noteid:NSNumber = note.id
-            backend.delete("/notes/\(noteid)", params: "")
+            backend.destroy("/notes/\(noteid)")
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }

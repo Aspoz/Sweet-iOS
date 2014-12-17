@@ -94,7 +94,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
             if comments.count != 0 {
                 var comment = comments.removeAtIndex(indexPath.row)
                 var commentid:NSNumber = comment.id
-                backend.delete("/comments/\(commentid)", params: "")
+                backend.destroy("/comments/\(commentid)")
                 tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             }
         }
