@@ -21,7 +21,7 @@ class DictController {
         self.delegate = delegate
     }
 
-    func get(path: String) {
+    func get(path: String, getSuccess: () -> Void) {
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
@@ -38,17 +38,22 @@ class DictController {
             }
             let results: NSDictionary = jsonResult as NSDictionary
             self.delegate.didReceiveAPIResults(jsonResult)
+            getSuccess()
         })
         task.resume()
     }
     
-    func documentsUrl(id: Int) {
+    func documentsUrl(id: Int, success: () -> Void) {
         let url = baseURL + "/cases/\(id)"
-        get(url)
+        get(url, getSuccess: { () -> Void in
+            success()
+        })
     }
     
-    func notesUrl(id: Int) {
+    func notesUrl(id: Int, success: () -> Void) {
         let url = baseURL + "/documents/\(id)"
-        get(url)
+        get(url, getSuccess: { () -> Void in
+            success()
+        })
     }
 }
