@@ -13,6 +13,7 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
     var document: Document?
     var notes = [Note]()
     let backend = Backend()
+    let spinner = LoadingSpinner.instance
     
     lazy var api : DictController = DictController(delegate: self)
 
@@ -22,6 +23,7 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.spinner.startLoadingSpinner(view)
         if self.document != nil {
             var id = self.document!.id
             var title = self.document!.title
@@ -30,7 +32,12 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
         }
         
         var id = self.document!.id
-        api.notesUrl(id)
+        api.notesUrl(id, success: { () -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                println("API Success Callback")
+                self.spinner.stopLoadingSpinner()
+            }
+        })
         noteText.delegate = self
         if (noteText.text == "") {
             textViewDidEndEditing(noteText)
@@ -105,7 +112,12 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
         var notetext:NSString = noteText.text
         var userid = backend.currentUser()
         backend.post("/notes", params: "note[body]=\(notetext)&note[document_id]=\(docid)&note[user_id]=\(userid)")
-        api.notesUrl(id)
+        api.notesUrl(id, success: { () -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                println("API Success Callback")
+                self.spinner.stopLoadingSpinner()
+            }
+        })
         noteText.text = nil
     }
     
