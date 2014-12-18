@@ -23,7 +23,6 @@ class LoginViewController: Backend, UITextFieldDelegate {
     override func viewDidAppear(animated: Bool) {
         if backend.isLoggedIn() {
             self.performSegueWithIdentifier("loginSuccess", sender: self)
-            println("this one")
         }
     }
     
@@ -36,7 +35,6 @@ class LoginViewController: Backend, UITextFieldDelegate {
         var password:NSString = txtPassword.text
         var user = backend.login(email, password: password)
         if backend.isLoggedIn() {
-            println("that one")
             self.performSegueWithIdentifier("loginSuccess", sender: self)
         }
     }

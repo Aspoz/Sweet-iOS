@@ -17,6 +17,7 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
     
     lazy var api : DictController = DictController(delegate: self)
 
+    @IBOutlet weak var sideBar: UIView!
     @IBOutlet weak var PdfView: UIWebView!
     @IBOutlet weak var notesView: UITableView!
     @IBOutlet weak var noteText: UITextView!
@@ -31,6 +32,7 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
             singleDocumentUrl(attachment_url)
         }
         
+        self.sideBar.hideElement()
         var id = self.document!.id
         api.notesUrl(id, success: { () -> Void in
             dispatch_async(dispatch_get_main_queue()) {
@@ -60,16 +62,19 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
     }
 
     @IBAction func showNotes(sender: UIButton) {
-    }
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-//        var id = self.document!.id
-//        var title = self.document!.title
-//        if (segue.identifier == "noteSegue") {
-//            var doc = segue.destinationViewController as NoteViewController;
-//            doc.id = id
-//            doc.docTitle = title
-//        }
+        if self.sideBar.alpha == 1 {
+            UIView.animateWithDuration(0.5, animations: {
+                self.sideBar.frame = CGRect(x: 700, y: 111, width: self.sideBar.frame.width, height: self.sideBar.frame.height)
+                self.sideBar.hideElement()
+                self.PdfView.frame = CGRect(x: 82, y: 82, width: self.PdfView.frame.width, height: self.PdfView.frame.height)
+            })
+        } else {
+            UIView.animateWithDuration(0.5, delay: 0, options: nil, animations: {
+                self.PdfView.center = CGPoint(x: 260, y: 582)
+                self.sideBar.showElement()
+                self.sideBar.frame = CGRect(x: 500, y: 111, width: self.sideBar.frame.width, height: self.sideBar.frame.height)
+            }, completion: nil)
+        }
     }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
