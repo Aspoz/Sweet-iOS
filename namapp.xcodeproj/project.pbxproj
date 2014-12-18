@@ -36,6 +36,7 @@
 		20DC185B1A3F3D33000855DC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DC185A1A3F3D33000855DC /* Colors.swift */; };
 		20EBAEE31A40994300F17FB9 /* RoundedCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EBAEE21A40994300F17FB9 /* RoundedCorners.swift */; };
 		20EBAEEF1A41A8EB00F17FB9 /* StatusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EBAEEE1A41A8EB00F17FB9 /* StatusColor.swift */; };
+		20F366B61A41D1190006D580 /* LoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F366B51A41D1190006D580 /* LoadingSpinner.swift */; };
 		CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */; };
 		CB0A0D4D19F662A900EFEB2C /* namapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CB0A0D4B19F662A900EFEB2C /* namapp.xcdatamodeld */; };
 		CB0A0D5219F662A900EFEB2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB0A0D5019F662A900EFEB2C /* Main.storyboard */; };
@@ -98,6 +99,7 @@
 		20DC185A1A3F3D33000855DC /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		20EBAEE21A40994300F17FB9 /* RoundedCorners.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorners.swift; sourceTree = "<group>"; };
 		20EBAEEE1A41A8EB00F17FB9 /* StatusColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusColor.swift; sourceTree = "<group>"; };
+		20F366B51A41D1190006D580 /* LoadingSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingSpinner.swift; sourceTree = "<group>"; };
 		CB0A0D4419F662A900EFEB2C /* namapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = namapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0A0D4819F662A900EFEB2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB0A0D4919F662A900EFEB2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				20DC18551A3F344E000855DC /* DocumentCellView.swift */,
 				20DC18571A3F349D000855DC /* CommentCellView.swift */,
 				20EBAEEE1A41A8EB00F17FB9 /* StatusColor.swift */,
+				20F366B51A41D1190006D580 /* LoadingSpinner.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				CB6E3CE71A2F6AD100A67E74 /* NoteViewController.swift in Sources */,
 				20DC18541A3F2E7A000855DC /* CaseOverviewCellView.swift in Sources */,
 				20DC185B1A3F3D33000855DC /* Colors.swift in Sources */,
+				20F366B61A41D1190006D580 /* LoadingSpinner.swift in Sources */,
 				203F05321A40723B00968B6D /* ApplyShadowToUIView.swift in Sources */,
 				20C868F61A35E65000FAC10C /* ColorWithRGBHex.swift in Sources */,
 				CB2A3CCF1A247B4E00D70809 /* CaseViewController.swift in Sources */,
