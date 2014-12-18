@@ -23,6 +23,7 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
     @IBOutlet weak var noteText: UITextView!
 
     override func viewDidLoad() {
+        self.title = self.document!.title
         super.viewDidLoad()
         self.spinner.startLoadingSpinner(view)
         if self.document != nil {
