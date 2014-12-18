@@ -18,16 +18,24 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     @IBOutlet weak var closedStatusColor: UIView!
     
     let backend = Backend()
-
     var cases = [CaseItem]()
     var api : ArrayController?
     var filteredCases: NSMutableArray!
     
     override func viewDidLoad() {
-
         super.viewDidLoad()
+        let spinner = LoadingSpinner.instance
+        spinner.startLoadingSpinner(view)
+        
+//        LoadingSpinner.instance.startLoadingSpinner(self.view)
+//        LoadingSpinner().startLoadingSpinner(self.view)
         api = ArrayController(delegate: self)
-        api!.casesUrl()
+        api!.getAllCases({ () -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                println("API Success Callback")
+                spinner.stopLoadingSpinner()
+            }
+        })
         
         inProgressStatusColor.backgroundColor       = UIColor.inProgressCaseColor()
         openStatusColor.backgroundColor             = UIColor.openCaseColor()
