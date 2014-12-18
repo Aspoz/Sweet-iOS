@@ -15,11 +15,11 @@ protocol DictControllerProtocol {
 class DictController {
     var delegate: DictControllerProtocol
     let backend = Backend()
+    let baseURL = Backend().BASE_URL
 
     init(delegate: DictControllerProtocol) {
         self.delegate = delegate
     }
-    
 
     func get(path: String) {
         let url = NSURL(string: path)
@@ -43,10 +43,12 @@ class DictController {
     }
     
     func documentsUrl(id: Int) {
-        get("http://178.62.204.157/cases/\(id)")
+        let url = baseURL + "/cases/\(id)"
+        get(url)
     }
     
     func notesUrl(id: Int) {
-        get("http://178.62.204.157/documents/\(id)")
+        let url = baseURL + "/documents/\(id)"
+        get(url)
     }
 }
