@@ -17,7 +17,7 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     @IBOutlet weak var caseStatusColor: UIView!
     @IBOutlet weak var documentsTableView: UITableView!
     
-    let spinner = LoadingSpinner.instance
+    let spinner = LoadingSpinner()
     
     var caseitem : CaseItem?
     var documents = [Document]()

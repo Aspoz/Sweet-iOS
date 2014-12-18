@@ -8,17 +8,10 @@
 
 import UIKit
 
-public class LoadingSpinner {
+class LoadingSpinner {
     var container: UIView = UIView()
     var loadingView: UIView = UIView()
     var spinner: UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    class var instance: LoadingSpinner {
-        struct Static {
-            static let instance: LoadingSpinner = LoadingSpinner()
-        }
-        return Static.instance
-    }
     
     func startLoadingSpinner(view: UIView) {
         container.frame = view.frame

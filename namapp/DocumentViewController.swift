@@ -13,7 +13,7 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
     var document: Document?
     var notes = [Note]()
     let backend = Backend()
-    let spinner = LoadingSpinner.instance
+    let spinner = LoadingSpinner()
     
     lazy var api : DictController = DictController(delegate: self)
 
