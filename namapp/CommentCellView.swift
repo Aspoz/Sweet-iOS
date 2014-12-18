@@ -30,6 +30,6 @@ class CommentCell: UITableViewCell {
     func addDataInCellsForComment(comment: Comment) {
         CommentBody.text = comment.body
         CommentAuthor.text = comment.user_name
-        CommentDate.text = comment.created_at
+        CommentDate.text = comment.created_at.formatDate()
     }
 }

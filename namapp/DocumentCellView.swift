@@ -17,11 +17,10 @@ class DocumentCell: UITableViewCell {
     @IBOutlet weak var fileName: UILabel!
     @IBOutlet weak var fileUpdatedDate: UILabel!
     
-    
     // Fill in Prototype cells for Case Overview with data
     func addDataInCellsForDocuments(document: Document) {
         fileName.text = document.title
-        fileUpdatedDate.text = document.updated_at
+        fileUpdatedDate.text = document.updated_at.formatDate()
     }
     
     func addCaseSelectedStyling() {
