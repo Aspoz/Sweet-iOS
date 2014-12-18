@@ -85,8 +85,10 @@ class Backend : UIViewController {
     func userToken() -> String {
         let prefs:NSUserDefaults = NSUserDefaults.standardUserDefaults()
         var token:String = ""
-        if prefs.boolForKey("access_token") {
+        if let tokenvalue:String = prefs.valueForKey("access_token") as? String {
             token = prefs.valueForKey("access_token") as String!
+        } else {
+            println("ji")
         }
         return token
     }
