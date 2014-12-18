@@ -14,7 +14,7 @@ extension UIColor {
     }
     
     class func namBlueColor() -> UIColor {
-        return UIColor.colorWithRGBHex(0x005193)
+        return UIColor.colorWithRGBHex(0x4A90E2)
     }
     
     class func contentColor() -> UIColor {
