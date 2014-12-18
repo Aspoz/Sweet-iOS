@@ -22,6 +22,8 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
     @IBOutlet weak var notesView: UITableView!
     @IBOutlet weak var noteText: UITextView!
 
+    var sideBarVisible = false
+    
     override func viewDidLoad() {
         self.title = self.document!.title
         super.viewDidLoad()
@@ -32,8 +34,6 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
             var attachment_url = self.document!.attachment_url
             singleDocumentUrl(attachment_url)
         }
-        
-        self.sideBar.hideElement()
         var id = self.document!.id
         api.notesUrl(id, success: { () -> Void in
             dispatch_async(dispatch_get_main_queue()) {
@@ -45,10 +45,22 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
         if (noteText.text == "") {
             textViewDidEndEditing(noteText)
         }
+        
         var tapDismiss = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapDismiss)
+
+        noteText.applyPlainShadow()
     }
     
+    override func viewDidLayoutSubviews() {
+        var view :UIView?
+        view = PdfView as UIView
+        while (view != nil) {
+            view?.backgroundColor = UIColor.clearColor()
+            view = view?.subviews.first as? UIView
+        }
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -65,16 +77,19 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
     @IBAction func showNotes(sender: UIButton) {
         if self.sideBar.alpha == 1 {
             UIView.animateWithDuration(0.5, animations: {
-                self.sideBar.frame = CGRect(x: 700, y: 111, width: self.sideBar.frame.width, height: self.sideBar.frame.height)
                 self.sideBar.hideElement()
+                self.sideBar.frame = CGRect(x: 700, y: 111, width: self.sideBar.frame.width, height: self.sideBar.frame.height)
                 self.PdfView.frame = CGRect(x: 82, y: 82, width: self.PdfView.frame.width, height: self.PdfView.frame.height)
+                println("0")
             })
         } else {
-            UIView.animateWithDuration(0.5, delay: 0, options: nil, animations: {
-                self.PdfView.center = CGPoint(x: 260, y: 582)
+            UIView.animateWithDuration(0.5, animations: {
                 self.sideBar.showElement()
+                self.PdfView.center = CGPoint(x: 260, y: 582)
                 self.sideBar.frame = CGRect(x: 500, y: 111, width: self.sideBar.frame.width, height: self.sideBar.frame.height)
-            }, completion: nil)
+                println("1")
+
+            })
         }
     }
 
@@ -129,16 +144,19 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
     
     func dismissKeyboard(){
         noteText.resignFirstResponder()
+        println("dismissKeyboard")
     }
     
     func textViewDidEndEditing(textView: UITextView) {
         textView.addPlaceholderIfEmpty("Enter your note here...")
         noteText.resignFirstResponder()
+        println("textViewDidEndEditing")
     }
     
     func textViewDidBeginEditing(textView: UITextView){
-        textView.addPlaceholderIfEmpty("Enter your note here...")
+        textView.addPlaceholderIfEmpty("")
         noteText.becomeFirstResponder()
+        println("textViewDidBeginEditing")
     }
 }
 
