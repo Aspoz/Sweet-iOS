@@ -12,6 +12,7 @@
 		203F05321A40723B00968B6D /* ApplyShadowToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */; };
 		203F05341A40841700968B6D /* placeholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F05331A40841700968B6D /* placeholderTextView.swift */; };
 		207467111A42F85C00C9EF03 /* LoginInputFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207467101A42F85C00C9EF03 /* LoginInputFields.swift */; };
+		207467151A432AA000C9EF03 /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207467141A432AA000C9EF03 /* FormatDate.swift */; };
 		20C868F61A35E65000FAC10C /* ColorWithRGBHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */; };
 		20C869091A36006400FAC10C /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C868F71A36006400FAC10C /* Lato-Black.ttf */; };
 		20C8690A1A36006400FAC10C /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C868F81A36006400FAC10C /* Lato-BlackItalic.ttf */; };
@@ -75,6 +76,7 @@
 		203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyShadowToUIView.swift; sourceTree = "<group>"; };
 		203F05331A40841700968B6D /* placeholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placeholderTextView.swift; sourceTree = "<group>"; };
 		207467101A42F85C00C9EF03 /* LoginInputFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInputFields.swift; sourceTree = "<group>"; };
+		207467141A432AA000C9EF03 /* FormatDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
 		20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWithRGBHex.swift; sourceTree = "<group>"; };
 		20C868F71A36006400FAC10C /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "Fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		20C868F81A36006400FAC10C /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "Fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */,
 				203F05331A40841700968B6D /* placeholderTextView.swift */,
 				20EBAEE21A40994300F17FB9 /* RoundedCorners.swift */,
+				207467141A432AA000C9EF03 /* FormatDate.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 				CBA533F41A136B800022BA46 /* ArrayController.swift in Sources */,
 				CB6A5AAA1A35E1C30047F2E9 /* Comment.swift in Sources */,
 				20DC18561A3F344E000855DC /* DocumentCellView.swift in Sources */,
+				207467151A432AA000C9EF03 /* FormatDate.swift in Sources */,
 				CB292CC51A3F1405007FEB84 /* Backend.swift in Sources */,
 				20DC18581A3F349D000855DC /* CommentCellView.swift in Sources */,
 				CB93309B1A0266AD0042E28C /* DocumentViewController.swift in Sources */,
