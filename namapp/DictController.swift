@@ -43,7 +43,7 @@ class DictController {
         task.resume()
     }
     
-    func documentsUrl(id: Int, success: () -> Void) {
+    func caseUrl(id: Int, success: () -> Void) {
         let url = baseURL + "/cases/\(id)"
         get(url, getSuccess: { () -> Void in
             success()

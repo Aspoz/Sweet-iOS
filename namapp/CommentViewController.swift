@@ -38,7 +38,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         var tapDismiss = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapDismiss)
         
-        api.documentsUrl(id, success: { () -> Void in
+        api.caseUrl(id, success: { () -> Void in
             dispatch_async(dispatch_get_main_queue()) {
                 println("API Success Callback")
                 self.spinner.stopLoadingSpinner()
@@ -112,7 +112,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         var commenttext:NSString = commentText.text
         var userid = backend.currentUser()
         backend.post("/comments", params: "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(userid)")
-        api.documentsUrl(caseid, success: { () -> Void in
+        api.caseUrl(caseid, success: { () -> Void in
             dispatch_async(dispatch_get_main_queue()) {
                 println("API Success Callback")
                 self.spinner.stopLoadingSpinner()

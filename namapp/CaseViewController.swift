@@ -35,10 +35,10 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         caseStatusColor.roundedCorners(5.0)
         
         if caseitem != nil {
-            api.documentsUrl(caseitem!.id, { () -> Void in
+            api.caseUrl(caseitem!.id, { () -> Void in
                 dispatch_async(dispatch_get_main_queue()) {
                     println("API Success Callback")
-                    spinner.stopLoadingSpinner()
+                    self.spinner.stopLoadingSpinner()
                 }
             })
         }
