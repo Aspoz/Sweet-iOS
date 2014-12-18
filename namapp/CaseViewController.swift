@@ -38,6 +38,7 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
             api.caseUrl(caseitem!.id, { () -> Void in
                 dispatch_async(dispatch_get_main_queue()) {
                     println("API Success Callback")
+                    self.checkIfHasDocument()
                     self.spinner.stopLoadingSpinner()
                 }
             })
@@ -49,7 +50,6 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        checkIfHasDocument()
         return documents.count
     }
     
