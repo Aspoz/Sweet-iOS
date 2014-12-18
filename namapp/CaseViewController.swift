@@ -40,15 +40,7 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if(documents.count > 0) {
-            emptyCaseViewBG.hideElement()
-            emptyCaseViewText.hideElement()
-        } else {
-            emptyCaseViewBG.showElement()
-            emptyCaseViewText.showElement()
-        }
-        
+        checkIfHasDocument()
         return documents.count
     }
     
@@ -69,6 +61,16 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         }
         
         return cell
+    }
+    
+    func checkIfHasDocument() {
+        if(documents.count > 0) {
+            emptyCaseViewBG.hideElement()
+            emptyCaseViewText.hideElement()
+        } else {
+            emptyCaseViewBG.showElement()
+            emptyCaseViewText.showElement()
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
