@@ -12,12 +12,15 @@ class LoginViewController: Backend, UITextFieldDelegate {
     
     @IBOutlet var txtUsername : UITextField!
     @IBOutlet var txtPassword : UITextField!
+    @IBOutlet var loginButton : UIButton!
     
     let backend = Backend()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpg")!)
+        
+        loginButton.roundedCorners(4.0)
     }
     
     override func viewDidAppear(animated: Bool) {
