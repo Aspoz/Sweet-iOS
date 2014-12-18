@@ -15,6 +15,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
     @IBOutlet weak var commentTableView: UITableView!
     
     let backend = Backend()
+    let spinner = LoadingSpinner.instance
 
     var caseitem: CaseItem?
     var comments = [Comment]()
@@ -22,6 +23,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
     override func viewDidLoad() {
         super.viewDidLoad()
         var id = caseitem!.id
+        self.spinner.startLoadingSpinner(view)
         
         commentText.delegate = self
         
@@ -36,7 +38,12 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         var tapDismiss = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapDismiss)
         
-        api.documentsUrl(id)
+        api.documentsUrl(id, success: { () -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                println("API Success Callback")
+                self.spinner.stopLoadingSpinner()
+            }
+        })
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -105,7 +112,12 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         var commenttext:NSString = commentText.text
         var userid = backend.currentUser()
         backend.post("/comments", params: "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(userid)")
-        api.documentsUrl(caseid)
+        api.documentsUrl(caseid, success: { () -> Void in
+            dispatch_async(dispatch_get_main_queue()) {
+                println("API Success Callback")
+                self.spinner.stopLoadingSpinner()
+            }
+        })
         commentText.text = nil
     }
     
