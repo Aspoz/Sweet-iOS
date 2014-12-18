@@ -16,8 +16,10 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     @IBOutlet weak var caseStatus: UILabel!
     @IBOutlet weak var caseStatusColor: UIView!
     @IBOutlet weak var documentsTableView: UITableView!
-    var caseitem : CaseItem?
     
+    let spinner = LoadingSpinner.instance
+    
+    var caseitem : CaseItem?
     var documents = [Document]()
     lazy var api : DictController = DictController(delegate: self)
     
@@ -25,13 +27,20 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
         self.tabBarController?.title = "Case: \(caseitem!.title)"
         super.viewDidLoad()
         
+        spinner.startLoadingSpinner(view)
+        
         caseType.text = caseitem!.casetype.uppercaseString
         caseStatus.text = caseitem!.status.uppercaseString
         caseStatusColor.addStatusColor(caseitem!)
         caseStatusColor.roundedCorners(5.0)
         
         if caseitem != nil {
-            api.documentsUrl(caseitem!.id)
+            api.documentsUrl(caseitem!.id, { () -> Void in
+                dispatch_async(dispatch_get_main_queue()) {
+                    println("API Success Callback")
+                    spinner.stopLoadingSpinner()
+                }
+            })
         }
     }
     
