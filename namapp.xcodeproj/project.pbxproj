@@ -11,6 +11,7 @@
 		203F05301A406EC300968B6D /* addStatusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F052F1A406EC300968B6D /* addStatusColor.swift */; };
 		203F05321A40723B00968B6D /* ApplyShadowToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */; };
 		203F05341A40841700968B6D /* placeholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F05331A40841700968B6D /* placeholderTextView.swift */; };
+		207467111A42F85C00C9EF03 /* LoginInputFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207467101A42F85C00C9EF03 /* LoginInputFields.swift */; };
 		20C868F61A35E65000FAC10C /* ColorWithRGBHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */; };
 		20C869091A36006400FAC10C /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C868F71A36006400FAC10C /* Lato-Black.ttf */; };
 		20C8690A1A36006400FAC10C /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 20C868F81A36006400FAC10C /* Lato-BlackItalic.ttf */; };
@@ -73,6 +74,7 @@
 		203F052F1A406EC300968B6D /* addStatusColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addStatusColor.swift; sourceTree = "<group>"; };
 		203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyShadowToUIView.swift; sourceTree = "<group>"; };
 		203F05331A40841700968B6D /* placeholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placeholderTextView.swift; sourceTree = "<group>"; };
+		207467101A42F85C00C9EF03 /* LoginInputFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInputFields.swift; sourceTree = "<group>"; };
 		20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWithRGBHex.swift; sourceTree = "<group>"; };
 		20C868F71A36006400FAC10C /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-Black.ttf"; path = "Fonts/Lato-Black.ttf"; sourceTree = "<group>"; };
 		20C868F81A36006400FAC10C /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Lato-BlackItalic.ttf"; path = "Fonts/Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				20DC18571A3F349D000855DC /* CommentCellView.swift */,
 				20EBAEEE1A41A8EB00F17FB9 /* StatusColor.swift */,
 				20F366B51A41D1190006D580 /* LoadingSpinner.swift */,
+				207467101A42F85C00C9EF03 /* LoginInputFields.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 				CBC6977E1A236611000B3CC6 /* OverviewViewController.swift in Sources */,
 				CBC697821A237098000B3CC6 /* CaseItem.swift in Sources */,
 				20EBAEEF1A41A8EB00F17FB9 /* StatusColor.swift in Sources */,
+				207467111A42F85C00C9EF03 /* LoginInputFields.swift in Sources */,
 				CB6E3CE31A2F2CE000A67E74 /* LoginViewController.swift in Sources */,
 				CB292CC31A3EEF68007FEB84 /* ApplicationViewController.swift in Sources */,
 				20EBAEE31A40994300F17FB9 /* RoundedCorners.swift in Sources */,
