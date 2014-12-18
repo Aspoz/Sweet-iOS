@@ -15,7 +15,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
     @IBOutlet weak var commentTableView: UITableView!
     
     let backend = Backend()
-    let spinner = LoadingSpinner.instance
+    let spinner = LoadingSpinner()
 
     var caseitem: CaseItem?
     var comments = [Comment]()

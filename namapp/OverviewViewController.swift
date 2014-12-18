@@ -18,6 +18,8 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     @IBOutlet weak var closedStatusColor: UIView!
     
     let backend = Backend()
+    let spinner = LoadingSpinner()
+    
     var cases = [CaseItem]()
     var api : ArrayController?
     var filteredCases: NSMutableArray!
@@ -25,14 +27,13 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let spinner = LoadingSpinner.instance
         spinner.startLoadingSpinner(view)
         
         api = ArrayController(delegate: self)
         api!.getAllCases({ () -> Void in
             dispatch_async(dispatch_get_main_queue()) {
                 println("API Success Callback")
-                spinner.stopLoadingSpinner()
+                self.spinner.stopLoadingSpinner()
             }
         })
         
