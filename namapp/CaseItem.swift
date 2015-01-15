@@ -22,6 +22,7 @@ class CaseItem {
     }
     
     class func casesWithJSON(allResults: NSArray) -> [CaseItem] {
+        println("func casesWithJSON")
         var cases = [CaseItem]()
         if allResults.count>0 {
             for result in allResults {
@@ -30,6 +31,7 @@ class CaseItem {
                 var casetype = result["casetype"] as? String
                 var status = result["status"] as? String
                 var newCase = CaseItem(id: id!, title: title!, casetype: casetype!, status: status!)
+                println("append cases")
                 cases.append(newCase)
             }
         }

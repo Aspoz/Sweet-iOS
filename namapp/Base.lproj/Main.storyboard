@@ -585,23 +585,6 @@
             </objects>
             <point key="canvasLocation" x="7510" y="-165"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="9CM-4h-614">
-            <objects>
-                <viewController id="KX5-3h-dgY" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="sKs-ut-YhU"/>
-                        <viewControllerLayoutGuide type="bottom" id="FHF-ra-pj3"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="DGp-Xg-PvO">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v0i-cj-S00" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="Clear View Logo" width="146" height="144"/>

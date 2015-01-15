@@ -26,11 +26,13 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        println("viewdidload")
+
         spinner.startLoadingSpinner(view)
         
         api = ArrayController(delegate: self)
         api!.getAllCases({ () -> Void in
+            println("get all functions from api")
             dispatch_async(dispatch_get_main_queue()) {
                 println("API Success Callback")
                 self.spinner.stopLoadingSpinner()
@@ -59,6 +61,7 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
             self.filteredCases = NSMutableArray()
             self.filteredCases.addObject(self.cases)
             self.searchJob("")
+            println("func did receive api results")
         })
     }
     
@@ -123,6 +126,8 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
                 cell.removeShadow()
             }
         }
+        println("fill table cells")
+
         return cell
     }
     

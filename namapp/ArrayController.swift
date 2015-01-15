@@ -18,9 +18,11 @@ class ArrayController {
     
     init(delegate: ArrayControllerProtocol) {
         self.delegate = delegate
+        println("init delegate")
     }
 
     func get(path: String, getSuccess: () -> Void) {
+        println("get function")
         let url = NSURL(string: path)
         let session = NSURLSession.sharedSession()
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
@@ -43,6 +45,7 @@ class ArrayController {
     }
     
     func getAllCases(success: () -> Void) -> Void {
+        println("getAllCases")
         let urlPath = backend.BASE_URL + "/cases"
         get(urlPath, getSuccess: { () -> Void in
             success()
