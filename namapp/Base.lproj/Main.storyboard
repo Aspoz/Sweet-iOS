@@ -164,7 +164,7 @@
                             <constraint firstItem="iXt-Er-r1S" firstAttribute="top" secondItem="UdK-jD-8fl" secondAttribute="topMargin" constant="125" id="hIX-sG-CyZ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cases Overview" id="ZAD-lR-8Cb">
+                    <navigationItem key="navigationItem" title="Cases" id="ZAD-lR-8Cb">
                         <barButtonItem key="rightBarButtonItem" title="Log out" id="peS-Qr-gpb">
                             <connections>
                                 <action selector="logoutTapped:" destination="Wv8-bF-79y" id="Sk9-pK-drX"/>
