@@ -19,6 +19,42 @@ class Backend : UIViewController {
         return url
     }
     
+    func get(endpoint: String, getSuccess: (data: AnyObject) -> Void, getError: () -> Void) {
+        let url = endpoint_url(endpoint)
+        let session = NSURLSession.sharedSession()
+        
+        var token = self.userToken()
+        var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
+        request.setValue("Token token=\(token)", forHTTPHeaderField: "Authorization")
+        
+        let task = session.dataTaskWithRequest(request, completionHandler: {(data, response, error) in
+            if((error) != nil) {
+                println(error.localizedDescription)
+            }
+            var err: NSError?
+            var jsonResult: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as AnyObject?
+            
+            if let httpResponse = response as? NSHTTPURLResponse {
+                println(httpResponse.statusCode)
+                switch httpResponse.statusCode {
+                case 200:
+                    getSuccess(data: jsonResult!)
+                case 401:
+                    println("401 status code. Redirect to login")
+                    getError()
+                default:
+                    getSuccess(data: jsonResult!)
+                }
+            } else {
+                // Heeft GEEN response
+                println(error)
+                getError()
+            }
+        })
+        println(task.state)
+        task.resume()
+    }
+    
     func post(endpoint: String, params: String) -> NSDictionary {
         var postData:NSData = params.dataUsingEncoding(NSUTF8StringEncoding)!
         var url:NSURL = endpoint_url(endpoint)
@@ -91,7 +127,7 @@ class Backend : UIViewController {
         if let tokenvalue:String = prefs.valueForKey("access_token") as? String {
             token = prefs.valueForKey("access_token") as String!
         } else {
-            println("ji")
+            println("ERROR: NO USERTOKEN()")
         }
         return token
     }

@@ -37,6 +37,9 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
                 println("API Success Callback")
                 self.spinner.stopLoadingSpinner()
             }
+        }, error: { (err) -> Void in
+            self.backend.logout()
+            self.performSegueWithIdentifier("goto_login", sender: self)
         })
         
         inProgressStatusColor.backgroundColor       = UIColor.inProgressCaseColor()
