@@ -34,16 +34,25 @@ class LoginViewController: Backend, UITextFieldDelegate {
     }
     
     @IBAction func signinTapped(sender : UIButton) {
+        login()
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        if (textField == self.txtUsername) {
+            txtPassword.becomeFirstResponder()
+        } else if (textField == self.txtPassword) {
+           login()
+        }
+        return true
+    }
+    
+    func login() {
         var email:NSString = txtUsername.text
         var password:NSString = txtPassword.text
         var user = backend.login(email, password: password)
         if backend.isLoggedIn() {
             self.performSegueWithIdentifier("loginSuccess", sender: self)
         }
-    }
-    
-    func textFieldShouldReturn(textField: UITextField!) -> Bool {   //delegate method
-        textField.resignFirstResponder()
-        return true
     }
 }
