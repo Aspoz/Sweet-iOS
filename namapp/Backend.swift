@@ -111,7 +111,7 @@ class Backend : UIViewController {
             }
         }, postError: { (err) -> Void in
             println("Error")
-            self.alert("Login error", message: "Could not connect to the server. Please check your internet connection", button: "OK")
+            self.alert("Login error", message: "Could not connect to the server. Please check your internet connection")
         })
     }
     
@@ -158,12 +158,16 @@ class Backend : UIViewController {
         return true
     }
     
-    func alert(title: String, message: String, button: String = "OK") -> UIAlertView {
+    func alert(title: String, message: String, buttons:NSArray = ["OK"]) -> UIAlertView {
         var alertView:UIAlertView = UIAlertView()
         alertView.title = title
         alertView.message = message
-        alertView.delegate = self
-        alertView.addButtonWithTitle(button)
+        
+        for button in buttons {
+            let button:String = button as String
+            alertView.addButtonWithTitle(button)
+        }
+        
         alertView.show()
         return alertView
     }

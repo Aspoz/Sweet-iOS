@@ -128,7 +128,7 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
             })
         }, postError: { (err) -> Void in
             println(err)
-            self.backend.alert("Comment error:", message: "Could not post the comment. Please check your internet connection.", button: "OK")
+            self.backend.alert("Comment error:", message: "Could not post the comment. Please check your internet connection.")
         })
         
         commentText.text = nil

@@ -43,11 +43,20 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
                     self.spinner.stopLoadingSpinner()
                 }
             }, error: { (err) -> Void in
-                println("Log out")
-                self.backend.logout()
-                println("performSegueWithIdentifier")
-                self.performSegueWithIdentifier("goto_login", sender: self)
+                self.spinner.stopLoadingSpinner()
+                var alert = self.backend.alert("Internet error", message: "Could not connect to the server. Please check your internet connection or try again in a few minutes...", buttons: ["Take me to login"])
+                alert.delegate = self
             })
+        }
+    }
+    
+    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
+        switch buttonIndex{
+        case 0:
+            self.backend.logout()
+            self.performSegueWithIdentifier("goto_login", sender: self)
+        default:
+            println("error")
         }
     }
     
@@ -97,10 +106,12 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var documentViewController: DocumentViewController = segue.destinationViewController as DocumentViewController
-        var documentIndex = documentsTableView!.indexPathForSelectedRow()!.row
-        var selectedDocument = self.documents[documentIndex]
-        documentViewController.document = selectedDocument
+        if segue.identifier == "docSegue" {
+            var documentViewController: DocumentViewController = segue.destinationViewController as DocumentViewController
+            var documentIndex = documentsTableView!.indexPathForSelectedRow()!.row
+            var selectedDocument = self.documents[documentIndex]
+            documentViewController.document = selectedDocument
+        }
     }
     
     
