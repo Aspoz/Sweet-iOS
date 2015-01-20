@@ -344,6 +344,7 @@
                     <connections>
                         <outlet property="commentTableView" destination="7HL-Ik-kae" id="lZY-UW-742"/>
                         <outlet property="commentText" destination="QIs-9P-2it" id="7Lk-9O-gFf"/>
+                        <segue destination="g1O-k9-Knc" kind="modal" identifier="goto_login" id="n1b-wv-Vbs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lHJ-cD-kw1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -466,6 +467,7 @@
                         <outlet property="documentsTableView" destination="f1C-gV-1ce" id="TB8-6h-bSW"/>
                         <outlet property="emptyCaseViewBG" destination="iNf-uw-dzx" id="7O5-iu-zo3"/>
                         <outlet property="emptyCaseViewText" destination="fqO-d8-SRG" id="JNW-K3-QN0"/>
+                        <segue destination="g1O-k9-Knc" kind="modal" identifier="goto_login" id="Yfo-ZP-Vqq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l11-rv-JjV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -567,6 +569,7 @@
                         <outlet property="noteText" destination="CTn-E2-9zo" id="QwB-Q2-o7e"/>
                         <outlet property="notesView" destination="PgO-BV-C2y" id="21q-52-gq9"/>
                         <outlet property="sideBar" destination="r9r-gp-ju5" id="yC7-Me-ObD"/>
+                        <segue destination="g1O-k9-Knc" kind="modal" identifier="goto_login" id="iCO-53-ZMa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Urf-Sy-Fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -604,4 +607,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Yfo-ZP-Vqq"/>
+    </inferredMetricsTieBreakers>
 </document>
