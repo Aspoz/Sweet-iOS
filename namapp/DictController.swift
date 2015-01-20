@@ -20,21 +20,22 @@ class DictController {
         self.delegate = delegate
     }
     
-    func caseUrl(id: Int, success: () -> Void) {
+    func caseUrl(id: Int, success: () -> Void, error: () -> Void) {
         backend.get("/cases/\(id)", getSuccess: { (data) -> Void in
             self.delegate.didReceiveAPIResults(data as NSDictionary)
             success()
         }) { (err) -> Void in
             println(err)
+            error()
         }
     }
     
-    func notesUrl(id: Int, success: () -> Void) {
+    func notesUrl(id: Int, success: () -> Void, error: () -> Void) {
         backend.get("/documents/\(id)", getSuccess: { (data) -> Void in
             self.delegate.didReceiveAPIResults(data as NSDictionary)
             success()
         }) { (err) -> Void in
-            println(err)
+            error()
         }
     }
 }

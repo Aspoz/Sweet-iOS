@@ -50,7 +50,7 @@ class LoginViewController: Backend, UITextFieldDelegate {
     func login() {
         var email:NSString = txtUsername.text
         var password:NSString = txtPassword.text
-        var user = backend.login(email, password: password)
+        backend.login(email, password: password)
         if backend.isLoggedIn() {
             self.performSegueWithIdentifier("loginSuccess", sender: self)
         }

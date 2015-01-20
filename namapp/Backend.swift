@@ -55,7 +55,7 @@ class Backend : UIViewController {
         task.resume()
     }
     
-    func post(endpoint: String, params: String) -> NSDictionary {
+    func post(endpoint: String, params: String, postSuccess: (data: NSDictionary) -> Void, postError: () -> Void) {
         var postData:NSData = params.dataUsingEncoding(NSUTF8StringEncoding)!
         var url:NSURL = endpoint_url(endpoint)
         var request:NSMutableURLRequest = NSMutableURLRequest(URL: url)
@@ -67,8 +67,20 @@ class Backend : UIViewController {
         var response: NSURLResponse?
         var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
         var error: NSError?
-        let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
-        return jsonData
+        
+        if let httpResponse = response as? NSHTTPURLResponse {
+            switch httpResponse.statusCode {
+            case 200...299:
+                let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+                postSuccess(data: jsonData)
+            case 400...499:
+                let jsonData:NSDictionary = NSJSONSerialization.JSONObjectWithData(urlData!, options:NSJSONReadingOptions.MutableContainers, error: &error) as NSDictionary
+                postSuccess(data: jsonData)
+            default:
+                println(httpResponse.statusCode)
+                postError()
+            }
+        }
     }
     
     func destroy(endpoint: String) {
@@ -86,17 +98,21 @@ class Backend : UIViewController {
         var urlData: NSData? = NSURLConnection.sendSynchronousRequest(request, returningResponse:&response, error:&reponseError)
     }
     
-    func login(email: String, password: String) -> NSDictionary {
-        var user = Backend().post("/sessions", params: "email=\(email)&password=\(password)")
-        var success:Bool = user.valueForKey("success") as Bool
-        if success {
-            createUserDefaults(email, password: password, user: user)
-        } else {
-            var error:NSArray = user.valueForKey("errors") as NSArray
-            var message:String = error[0] as String
-            alert("Login error", message: message)
-        }
-        return user
+    func login(email: String, password: String) {
+        Backend().post("/sessions", params: "email=\(email)&password=\(password)", postSuccess: { (data) -> Void in
+            let success:Bool = data.valueForKey("success") as Bool
+            
+            if success {
+                self.createUserDefaults(email, password: password, user: data)
+            } else {
+                var error:NSArray = data.valueForKey("errors") as NSArray
+                var message:String = error[0] as String
+                self.alert("Login error", message: message)
+            }
+        }, postError: { (err) -> Void in
+            println("Error")
+            self.alert("Login error", message: "Could not connect to the server. Please check your internet connection", button: "OK")
+        })
     }
     
     func createUserDefaults(email: String, password: String, user: NSDictionary) -> Bool {

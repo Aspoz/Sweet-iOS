@@ -40,6 +40,9 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
                 println("API Success Callback")
                 self.spinner.stopLoadingSpinner()
             }
+        }, error: { (err) -> Void in
+            self.backend.logout()
+            self.performSegueWithIdentifier("goto_login", sender: self)
         })
         noteText.delegate = self
         if (noteText.text == "") {
@@ -132,13 +135,23 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
         var docid:NSNumber = id
         var notetext:NSString = noteText.text
         var userid = backend.currentUser()
-        backend.post("/notes", params: "note[body]=\(notetext)&note[document_id]=\(docid)&note[user_id]=\(userid)")
-        api.notesUrl(id, success: { () -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
-                println("API Success Callback")
-                self.spinner.stopLoadingSpinner()
-            }
+        var post_params = "note[body]=\(notetext)&note[document_id]=\(docid)&note[user_id]=\(userid)"
+        
+        backend.post("/notes", params: post_params, postSuccess: { data -> Void in
+            self.api.notesUrl(id, success: { () -> Void in
+                dispatch_async(dispatch_get_main_queue()) {
+                    println("API Success Callback")
+                    self.spinner.stopLoadingSpinner()
+                }
+            }, error: { (err) -> Void in
+                self.backend.logout()
+                self.performSegueWithIdentifier("goto_login", sender: self)
+            })
+        }, postError: { (err) -> Void in
+            println(err)
+            self.backend.alert("Comment error:", message: "Could not post the comment. Please check your internet connection.", button: "OK")
         })
+    
         noteText.text = nil
     }
     

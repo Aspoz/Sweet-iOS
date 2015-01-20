@@ -43,6 +43,9 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
                 println("API Success Callback")
                 self.spinner.stopLoadingSpinner()
             }
+        }, error: { (err) -> Void in
+            self.backend.logout()
+            self.performSegueWithIdentifier("goto_login", sender: self)
         })
     }
     
@@ -111,13 +114,23 @@ class CommentViewController: ApplicationViewController, DictControllerProtocol, 
         var caseid:Int = caseitem!.id
         var commenttext:NSString = commentText.text
         var userid = backend.currentUser()
-        backend.post("/comments", params: "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(userid)")
-        api.caseUrl(caseid, success: { () -> Void in
-            dispatch_async(dispatch_get_main_queue()) {
-                println("API Success Callback")
-                self.spinner.stopLoadingSpinner()
-            }
+        var post_params = "comment[body]=\(commenttext)&comment[subject_id]=\(caseid)&comment[user_id]=\(userid)"
+        
+        backend.post("/comments", params: post_params, postSuccess: { (data) -> Void in
+            self.api.caseUrl(caseid, success: { () -> Void in
+                dispatch_async(dispatch_get_main_queue()) {
+                    println("API Success Callback")
+                    self.spinner.stopLoadingSpinner()
+                }
+            }, error: { (err) -> Void in
+                self.backend.logout()
+                self.performSegueWithIdentifier("goto_login", sender: self)
+            })
+        }, postError: { (err) -> Void in
+            println(err)
+            self.backend.alert("Comment error:", message: "Could not post the comment. Please check your internet connection.", button: "OK")
         })
+        
         commentText.text = nil
     }
     
