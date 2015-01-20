@@ -154,7 +154,19 @@ class OverviewViewController: ApplicationViewController, UITableViewDataSource, 
     }
     
     @IBAction func logoutTapped(sender: UIBarButtonItem) {
-        backend.logout()
-        self.performSegueWithIdentifier("goto_login", sender: self)
+        var alert = backend.alert("Log out", message: "Are u sure you want to log out?", buttons: ["Cancel", "Log me out"])
+        alert.delegate = self
+    }
+    
+    func alertView(alertView: UIAlertView!, clickedButtonAtIndex buttonIndex: Int){
+        switch buttonIndex{
+        case 0:
+            println("Cancel")
+        case 1:
+            backend.logout()
+            self.performSegueWithIdentifier("goto_login", sender: self)
+        default:
+            println("error")
+        }
     }
 }
