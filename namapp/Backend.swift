@@ -37,13 +37,13 @@ class Backend : UIViewController {
             if let httpResponse = response as? NSHTTPURLResponse {
                 println(httpResponse.statusCode)
                 switch httpResponse.statusCode {
-                case 200:
+                case 200...209:
                     getSuccess(data: jsonResult!)
-                case 401:
+                case 400...499:
                     println("401 status code. Redirect to login")
                     getError()
                 default:
-                    getSuccess(data: jsonResult!)
+                    getError()
                 }
             } else {
                 // Heeft GEEN response
