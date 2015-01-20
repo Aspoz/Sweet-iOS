@@ -17,6 +17,7 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     @IBOutlet weak var caseStatusColor: UIView!
     @IBOutlet weak var documentsTableView: UITableView!
     
+    let backend = Backend()
     let spinner = LoadingSpinner()
     
     var caseitem : CaseItem?
@@ -41,6 +42,11 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
                     self.checkIfHasDocument()
                     self.spinner.stopLoadingSpinner()
                 }
+            }, error: { (err) -> Void in
+                println("Log out")
+                self.backend.logout()
+                println("performSegueWithIdentifier")
+                self.performSegueWithIdentifier("goto_login", sender: self)
             })
         }
     }
