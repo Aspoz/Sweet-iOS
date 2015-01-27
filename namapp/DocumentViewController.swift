@@ -52,7 +52,8 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
         var tapDismiss = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         self.view.addGestureRecognizer(tapDismiss)
 
-        noteText.layer.shadowColor = UIColor.blackColor().CGColor
+        noteText.applyPlainShadow()
+        noteText.layer.masksToBounds = false
     }
     
     override func viewDidLayoutSubviews() {
