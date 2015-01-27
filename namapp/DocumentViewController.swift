@@ -100,14 +100,34 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
         return notes.count
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.notesView.reloadData()
+    }
+//
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let note = notes[indexPath.row] as Note
+//
+//        let cell = tableView.dequeueReusableCellWithIdentifier("noteCell") as UITableViewCell
+//        cell.textLabel?.text = note.body
+//        return cell
+//    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let note = notes[indexPath.row] as Note
-
-        let cell = tableView.dequeueReusableCellWithIdentifier("noteCell") as UITableViewCell
-        cell.textLabel?.text = note.body
+        let cell = tableView.dequeueReusableCellWithIdentifier("noteCell") as NoteCell
+        let note = notes[indexPath.row]
+        cell.addDataInCellsForNote(note)
+        
+        if(notes.count > 0) {
+            if(indexPath.row == (notes.count-1)) {
+                // if it's the last cell, add shadow
+                cell.applyPlainShadow()
+            } else {
+                cell.removeShadow()
+            }
+        }
         return cell
     }
-
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var note = notes[indexPath.row]
     }
@@ -120,6 +140,14 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
+    
+    func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        var note = notes[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("noteCell") as NoteCell
+        cell.addDataInCellsForNote(note)
+        return cell.height()
+    }
+    
     
     func didReceiveAPIResults(results: NSDictionary) {
         var resultsArr: NSDictionary = results as NSDictionary

@@ -20,8 +20,12 @@ class CommentCell: UITableViewCell {
         CommentBody.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)
         CommentBody.sizeToFit()
         if CommentBody.frame.height < 50 {
+            println(CommentBody.frame.height)
+
             return 70
         } else {
+            println(CommentBody.frame.height)
+
             return CommentBody.frame.height * 1.7
         }
     }

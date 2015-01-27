@@ -526,12 +526,32 @@
                                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCell" id="rpl-3P-vSe">
+                                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="noteCell" rowHeight="54" id="rpl-3P-vSe" customClass="NoteCell" customModule="namapp" customModuleProvider="target">
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rpl-3P-vSe" id="dgQ-BP-fRK">
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="218" translatesAutoresizingMaskIntoConstraints="NO" id="SS3-Nb-3ru">
+                                                            <rect key="frame" x="15" y="17" width="218" height="21"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="218" id="AdD-l3-6ud"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.99607843139999996" green="0.95686274510000002" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="SS3-Nb-3ru" secondAttribute="bottom" constant="9" id="Hhd-Pn-Jpn"/>
+                                                        <constraint firstItem="SS3-Nb-3ru" firstAttribute="top" secondItem="dgQ-BP-fRK" secondAttribute="topMargin" constant="9" id="O3n-I2-dG6"/>
+                                                        <constraint firstAttribute="trailingMargin" secondItem="SS3-Nb-3ru" secondAttribute="trailing" constant="7" id="Xw0-PQ-hOv"/>
+                                                        <constraint firstItem="SS3-Nb-3ru" firstAttribute="leading" secondItem="dgQ-BP-fRK" secondAttribute="leadingMargin" constant="7" id="bkH-Og-Ptm"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="NoteBody" destination="SS3-Nb-3ru" id="LgU-RP-y4c"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>
@@ -574,7 +594,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Urf-Sy-Fdx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10186" y="-165"/>
+            <point key="canvasLocation" x="10186" y="-166"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4mn-Yr-Ndx">
@@ -608,6 +628,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Yfo-ZP-Vqq"/>
+        <segue reference="iCO-53-ZMa"/>
     </inferredMetricsTieBreakers>
 </document>
