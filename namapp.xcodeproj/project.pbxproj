@@ -11,6 +11,7 @@
 		203F05301A406EC300968B6D /* addStatusColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F052F1A406EC300968B6D /* addStatusColor.swift */; };
 		203F05321A40723B00968B6D /* ApplyShadowToUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */; };
 		203F05341A40841700968B6D /* placeholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203F05331A40841700968B6D /* placeholderTextView.swift */; };
+		205D04D31A77DEA400379016 /* NoteCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 205D04D21A77DEA400379016 /* NoteCellView.swift */; };
 		207467111A42F85C00C9EF03 /* LoginInputFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207467101A42F85C00C9EF03 /* LoginInputFields.swift */; };
 		207467151A432AA000C9EF03 /* FormatDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207467141A432AA000C9EF03 /* FormatDate.swift */; };
 		20C868F61A35E65000FAC10C /* ColorWithRGBHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */; };
@@ -75,6 +76,7 @@
 		203F052F1A406EC300968B6D /* addStatusColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addStatusColor.swift; sourceTree = "<group>"; };
 		203F05311A40723B00968B6D /* ApplyShadowToUIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplyShadowToUIView.swift; sourceTree = "<group>"; };
 		203F05331A40841700968B6D /* placeholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placeholderTextView.swift; sourceTree = "<group>"; };
+		205D04D21A77DEA400379016 /* NoteCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteCellView.swift; sourceTree = "<group>"; };
 		207467101A42F85C00C9EF03 /* LoginInputFields.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginInputFields.swift; sourceTree = "<group>"; };
 		207467141A432AA000C9EF03 /* FormatDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormatDate.swift; sourceTree = "<group>"; };
 		20C868F51A35E65000FAC10C /* ColorWithRGBHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWithRGBHex.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				20DC18531A3F2E7A000855DC /* CaseOverviewCellView.swift */,
 				20DC18551A3F344E000855DC /* DocumentCellView.swift */,
 				20DC18571A3F349D000855DC /* CommentCellView.swift */,
+				205D04D21A77DEA400379016 /* NoteCellView.swift */,
 				20EBAEEE1A41A8EB00F17FB9 /* StatusColor.swift */,
 				20F366B51A41D1190006D580 /* LoadingSpinner.swift */,
 				207467101A42F85C00C9EF03 /* LoginInputFields.swift */,
@@ -450,6 +453,7 @@
 				20EBAEE31A40994300F17FB9 /* RoundedCorners.swift in Sources */,
 				CB0A0D4A19F662A900EFEB2C /* AppDelegate.swift in Sources */,
 				CB6E3CE91A2FBC0400A67E74 /* Note.swift in Sources */,
+				205D04D31A77DEA400379016 /* NoteCellView.swift in Sources */,
 				203F052C1A40605D00968B6D /* HideAndShowUIElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
