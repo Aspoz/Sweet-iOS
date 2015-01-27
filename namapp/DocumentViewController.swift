@@ -106,6 +106,13 @@ class DocumentViewController: ApplicationViewController, UITableViewDelegate, UI
 
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell") as UITableViewCell
         cell.textLabel?.text = note.body
+        if(notes.count > 0) {
+            if(indexPath.row == (notes.count-1)) {
+                cell.applyPlainShadow()
+            } else {
+                cell.removeShadow()
+            }
+        }
         return cell
     }
 
