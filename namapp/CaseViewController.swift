@@ -25,7 +25,7 @@ class CaseViewController: ApplicationViewController, DictControllerProtocol, UIT
     lazy var api : DictController = DictController(delegate: self)
     
     override func viewDidLoad() {
-        self.tabBarController?.title = "Case: \(caseitem!.title)"
+        self.tabBarController?.title = "\(caseitem!.title)"
         super.viewDidLoad()
         
         spinner.startLoadingSpinner(view)
